@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{85BA75A0-F969-4D46-9301-163C73812067}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
+    <RootNamespace>VB_Component</RootNamespace>
+    <AssemblyName>VB_Component</AssemblyName>
+    <MyType>Windows</MyType>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>VB_Component.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>VB_Component.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CS_Component, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CS_Component\bin\Release\CS_Component.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XPExplorerBar, Version=3.3.0.0, Culture=neutral, PublicKeyToken=26272737b5f33015, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Nama_MIS\Nama_MIS\Nama_MIS\bin\x86\Debug\xpexplorerbar.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackgroundLoading\BackgroundLoading.vb" />
+    <Compile Include="ComboBox\ComboBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet\DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseForm.Designer.vb">
+      <DependentUpon>BaseForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseForm_Info.Designer.vb">
+      <DependentUpon>BaseForm_Info.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseForm_Info.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseForm_Info_Single.Designer.vb">
+      <DependentUpon>BaseForm_Info_Single.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseForm_Info_Single.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseForm_Layer.Designer.vb">
+      <DependentUpon>BaseForm_Layer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseForm_Layer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseForm_Menu.Designer.vb">
+      <DependentUpon>BaseForm_Menu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseForm_Menu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseForm_View.Designer.vb">
+      <DependentUpon>BaseForm_View.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseForm_View.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_FormControls.Designer.vb">
+      <DependentUpon>frm_FormControls.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_FormControls.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Group.Designer.vb">
+      <DependentUpon>frm_Group.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_Group.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Login.Designer.vb">
+      <DependentUpon>frm_Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Permission.Designer.vb">
+      <DependentUpon>frm_Permission.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_Permission.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_ResetPassword.Designer.vb">
+      <DependentUpon>frm_ResetPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_ResetPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Role.Designer.vb">
+      <DependentUpon>frm_Role.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_Role.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_RoleGroup.Designer.vb">
+      <DependentUpon>frm_RoleGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_RoleGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_User.Designer.vb">
+      <DependentUpon>frm_User.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_User.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_UserList.Designer.vb">
+      <DependentUpon>frm_UserList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_UserList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Label\DropdownColorBlender.designer.vb">
+      <DependentUpon>DropdownColorBlender.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Label\DropdownColorBlender.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Label\gLabel.designer.vb">
+      <DependentUpon>gLabel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Label\gLabel.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Public Function\DateFuntion.vb" />
+    <Compile Include="Public Function\Loger.vb" />
+    <Compile Include="Public Function\MessageBoxFa.vb" />
+    <Compile Include="Report viwer\CrystalHelper.vb" />
+    <Compile Include="Public Function\DataBase.vb" />
+    <Compile Include="DataGridPrinter\DataGridPrinter.vb" />
+    <Compile Include="Pictuer vw &amp; Get\DrawingBoard.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report viwer\FaReportViewer.Designer.vb">
+      <DependentUpon>FaReportViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report viwer\FaReportViewer.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Public Function\FarsiDateFun.vb" />
+    <Compile Include="Report viwer\FormulBuilder.Designer.vb">
+      <DependentUpon>FormulBuilder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report viwer\FormulBuilder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Public Function\Graphic.vb" />
+    <Compile Include="Pictuer vw &amp; Get\ImageControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BackgroundLoading\LoadingForm.Designer.vb">
+      <DependentUpon>LoadingForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BackgroundLoading\LoadingForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Look Up\LookUpButton.Designer.vb">
+      <DependentUpon>LookUpButton.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Look Up\LookUpButton.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Look Up\LookUpForm.Designer.vb">
+      <DependentUpon>LookUpForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Look Up\LookUpForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Look Up\LookUpSelect.Designer.vb">
+      <DependentUpon>LookUpSelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Look Up\LookUpSelect.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tbox%27s\Masked_Date.Designer.vb">
+      <DependentUpon>Masked_Date.vb</DependentUpon>
+    </Compile>
+    <Compile Include="tbox%27s\Masked_Date.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Pictuer vw &amp; Get\PictureGetter.Designer.vb">
+      <DependentUpon>PictureGetter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pictuer vw &amp; Get\PictureGetter.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pictuer vw &amp; Get\PictureViewer.Designer.vb">
+      <DependentUpon>PictureViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pictuer vw &amp; Get\PictureViewer.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="tbox%27s\RecentTextBox.Designer.vb">
+      <DependentUpon>RecentTextBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="tbox%27s\RecentTextBox.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Public Function\Report.vb" />
+    <Compile Include="tbox%27s\Tbox.Designer.vb">
+      <DependentUpon>Tbox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="tbox%27s\Tbox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseForm_Old.Designer.vb">
+      <DependentUpon>BaseForm_Old.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BaseForm_Old.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Time\ColumnType.vb" />
+    <Compile Include="Time\TimeSelect.Designer.vb">
+      <DependentUpon>TimeSelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Time\TimeSelect.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tree view\TreeNode.vb">
+    </Compile>
+    <Compile Include="Tree view\Tree_Vw.Designer.vb">
+      <DependentUpon>Tree_Vw.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tree view\Tree_Vw.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Public Function\Windows.vb" />
+    <Compile Include="Tree view\Tree_Vw_Select.Designer.vb">
+      <DependentUpon>Tree_Vw_Select.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tree view\Tree_Vw_Select.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Types\BaseDataObject.vb" />
+    <Compile Include="Types\EditMode.vb" />
+    <Compile Include="Types\Enumerations.vb" />
+    <Compile Include="Types\Management.vb" />
+    <Compile Include="Types\Security.vb" />
+    <Compile Include="Types\SecurityControl.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\BaseForm.resx">
+      <DependentUpon>BaseForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseForm_Info.resx">
+      <DependentUpon>BaseForm_Info.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseForm_Info_Single.resx">
+      <DependentUpon>BaseForm_Info_Single.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseForm_Layer.resx">
+      <DependentUpon>BaseForm_Layer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseForm_Menu.resx">
+      <DependentUpon>BaseForm_Menu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseForm_View.resx">
+      <DependentUpon>BaseForm_View.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_FormControls.resx">
+      <DependentUpon>frm_FormControls.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Group.resx">
+      <DependentUpon>frm_Group.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Login.resx">
+      <DependentUpon>frm_Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Permission.resx">
+      <DependentUpon>frm_Permission.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_ResetPassword.resx">
+      <DependentUpon>frm_ResetPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Role.resx">
+      <DependentUpon>frm_Role.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_RoleGroup.resx">
+      <DependentUpon>frm_RoleGroup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_User.resx">
+      <DependentUpon>frm_User.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_UserList.resx">
+      <DependentUpon>frm_UserList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Label\DropdownColorBlender.resx">
+      <DependentUpon>DropdownColorBlender.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report viwer\FaReportViewer.resx">
+      <DependentUpon>FaReportViewer.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report viwer\FormulBuilder.resx">
+      <DependentUpon>FormulBuilder.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackgroundLoading\LoadingForm.resx">
+      <DependentUpon>LoadingForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Look Up\LookUpButton.resx">
+      <DependentUpon>LookUpButton.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Look Up\LookUpForm.resx">
+      <DependentUpon>LookUpForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Look Up\LookUpSelect.resx">
+      <DependentUpon>LookUpSelect.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tbox%27s\Masked_Date.resx">
+      <DependentUpon>Masked_Date.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pictuer vw &amp; Get\PictureGetter.resx">
+      <DependentUpon>PictureGetter.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pictuer vw &amp; Get\PictureViewer.resx">
+      <DependentUpon>PictureViewer.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tbox%27s\RecentTextBox.resx">
+      <DependentUpon>RecentTextBox.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BaseForm_Old.resx">
+      <DependentUpon>BaseForm_Old.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Time\TimeSelect.resx">
+      <DependentUpon>TimeSelect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tree view\Tree_Vw.resx">
+      <DependentUpon>Tree_Vw.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tree view\Tree_Vw_Select.resx">
+      <DependentUpon>Tree_Vw_Select.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataSet\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\Commands.txt" />
+    <Content Include="TextFile1.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,335 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+VB_Component
+</name>
+</assembly>
+<members>
+<member name="T:VB_Component.DataSet1">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1.sec_GroupDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1.sec_UserDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1.sec_RoleDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1.sec_RoleGroupDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1.sec_GroupRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1.sec_UserRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1.sec_RoleRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1.sec_RoleGroupRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1.sec_GroupRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1.sec_UserRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1.sec_RoleRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1.sec_RoleGroupRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1TableAdapters.sec_GroupTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1TableAdapters.sec_UserTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1TableAdapters.sec_RoleTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1TableAdapters.sec_RoleGroupTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1TableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:VB_Component.DataSet1TableAdapters.TableAdapterManager.UpdateUpdatedRows(VB_Component.DataSet1,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:VB_Component.DataSet1TableAdapters.TableAdapterManager.UpdateInsertedRows(VB_Component.DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:VB_Component.DataSet1TableAdapters.TableAdapterManager.UpdateDeletedRows(VB_Component.DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:VB_Component.DataSet1TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:VB_Component.DataSet1TableAdapters.TableAdapterManager.UpdateAll(VB_Component.DataSet1)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:VB_Component.DataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:VB_Component.gLabel">
+ <summary>
+ Label control with built-in effects like AutoFit, MouseOver, Shadow, Outer Glow, and Pulse Glow
+ </summary>
+ <remarks>
+ v1.0.6
+ 01-26-2011
+ Added Padding Support
+ Added TextWordWrap Property
+ Added AutoEllispis Support
+ v1.0.7
+ 03-03-2011
+ Added MouseOverForeColor Property
+ Added Checked Property
+ Added Checked Color Property
+ Added Checked Toggle State Method
+ v1.0.8
+ 01-03-2012
+ Added BlendItemsConverter
+ Cleaned up Default Values
+ Added CheckedType Property
+ </remarks>
+ 
+</member>
+<member name="P:VB_Component.gLabel.MouseOver">
+ <summary>
+ Get or Set if the gLabel will Glow when the mouse is over it
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.MouseOverColor">
+ <summary>
+ Get or Set what color the gLabel will Glow when the mouse is over it
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.MouseOverForeColor">
+ <summary>
+ Get or Set what Forecolor the gLabel will be when the mouse is over it
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.Checked">
+ <summary>
+ Get or Set the Checked status
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.CheckedType">
+ <summary>
+ Get or Set the Checked behavior
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.CheckedColor">
+ <summary>
+ Get or Set what color the gLabel will Glow when the mouse is over it
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.FeatherState">
+ <summary>
+ Get or Set if the text is glowing
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.Feather">
+ <summary>
+ Get or Set the level of feathering (blurring) of the Outer Glow
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.Pulse">
+ <summary>
+ Get or Set if the gLabel should be Pulsing or not
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.PulseSpeed">
+ <summary>
+ Get or Set how fast to pulse the gLabel
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.ShadowOffset">
+ <summary>
+ Get or Set how far to offset the shadow from the text
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.ShadowState">
+ <summary>
+ Get or Set if the gLabel displays the shadow text
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.ShadowColor">
+ <summary>
+ Get or Set what color to use for the shadow text
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.GlowMatchChecked">
+ <summary>
+ Get or Set if the text is glowing
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.GlowState">
+ <summary>
+ Get or Set if the text is glowing
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.Glow">
+ <summary>
+ Get or Set how far out the text glows
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.GlowColor">
+ <summary>
+ Get or Set what color to use for the Glow
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.Border">
+ <summary>
+ Get or Set to show or not show the border
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.BorderColor">
+ <summary>
+ Get or Set what Color to draw the border
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.BorderWidth">
+ <summary>
+ Get or Set what Width to draw the border
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.AutoFit">
+ <summary>
+ Get or Set if the text is fitted to the DisplayRectangle or uses Font Size 
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.TextWordWrap">
+ <summary>
+ Get or Set if the text wraps inside the DisplayRectangle 
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.AutoEllipsis">
+ <summary>
+  Get or Set if the text adds an Ellipsis (...) when the text exceeds the width
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.FillType">
+ <summary>
+ The eFillType Fill Type to apply to the gLabel
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.FillTypeLinear">
+ <summary>
+ The Linear Blend type
+ </summary>
+</member>
+<member name="P:VB_Component.gLabel.ForeColorBlend">
+ <summary>
+ The ColorBlend used to fill the gLabel
+ </summary>
+</member>
+<member name="M:VB_Component.gLabel.EnabledColor(System.Drawing.Color)">
+ <summary>
+ Convert color to gray if Disabled else return origional color
+ </summary>
+ <param name="ColorIn">Color to Check</param>
+</member>
+<member name="M:VB_Component.gLabel.EnableBlends(System.Drawing.Color[])">
+ <summary>
+ Convert colorblend to grayscale if Disabled else return origional colorblend
+ </summary>
+ <param name="ColorIn">Colorblend to Check</param>
+</member>
+<member name="T:VB_Component.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:VB_Component.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:VB_Component.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:VB_Component.My.Resources.Resources.Commands">
+<summary>
+  Looks up a localized string similar to /
+DROP TABLE [dbo].[sec_Group]
+/
+CREATE TABLE [dbo].[sec_Group](
+	[Srl] [int] IDENTITY(1,1) NOT NULL,
+	[GroupName] [nvarchar](50) NULL,
+	[UsersBlocked] [bit] NULL,
+	[JoinBlocked] [bit] NULL,
+ CONSTRAINT [PK_Group] PRIMARY KEY CLUSTERED 
+(
+	[Srl] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+--CREATE TABLE [dbo].[sec_Group] ADD  CONSTRAINT [DF_Group_IsBlocked]  DEFAULT ((0)) FOR [UsersB [rest of string was truncated]&quot;;.
+</summary>
+</member>
+</members>
+</doc>

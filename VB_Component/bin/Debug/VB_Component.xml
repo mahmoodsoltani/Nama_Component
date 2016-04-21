@@ -1,0 +1,141 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+VB_Component
+</name>
+</assembly>
+<members>
+<member name="T:VB_Component.DataSet1.sec_GroupDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:VB_Component.DataSet1.sec_UserDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:VB_Component.DataSet1.sec_RoleDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:VB_Component.DataSet1.sec_RoleGroupDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:VB_Component.DataSet1.sec_GroupRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:VB_Component.DataSet1.sec_UserRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:VB_Component.DataSet1.sec_RoleRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:VB_Component.DataSet1.sec_RoleGroupRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:VB_Component.DataSet1.sec_GroupRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:VB_Component.DataSet1.sec_UserRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:VB_Component.DataSet1.sec_RoleRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:VB_Component.DataSet1.sec_RoleGroupRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:VB_Component.DataSet1">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:VB_Component.DataSet1TableAdapters.sec_GroupTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:VB_Component.DataSet1TableAdapters.sec_UserTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:VB_Component.DataSet1TableAdapters.sec_RoleTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:VB_Component.DataSet1TableAdapters.sec_RoleGroupTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:VB_Component.DataSet1TableAdapters.TableAdapterManager.UpdateUpdatedRows(VB_Component.DataSet1,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:VB_Component.DataSet1TableAdapters.TableAdapterManager.UpdateInsertedRows(VB_Component.DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:VB_Component.DataSet1TableAdapters.TableAdapterManager.UpdateDeletedRows(VB_Component.DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:VB_Component.DataSet1TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:VB_Component.DataSet1TableAdapters.TableAdapterManager.UpdateAll(VB_Component.DataSet1)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:VB_Component.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:VB_Component.DataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:VB_Component.DataSet1TableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="P:VB_Component.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:VB_Component.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:VB_Component.My.Resources.Resources.Commands">
+	<summary>
+  Looks up a localized string similar to /
+DROP TABLE [dbo].[sec_Group]
+/
+CREATE TABLE [dbo].[sec_Group](
+	[Srl] [int] IDENTITY(1,1) NOT NULL,
+	[GroupName] [nvarchar](50) NULL,
+	[UsersBlocked] [bit] NULL,
+	[JoinBlocked] [bit] NULL,
+ CONSTRAINT [PK_Group] PRIMARY KEY CLUSTERED 
+(
+	[Srl] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+--CREATE TABLE [dbo].[sec_Group] ADD  CONSTRAINT [DF_Group_IsBlocked]  DEFAULT ((0)) FOR [UsersB [rest of string was truncated]";.
+</summary>
+</member><member name="T:VB_Component.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

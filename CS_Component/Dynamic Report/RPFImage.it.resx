@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="ResMimeType">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="Version">
+		<value>1.0.0.0</value>
+	</resheader>
+	<resheader name="Reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="Writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<!-- Appearance -->	
+	<data name="BackColor">
+		<value>Colore Sfondo</value>
+	</data>
+	<data name="BackColorDescription">
+		<value>Colore dello sfondo</value>
+	</data>
+	<data name="BackColorCategory">
+		<value>Aspetto</value>
+	</data>
+	
+	<data name="Image">
+		<value>Immagine</value>
+	</data>
+	<data name="ImageDescription">
+		<value>Immagine associata.</value>
+	</data>
+	<data name="ImageCategory">
+		<value>Aspetto</value>
+	</data>
+	
+	<data name="Transparency">
+		<value>Trasparenza</value>
+	</data>
+	<data name="TransparencyDescription">
+		<value>Trasparenza immagine : 0= opaco 100= trasparente</value>
+	</data>
+	<data name="TransparencyCategory">
+		<value>Aspetto</value>
+	</data>
+	
+	<data name="PreserveAspectRatio">
+		<value>Rapporto di forma</value>
+	</data>
+	<data name="PreserveAspectRatioDescription">
+		<value>Impostare a vero per mantenere il rapporto di forma dell'immagine</value>
+	</data>
+	<data name="PreserveAspectRatioCategory">
+		<value>Aspetto</value>
+	</data>
+	
+	<!-- Border -->
+	<data name="BorderSize">
+		<value>Dimensione</value>
+	</data>
+	<data name="BorderSizeDescription">
+		<value>Dimensioni del bordo</value>
+	</data>
+	<data name="BorderSizeCategory">
+		<value>Bordo</value>
+	</data>
+	
+	<data name="BorderColor">
+		<value>Colore</value>
+	</data>
+	<data name="BorderColorDescription">
+		<value>Colore del bordo</value>
+	</data>
+	<data name="BorderColorCategory">
+		<value>Bordo</value>
+	</data>
+	
+	<data name="BorderPadding">
+		<value>Riempimento</value>
+	</data>
+	<data name="BorderPaddingDescription">
+		<value>Spazio di riempimento dal bordo</value>
+	</data>
+	<data name="BorderPaddingCategory">
+		<value>Bordo</value>
+	</data>
+	
+	<data name="BorderMargin">
+		<value>Margini</value>
+	</data>
+	<data name="BorderMarginDescription">
+		<value>Margini dal bordo</value>
+	</data>
+	<data name="BorderMarginCategory">
+		<value>Bordo</value>
+	</data>
+	
+	<!-- Layout -->
+	<data name="Location">
+		<value>Posizione</value>
+	</data>
+	<data name="LocationDescription">
+		<value>Posizione assoluta del campo</value>
+	</data>
+	<data name="LocationCategory">
+		<value>Layout</value>
+	</data>
+	
+	<data name="Size">
+		<value>Dimensione</value>
+	</data>
+	<data name="SizeDescription">
+		<value>Dimensioni del campo</value>
+	</data>
+	<data name="SizeCategory">
+		<value>Layout</value>
+	</data>	
+</root>

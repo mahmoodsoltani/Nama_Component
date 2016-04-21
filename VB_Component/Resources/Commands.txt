@@ -1,0 +1,87 @@
+/
+DROP TABLE [dbo].[sec_Group]
+/
+CREATE TABLE [dbo].[sec_Group](
+	[Srl] [int] IDENTITY(1,1) NOT NULL,
+	[GroupName] [nvarchar](50) NULL,
+	[UsersBlocked] [bit] NULL,
+	[JoinBlocked] [bit] NULL,
+ CONSTRAINT [PK_Group] PRIMARY KEY CLUSTERED 
+(
+	[Srl] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+--CREATE TABLE [dbo].[sec_Group] ADD  CONSTRAINT [DF_Group_IsBlocked]  DEFAULT ((0)) FOR [UsersBlocked]
+/
+DROP TABLE [dbo].[sec_Role]
+/
+CREATE TABLE [dbo].[sec_Role](
+	[Srl] [int] IDENTITY(1,1) NOT NULL,
+	[RoleName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Role] PRIMARY KEY CLUSTERED 
+(
+	[Srl] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+/
+DROP TABLE [dbo].[sec_RoleGroup]
+/
+CREATE TABLE [dbo].[sec_RoleGroup](
+	[Srl_Group] [int] NULL,
+	[Srl_Role] [int] NULL
+) ON [PRIMARY]
+/
+DROP TABLE [dbo].[sec_User]
+/
+CREATE TABLE [dbo].[sec_User](
+	[Srl] [int] IDENTITY(1,1) NOT NULL,
+	[FirstName] [nvarchar](50) NULL,
+	[LastName] [nvarchar](50) NULL,
+	[Username] [nvarchar](50) NULL,
+	[Password] [nvarchar](200) NULL,
+	[Enabled] [bit] NULL,
+	[RegisterDate] [nchar](10) NULL,
+	[ExpirementDate] [nchar](10) NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+(
+	[Srl] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+/
+INSERT INTO [Nama_MIS].[dbo].[sec_User] ([FirstName],[LastName],[Username],[Password],[Enabled],[RegisterDate],[ExpirementDate]) VALUES ('„œÌ— ”Ì” „','','„œÌ—','jzzkpZZzWtFM1+ix1KcN7g==',1,'','')
+/
+DROP TABLE [dbo].[sec_UserGroup]
+/
+CREATE TABLE [dbo].[sec_RoleGroup](
+	[Srl] [int] IDENTITY(1,1) NOT NULL,
+	[Srl_Group] [int] NULL,
+	[Srl_Role] [int] NULL,
+ CONSTRAINT [PK_sec_RoleGroup] PRIMARY KEY CLUSTERED 
+(
+	[Srl] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+/
+DROP TABLE [dbo].[sec_UserRole_Exception]
+/
+CREATE TABLE [dbo].[sec_UserRole_Exception](
+	[Srl_User] [int] NULL,
+	[Srl_Role] [int] NULL
+) ON [PRIMARY]
+/
+DROP TABLE [dbo].[sec_WindowsControl]
+/
+CREATE TABLE [dbo].[sec_WindowsControl](
+	[Srl] [int] IDENTITY(1,1) NOT NULL,
+	[ControlName] [nvarchar](50) NULL,
+	[Disable] [bit] NULL,
+	[Invisible] [bit] NULL,
+	[Type] [nvarchar](50) NULL,
+	[FormName] [nvarchar](50) NULL,
+	[Srl_Role] [int] NULL,
+ CONSTRAINT [PK_sec_WindowsControl] PRIMARY KEY CLUSTERED 
+(
+	[Srl] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+/

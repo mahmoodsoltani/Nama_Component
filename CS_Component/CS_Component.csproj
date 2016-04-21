@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C9DAFF83-2F0C-4BC9-ABC1-D6F0BDBB9562}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CS_Component</RootNamespace>
+    <AssemblyName>CS_Component</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VB_Component, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\VB_Component\bin\Release\VB_Component.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnimBtn\AnimBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AnimBtn\AnimBtn.designer.cs">
+      <DependentUpon>AnimBtn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\AttachDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataAccess\AttachDatabase.designer.cs">
+      <DependentUpon>AttachDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\DataAccess.cs" />
+    <Compile Include="DataAccess\Security.cs" />
+    <Compile Include="DataGrideView\DataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataGrideView\PrintDGV.cs" />
+    <Compile Include="DataGrideView\PrintOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataGrideView\PrintOptions.designer.cs">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGrideView\SearchPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DatePicker\Calendar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DatePicker\frm_Calendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatePicker\frm_Calendar.Designer.cs">
+      <DependentUpon>frm_Calendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBox Enable\GroupBoxEnable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GroupBox Enable\GroupBoxEnable.Designer.cs">
+      <DependentUpon>GroupBoxEnable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBox Enable\TestControlDesigner.cs" />
+    <Compile Include="GroupBox Enable\WorkingAreaControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GroupBox Enable\WorkingAreaControl.designer.cs">
+      <DependentUpon>WorkingAreaControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBox Enable\WorkingAreaDesigner.cs" />
+    <Compile Include="IP\DotControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IP\FieldChangedEventArgs.cs" />
+    <Compile Include="IP\FieldControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IP\IPAddressControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IP\IPAddressControlDesigner.cs" />
+    <Compile Include="IP\NativeMethods.cs" />
+    <Compile Include="IP\Utility.cs" />
+    <Compile Include="Loading\BackgroundLoading.cs" />
+    <Compile Include="Loading\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loading\LoadingForm.designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LookupBox\LookupBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LookupBox\LookupBox.designer.cs">
+      <DependentUpon>LookupBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LookupBox\LookupBox_Selection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LookupBox\LookupBox_Selection.designer.cs">
+      <DependentUpon>LookupBox_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LookupBox\LookupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LookupBox\LookupForm.designer.cs">
+      <DependentUpon>LookupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LookupBox\LookupForm_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LookupBox\LookupForm_Selection.designer.cs">
+      <DependentUpon>LookupForm_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LookupBox\LookupForm_Selection_TreeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LookupBox\LookupForm_Selection_TreeView.designer.cs">
+      <DependentUpon>LookupForm_Selection_TreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MarqueeLabel\MarqueeLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Marquee\ScrollingText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MessageForms\frm_ControlMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageForms\frm_ControlMessage.Designer.cs">
+      <DependentUpon>frm_ControlMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office Render\Office2007ColorTable.cs" />
+    <Compile Include="Office Render\Office2007Helpers.cs" />
+    <Compile Include="Office Render\Office2007Renderer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AnimBtn\AnimBtn.resx">
+      <DependentUpon>AnimBtn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAccess\AttachDatabase.resx">
+      <DependentUpon>AttachDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGrideView\PrintOptions.resx">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatePicker\frm_Calendar.resx">
+      <DependentUpon>frm_Calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupBox Enable\GroupBoxEnable.resx">
+      <DependentUpon>GroupBoxEnable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IP\DotControl.resx">
+      <DependentUpon>DotControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loading\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LookupBox\LookupBox.resx">
+      <DependentUpon>LookupBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LookupBox\LookupBox_Selection.resx">
+      <DependentUpon>LookupBox_Selection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LookupBox\LookupForm.resx">
+      <DependentUpon>LookupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LookupBox\LookupForm_Selection.resx">
+      <DependentUpon>LookupForm_Selection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LookupBox\LookupForm_Selection_TreeView.resx">
+      <DependentUpon>LookupForm_Selection_TreeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarqueeLabel\MarqueeLabel.resx">
+      <DependentUpon>MarqueeLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Marquee\ScrollingText.resx">
+      <DependentUpon>ScrollingText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageForms\frm_ControlMessage.resx">
+      <DependentUpon>frm_ControlMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemeForms\CustomUIBaseForm.resx">
+      <DependentUpon>CustomUIBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemeForms\CustomUIForm.resx">
+      <DependentUpon>CustomUIForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaButton\Btn.resx">
+      <DependentUpon>Btn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaButton\BtnPanel.resx">
+      <DependentUpon>BtnPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaButton\BtnPanelSmall.resx">
+      <DependentUpon>BtnPanelSmall.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaButton\VistaButton.resx">
+      <DependentUpon>VistaButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaButton\VistaPanel.resx">
+      <DependentUpon>VistaPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="TextBox\TextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThemeForms\CustomUIBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemeForms\CustomUIBaseForm.designer.cs">
+      <DependentUpon>CustomUIBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemeForms\CustomUIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemeForms\CustomUIForm.designer.cs">
+      <DependentUpon>CustomUIForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemeForms\ImageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VistaButton\Btn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VistaButton\Btn.designer.cs">
+      <DependentUpon>Btn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaButton\BtnPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VistaButton\BtnPanel.designer.cs">
+      <DependentUpon>BtnPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaButton\BtnPanelSmall.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VistaButton\BtnPanelSmall.designer.cs">
+      <DependentUpon>BtnPanelSmall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaButton\VistaButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VistaButton\VistaButton.designer.cs">
+      <DependentUpon>VistaButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaButton\VistaPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VistaButton\VistaPanel.designer.cs">
+      <DependentUpon>VistaPanel.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Foc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Foc1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Focu small1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nor.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nor1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\over.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\over1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\overSmall1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P_ focus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P_nor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P_over.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pres1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\press.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Down.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
