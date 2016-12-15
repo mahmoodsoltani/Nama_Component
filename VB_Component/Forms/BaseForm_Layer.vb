@@ -187,7 +187,7 @@ Public Class BaseForm_Layer
         Return res
     End Function
 
-    Protected Overrides Sub OnClosing(ByVal e As System.ComponentModel.CancelEventArgs)
+    Protected Overrides Sub OnClosing(ByVal e As CancelEventArgs)
         If (Me.FormState = FormStates.Edit) Then
             NewRecord()
             _GridView.Enabled = True

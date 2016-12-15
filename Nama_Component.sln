@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VB_Component", "VB_Component\VB_Component.vbproj", "{85BA75A0-F969-4D46-9301-163C73812067}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C9DAFF83-2F0C-4BC9-ABC1-D6F0BDBB9562} = {C9DAFF83-2F0C-4BC9-ABC1-D6F0BDBB9562}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_Component", "CS_Component\CS_Component.csproj", "{C9DAFF83-2F0C-4BC9-ABC1-D6F0BDBB9562}"
 EndProject

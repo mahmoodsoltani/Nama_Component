@@ -289,14 +289,14 @@ Public Class BaseForm
             If (TypeOf (C) Is Tbox) Then
                 CType(C, Tbox).Clear()
                 CType(C, Tbox).Modified = False
-            ElseIf (TypeOf (C) Is CS_Component.TextBox) Then
-                CType(C, CS_Component.TextBox).Clear()
-                CType(C, CS_Component.TextBox).Modified = False
-            ElseIf (TypeOf (C) Is CS_Component.IPAddressControl) Then
-                CType(C, CS_Component.IPAddressControl).Text = ""
-            ElseIf (TypeOf (C) Is VB_Component.ComboBox) Then
-                If CType(C, VB_Component.ComboBox).Items.Count > 0 Then
-                    CType(C, VB_Component.ComboBox).SelectedIndex = 0
+            ElseIf (TypeOf (C) Is TextBox) Then
+                CType(C, TextBox).Clear()
+                CType(C, TextBox).Modified = False
+            ElseIf (TypeOf (C) Is IPAddressControl) Then
+                CType(C, IPAddressControl).Text = ""
+            ElseIf (TypeOf (C) Is ComboBox) Then
+                If CType(C, ComboBox).Items.Count > 0 Then
+                    CType(C, ComboBox).SelectedIndex = 0
                 End If
             ElseIf (TypeOf (C) Is CheckBox) Then
                 CType(C, CheckBox).Checked = False
@@ -317,7 +317,7 @@ Public Class BaseForm
         Next
     End Sub
 
-    Protected Overrides Sub OnClosing(ByVal e As System.ComponentModel.CancelEventArgs)
+    Protected Overrides Sub OnClosing(ByVal e As CancelEventArgs)
         Dim Dr As DialogResult
         If (PromptOnExit) Then
             Dr = MessageBoxFa.Show("آیا مایلید از فرم خارج شوید ؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
@@ -343,14 +343,14 @@ Public Class BaseForm
     End Sub
 
     Private Sub BaseForm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
-       
+
     End Sub
 
     Private Function GetModified(ByVal Control As Control) As Boolean
         Dim bol_Modified As Boolean
         For Each C In Control.Controls
-            If (TypeOf (C) Is CS_Component.TextBox And Not (TypeOf (C.Parent) Is SearchPanel)) Then
-                If (CType(C, CS_Component.TextBox).Modified) Then
+            If (TypeOf (C) Is TextBox And Not (TypeOf (C.Parent) Is SearchPanel)) Then
+                If (CType(C, TextBox).Modified) Then
                     Return True
                 End If
             End If
@@ -417,7 +417,7 @@ Public Class BaseForm
                 MessageBoxFa.Show("لطفا يک رديف را انتخاب کنيد")
             End If
         End If
-       
+
         Return Srl
     End Function
 
@@ -428,11 +428,11 @@ Public Class BaseForm
         Select Case e.KeyCode
             Case Keys.Enter
                 If _GoOnEnter Then
-                    If TypeOf MyBase.ActiveControl Is CS_Component.DataGridView OrElse _
+                    If TypeOf MyBase.ActiveControl Is CS_Component.DataGridView OrElse
                     TypeOf MyBase.ActiveControl Is CS_Component.Btn Then
                         Return
                     End If
-                    If TypeOf MyBase.ActiveControl Is VB_Component.TimeSelect Then
+                    If TypeOf MyBase.ActiveControl Is TimeSelect Then
                         If DirectCast(MyBase.ActiveControl, TimeSelect).ActiveControl.Name = "txt_Hour" Then
                             DirectCast(MyBase.ActiveControl, TimeSelect).txt_Min.Focus()
                         ElseIf DirectCast(MyBase.ActiveControl, TimeSelect).ActiveControl.Name = "txt_Min" And DirectCast(MyBase.ActiveControl, TimeSelect).ShowSecond Then
@@ -445,48 +445,48 @@ Public Class BaseForm
                     End If
                 End If
             Case Keys.F10
-                    Dim currentlang As String = InputLanguage.CurrentInputLanguage.LayoutName
-                    If (currentlang = "US") Then
-                        VB_Component.Windows.ChangeLangToFarsi(True)
-                    Else
-                        VB_Component.Windows.ChangeLangToFarsi(False)
-                    End If
+                Dim currentlang As String = InputLanguage.CurrentInputLanguage.LayoutName
+                If (currentlang = "US") Then
+                    VB_Component.Windows.ChangeLangToFarsi(True)
+                Else
+                    VB_Component.Windows.ChangeLangToFarsi(False)
+                End If
             Case Keys.Up
-                    If _GoOnUpDown Then
-                        If TypeOf MyBase.ActiveControl Is ListBox _
+                If _GoOnUpDown Then
+                    If TypeOf MyBase.ActiveControl Is ListBox _
                         OrElse TypeOf MyBase.ActiveControl Is CS_Component.DataGridView _
                         OrElse TypeOf MyBase.ActiveControl Is DataGridViewComboBoxEditingControl _
-                        OrElse TypeOf MyBase.ActiveControl Is VB_Component.ComboBox Then
-                            Return
-                        End If
-                        ProcessTabKey(False)
+                        OrElse TypeOf MyBase.ActiveControl Is ComboBox Then
+                        Return
                     End If
+                    ProcessTabKey(False)
+                End If
             Case Keys.Down
-                    If _GoOnUpDown Then
-                        If TypeOf MyBase.ActiveControl Is ListBox _
+                If _GoOnUpDown Then
+                    If TypeOf MyBase.ActiveControl Is ListBox _
                         OrElse TypeOf MyBase.ActiveControl Is DataGridViewComboBoxEditingControl _
                         OrElse TypeOf MyBase.ActiveControl Is CS_Component.DataGridView _
-                        OrElse TypeOf MyBase.ActiveControl Is CS_Component.LookupBox _
-                        OrElse TypeOf MyBase.ActiveControl Is VB_Component.ComboBox Then
-                            Return
-                        End If
-                        ProcessTabKey(True)
+                        OrElse TypeOf MyBase.ActiveControl Is LookupBox _
+                        OrElse TypeOf MyBase.ActiveControl Is ComboBox Then
+                        Return
                     End If
+                    ProcessTabKey(True)
+                End If
             Case Keys.Left
-                    If TypeOf MyBase.ActiveControl Is VB_Component.ComboBox Then
-                        ProcessTabKey(True)
-                    End If
+                If TypeOf MyBase.ActiveControl Is ComboBox Then
+                    ProcessTabKey(True)
+                End If
             Case Keys.Right
-                    If TypeOf MyBase.ActiveControl Is VB_Component.ComboBox Then
-                        ProcessTabKey(False)
-                    End If
+                If TypeOf MyBase.ActiveControl Is ComboBox Then
+                    ProcessTabKey(False)
+                End If
         End Select
         MyBase.OnKeyDown(e)
     End Sub
 
     Private Sub GetData(ByVal Control As Control)
         For Each C As Control In Control.Controls
-            If (C.Controls.Count <> 0 And Not (TypeOf (C) Is CS_Component.TextBox Or TypeOf (C) Is VB_Component.PictureGetter Or TypeOf (C) Is VB_Component.TimeSelect Or TypeOf (C) Is CS_Component.LookupBox Or TypeOf (C) Is VB_Component.LookUpButton Or TypeOf (C) Is CS_Component.IPAddressControl)) Then
+            If (C.Controls.Count <> 0 And Not (TypeOf (C) Is TextBox Or TypeOf (C) Is PictureGetter Or TypeOf (C) Is TimeSelect Or TypeOf (C) Is LookupBox Or TypeOf (C) Is LookUpButton Or TypeOf (C) Is IPAddressControl)) Then
                 GetData(C)
             Else
                 SetDataRowValues(DataObject.DataRow, C)
@@ -496,7 +496,7 @@ Public Class BaseForm
 
     Public Function ValidateAllValue(ByRef Control As Control) As Boolean
         For Each C As Control In Control.Controls
-            If (TypeOf C Is CS_Component.LookupBox) Then
+            If (TypeOf C Is LookupBox) Then
                 If Not ValidateValue(C) Then
                     Return False
                 End If
@@ -515,38 +515,38 @@ Public Class BaseForm
 
     Public Function ValidateValue(ByRef Control As Control) As Boolean
         Dim titlec As Control = Control.Parent.GetChildAtPoint(New Point(Control.Left + Control.Width + 20, Control.Top + 5))
-        If (TypeOf Control Is CS_Component.TextBox) Then
-            If CType(Control, CS_Component.TextBox).IsRequired Then
-                If (CType(Control, CS_Component.TextBox).TypeOfContains = CS_Component.TypeOfValues.Currency Or CType(Control, CS_Component.TextBox).TypeOfContains = CS_Component.TypeOfValues.Number) Then
-                    If (CType(Control, CS_Component.TextBox).Value = 0) Then
+        If (TypeOf Control Is TextBox) Then
+            If CType(Control, TextBox).IsRequired Then
+                If (CType(Control, TextBox).TypeOfContains = CS_Component.TypeOfValues.Currency Or CType(Control, TextBox).TypeOfContains = CS_Component.TypeOfValues.Number) Then
+                    If (CType(Control, TextBox).Value = 0) Then
                         If (Not titlec Is Nothing) Then
                             ControlMessage.Show(Control, titlec.Text.Replace(":", "").Trim() + " مشخص نیست.")
                             bol_IsValid = False
                             Return False
                         Else
-                            ControlMessage.Show(Control, CType(Control, CS_Component.TextBox).Title + " مشخص نیست.")
+                            ControlMessage.Show(Control, CType(Control, TextBox).Title + " مشخص نیست.")
                             bol_IsValid = False
                             Return False
                         End If
                     End If
                 End If
-                If (CType(Control, CS_Component.TextBox).TypeOfContains = TypeOfValues.Date Or CType(Control, CS_Component.TextBox).TypeOfContains = CS_Component.TypeOfValues.EnglishText) Or (CType(Control, CS_Component.TextBox).TypeOfContains = CS_Component.TypeOfValues.PersianText) Or (CType(Control, CS_Component.TextBox).TypeOfContains = CS_Component.TypeOfValues.StringNumber) Then
-                    If (CType(Control, CS_Component.TextBox).Value = "") Then
+                If (CType(Control, TextBox).TypeOfContains = TypeOfValues.Date Or CType(Control, TextBox).TypeOfContains = CS_Component.TypeOfValues.EnglishText) Or (CType(Control, TextBox).TypeOfContains = CS_Component.TypeOfValues.PersianText) Or (CType(Control, TextBox).TypeOfContains = CS_Component.TypeOfValues.StringNumber) Then
+                    If (CType(Control, TextBox).Value = "") Then
                         If (Not titlec Is Nothing) Then
                             ControlMessage.Show(Control, titlec.Text.Replace(":", "").Trim() + " مشخص نیست.")
                             bol_IsValid = False
                             Return False
                         Else
-                            ControlMessage.Show(Control, CType(Control, CS_Component.TextBox).Title + " مشخص نیست.")
+                            ControlMessage.Show(Control, CType(Control, TextBox).Title + " مشخص نیست.")
                             bol_IsValid = False
                             Return False
                         End If
                     End If
                 End If
             End If
-            If CType(Control, CS_Component.TextBox).CheckExistValueInDb Then
+            If CType(Control, TextBox).CheckExistValueInDb Then
                 If Me.FormState = FormStates.Edit Then
-                    If CType(Control, CS_Component.TextBox).ValidateCheckExistOnEdit Then
+                    If CType(Control, TextBox).ValidateCheckExistOnEdit Then
                         If Not CheckExistValueInDatabase(Control) Then
                             bol_IsValid = False
                             Return False
@@ -559,26 +559,26 @@ Public Class BaseForm
                     End If
                 End If
             End If
-        ElseIf (TypeOf Control Is VB_Component.ComboBox) Then
-            If (CType(Control, VB_Component.ComboBox).IsRequired And CType(Control, VB_Component.ComboBox).SelectedIndex = -1) Then
+        ElseIf (TypeOf Control Is ComboBox) Then
+            If (CType(Control, ComboBox).IsRequired And CType(Control, ComboBox).SelectedIndex = -1) Then
                 If (Not titlec Is Nothing) Then
                     ControlMessage.Show(Control, titlec.Text.Replace(":", "").Trim() + " مشخص نیست.")
                     bol_IsValid = False
                     Return False
                 Else
-                    ControlMessage.Show(Control, CType(Control, CS_Component.TextBox).Title + " مشخص نیست.")
+                    ControlMessage.Show(Control, CType(Control, TextBox).Title + " مشخص نیست.")
                     bol_IsValid = False
                     Return False
                 End If
             End If
-        ElseIf (TypeOf Control Is CS_Component.LookupBox) Then
-            If (CType(Control, CS_Component.LookupBox).IsRequired And CType(Control, CS_Component.LookupBox).Result Is Nothing) Then
+        ElseIf (TypeOf Control Is LookupBox) Then
+            If (CType(Control, LookupBox).IsRequired And CType(Control, LookupBox).Result Is Nothing) Then
                 If (Not titlec Is Nothing) Then
                     ControlMessage.Show(Control, titlec.Text.Replace(":", "").Trim() + " مشخص نیست.")
                     bol_IsValid = False
                     Return False
                 Else
-                    ControlMessage.Show(Control, CType(Control, CS_Component.LookupBox).Title + " مشخص نیست.")
+                    ControlMessage.Show(Control, CType(Control, LookupBox).Title + " مشخص نیست.")
                     bol_IsValid = False
                     Return False
                 End If
@@ -594,18 +594,18 @@ Public Class BaseForm
             If Not ValidateValue(Control) Then
                 Return
             End If
-            If (TypeOf Control Is CS_Component.TextBox) Then
-                DataRow(Control.Tag.ToString) = CType(Control, CS_Component.TextBox).Value
-            ElseIf (TypeOf Control Is VB_Component.ComboBox) Then
-                If Not CType(Control, VB_Component.ComboBox).SelectedValue Is Nothing Then
-                    DataRow(Control.Tag.ToString()) = CType(Control, VB_Component.ComboBox).SelectedValue
+            If (TypeOf Control Is TextBox) Then
+                DataRow(Control.Tag.ToString) = CType(Control, TextBox).Value
+            ElseIf (TypeOf Control Is ComboBox) Then
+                If Not CType(Control, ComboBox).SelectedValue Is Nothing Then
+                    DataRow(Control.Tag.ToString()) = CType(Control, ComboBox).SelectedValue
                 End If
             ElseIf (TypeOf Control Is System.Windows.Forms.ComboBox) Then
                 If Not CType(Control, System.Windows.Forms.ComboBox).SelectedValue Is Nothing Then
-                    DataRow(Control.Tag.ToString()) = CType(Control, VB_Component.ComboBox).SelectedValue
+                    DataRow(Control.Tag.ToString()) = CType(Control, ComboBox).SelectedValue
                 End If
-            ElseIf (TypeOf Control Is VB_Component.ComboBox) Then
-                If Not CType(Control, VB_Component.ComboBox).SelectedValue Is Nothing Then
+            ElseIf (TypeOf Control Is ComboBox) Then
+                If Not CType(Control, ComboBox).SelectedValue Is Nothing Then
                     DataRow(Control.Tag.ToString()) = CType(Control, System.Windows.Forms.ComboBox).SelectedValue
                 End If
             ElseIf (TypeOf Control Is CheckBox) Then
@@ -614,21 +614,21 @@ Public Class BaseForm
                 DataRow(Control.Tag.ToString()) = CType(Control, RadioButton).Checked
             ElseIf (TypeOf Control Is LookUpButton) Then
                 DataRow(Control.Tag.ToString()) = CType(Control, LookUpButton).Result(CType(Control, LookUpButton).Tag)
-            ElseIf TypeOf Control Is CS_Component.LookupBox Then
+            ElseIf TypeOf Control Is LookupBox Then
                 DataRow(Control.Tag.ToString) = CType(Control, LookupBox).Result(CType(Control, LookupBox).ValueField)
             ElseIf TypeOf Control Is Label Then
                 DataRow(Control.Tag.ToString) = CType(Control, Label).Text
-            ElseIf TypeOf Control Is VB_Component.PictureGetter Then
-                DataRow(Control.Tag.ToString) = CType(Control, VB_Component.PictureGetter).Image
-            ElseIf TypeOf Control Is VB_Component.TimeSelect Then
-                DataRow(Control.Tag.ToString) = CType(Control, VB_Component.TimeSelect).Value
-            ElseIf TypeOf Control Is CS_Component.IPAddressControl Then
-                DataRow(Control.Tag.ToString) = CType(Control, CS_Component.IPAddressControl).Text
+            ElseIf TypeOf Control Is PictureGetter Then
+                DataRow(Control.Tag.ToString) = CType(Control, PictureGetter).Image
+            ElseIf TypeOf Control Is TimeSelect Then
+                DataRow(Control.Tag.ToString) = CType(Control, TimeSelect).Value
+            ElseIf TypeOf Control Is IPAddressControl Then
+                DataRow(Control.Tag.ToString) = CType(Control, IPAddressControl).Text
             End If
         End If
     End Sub
 
-    Public Function CheckExistValueInDatabase(ByVal Control As Control) As Boolean        
+    Public Function CheckExistValueInDatabase(ByVal Control As Control) As Boolean
         Dim titlec As Control = Control.Parent.GetChildAtPoint(New Point(Control.Left + Control.Width + 20, Control.Top + 5))
 
         If (TypeOf (Me) Is BaseForm_Layer) Then
@@ -638,9 +638,7 @@ Public Class BaseForm
                 Application.DoEvents()
                 ControlMessage.Show(Control, "مقدار " + titlec.Text.Replace(":", "").Trim() + " تکراري است.")
                 Return False
-            End If                    
-
-
+            End If
         ElseIf (TypeOf (Me) Is BaseForm_Info) Then
             Dim Bs_Inf As BaseForm_View = CType(Me.Owner, BaseForm_View)
             If (ExistInDataGridView(Bs_Inf.DataGridView, titlec.Text.Replace(":", "").Trim(), Control.Text)) Then
@@ -648,8 +646,8 @@ Public Class BaseForm
                 Application.DoEvents()
                 ControlMessage.Show(Control, "مقدار " + titlec.Text.Replace(":", "").Trim() + " تکراري است.")
                 Return False
-            End If        
-        ElseIf BaseDataObject.DataAccess.ExistNum(TableName, Control.Tag.ToString, CType(Control, CS_Component.TextBox).Value) > 0 Then
+            End If
+        ElseIf BaseDataObject.DataAccess.ExistNum(TableName, Control.Tag.ToString, CType(Control, TextBox).Value) > 0 Then
             Control.Focus()
             Application.DoEvents()
             ControlMessage.Show(Control, "مقدار " + titlec.Text.Replace(":", "").Trim() + " تکراري است.")
@@ -673,14 +671,14 @@ Public Class BaseForm
     End Function
 
     Protected Overridable Sub SetData(ByVal Control As Control)
-        If (TypeOf Control Is CS_Component.TextBox) Then
+        If (TypeOf Control Is TextBox) Then
             GetDataRowValues(DataObject.DataRow, Control)
             Return
         End If
         Dim C As Control
         For Each C In Control.Controls
             If (C.Controls.Count <> 0) Then
-                If Not (TypeOf (C) Is CS_Component.TextBox Or TypeOf (C) Is VB_Component.TimeSelect Or TypeOf (C) Is VB_Component.LookUpButton Or TypeOf (C) Is VB_Component.PictureGetter Or TypeOf (C) Is CS_Component.LookupBox) Then
+                If Not (TypeOf (C) Is IPAddressControl Or TypeOf (C) Is TextBox Or TypeOf (C) Is TimeSelect Or TypeOf (C) Is LookUpButton Or TypeOf (C) Is PictureGetter Or TypeOf (C) Is LookupBox) Then
                     SetData(C)
                 Else
                     GetDataRowValues(DataObject.DataRow, C)
@@ -695,24 +693,26 @@ Public Class BaseForm
         If (DataRow Is Nothing) Then Return
         If (Control.Tag Is Nothing) Then Return
         If (DataRow.Table.Columns.Contains(Control.Tag.ToString)) Then
-            If (TypeOf Control Is CS_Component.TextBox) Then
-                CType(Control, CS_Component.TextBox).Value = DataRow(Control.Tag.ToString)
-            ElseIf (TypeOf Control Is VB_Component.ComboBox) Then
-                CType(Control, VB_Component.ComboBox).SelectedValue = DataRow(Control.Tag.ToString())
+            If (TypeOf Control Is TextBox) Then
+                CType(Control, TextBox).Value = DataRow(Control.Tag.ToString)
+            ElseIf (TypeOf Control Is ComboBox) Then
+                CType(Control, ComboBox).SelectedValue = DataRow(Control.Tag.ToString())
             ElseIf (TypeOf Control Is CheckBox) Then
                 CType(Control, CheckBox).Checked = DataRow(Control.Tag.ToString())
             ElseIf (TypeOf Control Is RadioButton) Then
                 CType(Control, RadioButton).Checked = DataRow(Control.Tag.ToString())
             ElseIf (TypeOf Control Is LookUpButton) Then
                 CType(Control, LookUpButton).LoadBySerial(DataRow(Control.Tag.ToString()))
-            ElseIf TypeOf Control Is CS_Component.LookupBox Then
+            ElseIf TypeOf Control Is LookupBox Then
                 CType(Control, LookupBox).LoadByValue(DataRow(Control.Tag.ToString()))
             ElseIf TypeOf (Control) Is Label Then
                 CType(Control, Label).Text = DataRow(Control.Tag.ToString())
-            ElseIf TypeOf (Control) Is VB_Component.PictureGetter And Not (DataRow(Control.Tag.ToString()) Is DBNull.Value) Then
-                CType(Control, VB_Component.PictureGetter).Image = DirectCast(DataRow(Control.Tag.ToString()), Byte())
-            ElseIf TypeOf (Control) Is VB_Component.TimeSelect And Not (DataRow(Control.Tag.ToString()) Is DBNull.Value) Then
-                CType(Control, VB_Component.TimeSelect).Value = DirectCast(DataRow(Control.Tag.ToString()), String)
+            ElseIf TypeOf (Control) Is PictureGetter And Not (DataRow(Control.Tag.ToString()) Is DBNull.Value) Then
+                CType(Control, PictureGetter).Image = DirectCast(DataRow(Control.Tag.ToString()), Byte())
+            ElseIf TypeOf (Control) Is TimeSelect And Not (DataRow(Control.Tag.ToString()) Is DBNull.Value) Then
+                CType(Control, TimeSelect).Value = DirectCast(DataRow(Control.Tag.ToString()), String)
+            ElseIf TypeOf (Control) Is IPAddressControl And Not (DataRow(Control.Tag.ToString()) Is DBNull.Value) Then
+                CType(Control, IPAddressControl).Text = DirectCast(DataRow(Control.Tag.ToString()), String)
             End If
         End If
     End Sub

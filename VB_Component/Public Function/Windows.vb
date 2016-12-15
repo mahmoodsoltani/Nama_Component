@@ -582,9 +582,9 @@ Label_0297:
                         If ((Not DirectCast(obj3, LookUpButton).Tag Is Nothing) AndAlso (DirectCast(obj3, LookUpButton).Tag.ToString <> "")) Then
                             DirectCast(obj3, LookUpButton).GetSerial = Integer.Parse(dr.Item(DirectCast(obj3, LookUpButton).Tag.ToString))
                         End If
-                    ElseIf (obj3.GetType Is GetType(VB_Component.ComboBox)) Then
-                        If ((Not DirectCast(obj3, VB_Component.ComboBox).Tag Is Nothing) AndAlso (DirectCast(obj3, VB_Component.ComboBox).Tag.ToString <> "")) Then
-                            DirectCast(obj3, VB_Component.ComboBox).SelectedValue = Integer.Parse(dr.Item(DirectCast(obj3, VB_Component.ComboBox).Tag.ToString).ToString)
+                    ElseIf (obj3.GetType Is GetType(ComboBox)) Then
+                        If ((Not DirectCast(obj3, ComboBox).Tag Is Nothing) AndAlso (DirectCast(obj3, ComboBox).Tag.ToString <> "")) Then
+                            DirectCast(obj3, ComboBox).SelectedValue = Integer.Parse(dr.Item(DirectCast(obj3, ComboBox).Tag.ToString).ToString)
                         End If
                     ElseIf (obj3.GetType Is GetType(PictureGetter)) Then
                         If ((Not DirectCast(obj3, PictureGetter).Tag Is Nothing) AndAlso (DirectCast(obj3, PictureGetter).Tag.ToString <> "")) Then
@@ -624,9 +624,9 @@ Label_0297:
                         If ((Not DirectCast(obj5, LookUpButton).Tag Is Nothing) AndAlso (DirectCast(obj5, LookUpButton).Tag.ToString <> "")) Then
                             DirectCast(obj5, LookUpButton).GetSerial = Integer.Parse(dr.Item(DirectCast(obj5, LookUpButton).Tag.ToString))
                         End If
-                    ElseIf (obj5.GetType Is GetType(VB_Component.ComboBox)) Then
-                        If ((Not DirectCast(obj5, VB_Component.ComboBox).Tag Is Nothing) AndAlso (DirectCast(obj5, VB_Component.ComboBox).Tag.ToString <> "")) Then
-                            DirectCast(obj5, VB_Component.ComboBox).SelectedValue = Integer.Parse(dr.Item(DirectCast(obj5, VB_Component.ComboBox).Tag.ToString).ToString)
+                    ElseIf (obj5.GetType Is GetType(ComboBox)) Then
+                        If ((Not DirectCast(obj5, ComboBox).Tag Is Nothing) AndAlso (DirectCast(obj5, ComboBox).Tag.ToString <> "")) Then
+                            DirectCast(obj5, ComboBox).SelectedValue = Integer.Parse(dr.Item(DirectCast(obj5, ComboBox).Tag.ToString).ToString)
                         End If
                     ElseIf (obj5.GetType Is GetType(PictureGetter)) Then
                         If ((Not DirectCast(obj5, PictureGetter).Tag Is Nothing) AndAlso (DirectCast(obj5, PictureGetter).Tag.ToString <> "")) Then
@@ -667,9 +667,9 @@ Label_0297:
                         If ((Not DirectCast(obj7, LookUpButton).Tag Is Nothing) AndAlso (DirectCast(obj7, LookUpButton).Tag.ToString <> "")) Then
                             DirectCast(obj7, LookUpButton).GetSerial = Integer.Parse(dr.Item(DirectCast(obj7, LookUpButton).Tag.ToString))
                         End If
-                    ElseIf (obj7.GetType Is GetType(VB_Component.ComboBox)) Then
-                        If ((Not DirectCast(obj7, VB_Component.ComboBox).Tag Is Nothing) AndAlso (DirectCast(obj7, VB_Component.ComboBox).Tag.ToString <> "")) Then
-                            DirectCast(obj7, VB_Component.ComboBox).SelectedValue = Integer.Parse(dr.Item(DirectCast(obj7, VB_Component.ComboBox).Tag.ToString).ToString)
+                    ElseIf (obj7.GetType Is GetType(ComboBox)) Then
+                        If ((Not DirectCast(obj7, ComboBox).Tag Is Nothing) AndAlso (DirectCast(obj7, ComboBox).Tag.ToString <> "")) Then
+                            DirectCast(obj7, ComboBox).SelectedValue = Integer.Parse(dr.Item(DirectCast(obj7, ComboBox).Tag.ToString).ToString)
                         End If
                     ElseIf (obj7.GetType Is GetType(PictureGetter)) Then
                         If ((Not DirectCast(obj7, PictureGetter).Tag Is Nothing) AndAlso (DirectCast(obj7, PictureGetter).Tag.ToString <> "")) Then
@@ -838,13 +838,13 @@ Label_0297:
                 '        End If
                 '    End If
             ElseIf (TypeOf c Is LookUpButton) Then
-                If DirectCast(c, VB_Component.LookUpButton).Result Is Nothing Then
+                If DirectCast(c, LookUpButton).Result Is Nothing Then
                     If star Then
                         MessageBoxFa.Show("لطفا فيلدهاي ستاره دار را پر كنيد")
                     Else
                         MessageBoxFa.Show("لطفا اطلاعات را به طور كامل وارد كنيد")
                     End If
-                    DirectCast(c, VB_Component.LookUpButton).tbox_Code.Focus()
+                    DirectCast(c, LookUpButton).tbox_Code.Focus()
                     Return False
                 End If
             End If

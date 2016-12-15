@@ -8,7 +8,7 @@ Public Class BaseDataObject
     Private str_KeyFieldName As String = "Srl"
     Private Shared obj_DataAccess As CS_Component.DataAccess
 
-    Public Delegate Sub CancelEventHandler(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs)
+    Public Delegate Sub CancelEventHandler(ByVal sender As Object, ByVal e As CancelEventArgs)
     Public Event Deleting As CancelEventHandler
     Public Event Deleted As EventHandler
     Public Event Inserting As CancelEventHandler
@@ -75,7 +75,7 @@ Public Class BaseDataObject
     End Sub
 
     Public Overridable Function Insert() As Boolean
-        Dim CancelResult As New System.ComponentModel.CancelEventArgs
+        Dim CancelResult As New CancelEventArgs
         RaiseEvent Inserting(Me, CancelResult)
         If (CancelResult.Cancel) Then
             Return False
@@ -87,7 +87,7 @@ Public Class BaseDataObject
     End Function
 
     Public Overridable Function Update() As Boolean
-        Dim CancelResult As New System.ComponentModel.CancelEventArgs
+        Dim CancelResult As New CancelEventArgs
         RaiseEvent Updateing(Me, CancelResult)
         If (CancelResult.Cancel) Then Return False
         Dim bol_Result As Boolean = obj_DataAccess.Update(dr_DataRow, dr_DataRow.Table.Columns.IndexOf(dr_DataRow.Table.Columns(str_KeyFieldName)), False)
@@ -96,7 +96,7 @@ Public Class BaseDataObject
     End Function
 
     Public Overridable Function Delete(ByVal Srl As Integer) As Boolean
-        Dim CancelResult As New System.ComponentModel.CancelEventArgs
+        Dim CancelResult As New CancelEventArgs
         RaiseEvent Deleting(Me, CancelResult)
         If (CancelResult.Cancel) Then
             Return False

@@ -140,7 +140,7 @@ Public Class BaseForm_Old
                 If TypeOf MyBase.ActiveControl Is ListBox _
                 OrElse TypeOf MyBase.ActiveControl Is CS_Component.DataGridView _
                 OrElse TypeOf MyBase.ActiveControl Is DataGridViewComboBoxEditingControl _
-                OrElse TypeOf MyBase.ActiveControl Is VB_Component.ComboBox Then
+                OrElse TypeOf MyBase.ActiveControl Is ComboBox Then
                     Return
                 End If
                 ProcessTabKey(False)
@@ -152,7 +152,7 @@ Public Class BaseForm_Old
                 If TypeOf MyBase.ActiveControl Is ListBox _
                 OrElse TypeOf MyBase.ActiveControl Is DataGridViewComboBoxEditingControl _
                 OrElse TypeOf MyBase.ActiveControl Is CS_Component.DataGridView _
-                OrElse TypeOf MyBase.ActiveControl Is VB_Component.ComboBox Then
+                OrElse TypeOf MyBase.ActiveControl Is ComboBox Then
                     Return
                 End If
                 ProcessTabKey(True)
@@ -161,7 +161,7 @@ Public Class BaseForm_Old
 
         If e.KeyCode = Keys.Left Then
             If _GoOnEnter Then
-                If TypeOf MyBase.ActiveControl Is VB_Component.ComboBox Then
+                If TypeOf MyBase.ActiveControl Is ComboBox Then
                     ProcessTabKey(True)
                 End If
             End If
@@ -169,7 +169,7 @@ Public Class BaseForm_Old
 
         If e.KeyCode = Keys.Right Then
             If _GoOnEnter Then
-                If TypeOf MyBase.ActiveControl Is VB_Component.ComboBox Then
+                If TypeOf MyBase.ActiveControl Is ComboBox Then
                     ProcessTabKey(False)
                 End If
             End If
