@@ -72,10 +72,10 @@ Public Class LookUpForm
 
         ShowField = _ShowField
         ShowSrl = ShowSerial
-        Me.int_SearchColumnIndex = ResultFieldIndex
+        int_SearchColumnIndex = ResultFieldIndex
         FillDGrid(dt)
         Application.DoEvents()
-        Me.Text = FormCaption
+        Text = FormCaption
         HidenField = ShowOrHidenField
 
         If Not LastResult Is Nothing Then
@@ -112,7 +112,7 @@ Public Class LookUpForm
         Me.int_SearchColumnIndex = int_SearchColumnIndex
         FillDGrid(dt)
         Application.DoEvents()
-        Me.Text = FormCaption
+        Text = FormCaption
 
         If Not LastResult Is Nothing Then
             dr = LastResult
@@ -142,7 +142,7 @@ Public Class LookUpForm
         DataGridView1.Columns(0).Visible = ShowSrl
     End Sub
 
-    Private Sub LookUpForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub LookUpForm_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         'If VB_Component.Windows.ArrayOfString("temp") Then
         '    Me.Dispose()
         'End If
@@ -153,20 +153,20 @@ Public Class LookUpForm
             Return
         End If
         lbl_SearchField.Text = DataGridView1.Columns.Item(int_SearchColumnIndex).HeaderText
-        If Not Me.check_DataSource Then
+        If Not check_DataSource Then
             Try
                 Dim s As String = DirectCast(DataGridView1.DataSource, DataTable).DefaultView.RowFilter
-                Me.DtSource = True
+                DtSource = True
             Catch
-                Me.DtSource = False
+                DtSource = False
             End Try
-            Me.check_DataSource = True
+            check_DataSource = True
         End If
-        Call CalculateWideOfColomn(Me.CreateGraphics)
-        Me.TopMost = True
-        Me.BringToFront()
-        Me.Location = New Drawing.Point(SystemInformation.WorkingArea.Width / 2 - Me.Size.Width / 2 _
-        , SystemInformation.WorkingArea.Height / 2 - Me.Size.Height / 2.5)
+        Call CalculateWideOfColomn(CreateGraphics)
+        TopMost = True
+        BringToFront()
+        Location = New Drawing.Point(SystemInformation.WorkingArea.Width / 2 - Size.Width / 2 _
+        , SystemInformation.WorkingArea.Height / 2 - Size.Height / 2.5)
 
         For j As Integer = 0 To DataGridView1.Columns.Count - 1
             DataGridView1.Columns(j).AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -201,7 +201,7 @@ Public Class LookUpForm
         Tbox_Search.Text = InitSearch
         Tbox_Search.SelectionStart = Tbox_Search.Text.Length
         Tbox_Search_TextChanged(sender, e)
-        lbl_SearchField.Text = DataGridView1.Columns.Item(Me.int_SearchColumnIndex).HeaderText
+        lbl_SearchField.Text = DataGridView1.Columns.Item(int_SearchColumnIndex).HeaderText
         If DataGridView1.RowCount > 0 Then
             For d As Integer = 1 To 10
                 If DataGridView1.Columns(d).Visible Then
@@ -242,11 +242,11 @@ Public Class LookUpForm
         Dim totalSize As Integer = visibleColumn * 100
 
         If totalSize < 875 Then
-            If Integer.Parse(Me.Width) < Integer.Parse(totalSize) Then
-                Me.Size = New Size(totalSize, Me.Height)
+            If Integer.Parse(Width) < Integer.Parse(totalSize) Then
+                Size = New Size(totalSize, Height)
             End If
         Else
-            Me.Size = New Size(875, Me.Height)
+            Size = New Size(875, Height)
         End If
 
         'If DataGridView1.Rows.Count > 12 Then
@@ -290,7 +290,7 @@ Public Class LookUpForm
         Next
 
         If DataGridView1.Rows.Count = 0 Then
-            Me.dr = Nothing
+            dr = Nothing
             Return False
         End If
 
@@ -323,7 +323,7 @@ Public Class LookUpForm
         Next
 
         If DataGridView1.Rows.Count = 0 Then
-            Me.dr = Nothing
+            dr = Nothing
             Return False
         End If
 
@@ -364,7 +364,7 @@ Public Class LookUpForm
         Next
 
         If DataGridView1.Rows.Count = 0 Then
-            Me.dr = Nothing
+            dr = Nothing
             Return False
         End If
 
@@ -405,7 +405,7 @@ Public Class LookUpForm
         Next
 
         If DataGridView1.Rows.Count = 0 Then
-            Me.dr = Nothing
+            dr = Nothing
             Return False
         End If
 
@@ -419,7 +419,7 @@ Public Class LookUpForm
         Return True
     End Function
 
-    Private Sub LookUpForm_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+    Private Sub LookUpForm_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles MyBase.KeyDown
         Select Case e.KeyCode
             Case System.Windows.Forms.Keys.Enter
                 selected()
@@ -480,19 +480,19 @@ Public Class LookUpForm
                 End If
             Case System.Windows.Forms.Keys.ControlKey
 
-                Me.int_SearchColumnIndex = FindNextVisibleField()
+                int_SearchColumnIndex = FindNextVisibleField()
 
-                If DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(Me.int_SearchColumnIndex).DataType.ToString.Equals("System.String") Then
+                If DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(int_SearchColumnIndex).DataType.ToString.Equals("System.String") Then
                     Tbox_Search.TypeOfContains = Tbox.TypeOfValues.All
-                ElseIf DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(Me.int_SearchColumnIndex).DataType.ToString.Equals("System.Int32") Then
+                ElseIf DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(int_SearchColumnIndex).DataType.ToString.Equals("System.Int32") Then
                     Tbox_Search.TypeOfContains = Tbox.TypeOfValues.Digit
-                ElseIf DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(Me.int_SearchColumnIndex).DataType.ToString.Equals("System.Double") Then
+                ElseIf DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(int_SearchColumnIndex).DataType.ToString.Equals("System.Double") Then
                     Tbox_Search.TypeOfContains = Tbox.TypeOfValues.DigitDot
                 Else
                     Tbox_Search.TypeOfContains = Tbox.TypeOfValues.Digit
                 End If
 
-                lbl_SearchField.Text = DataGridView1.Columns.Item(Me.int_SearchColumnIndex).HeaderText
+                lbl_SearchField.Text = DataGridView1.Columns.Item(int_SearchColumnIndex).HeaderText
         End Select
     End Sub
 
@@ -522,36 +522,36 @@ Public Class LookUpForm
 
     Private Function selectedREf() As Boolean
         If DataGridView1.DataSource Is Nothing OrElse DataGridView1.SelectedRows.Count = 0 Then
-            Me.dr = Nothing
+            dr = Nothing
             Return False
         End If
-        Me.dr = CType(DataGridView1.SelectedRows.Item(0).DataBoundItem, DataRowView)
+        dr = CType(DataGridView1.SelectedRows.Item(0).DataBoundItem, DataRowView)
         Return True
     End Function
 
     Private Sub selected()
         If DataGridView1.DataSource Is Nothing OrElse DataGridView1.SelectedRows.Count = 0 Then
-            Me.dr = Nothing
+            dr = Nothing
             Return
         End If
 
-        Me.dr = CType(DataGridView1.SelectedRows(0).DataBoundItem, DataRowView)
+        dr = CType(DataGridView1.SelectedRows(0).DataBoundItem, DataRowView)
 
-        Me.DialogResult = System.Windows.Forms.DialogResult.OK
+        DialogResult = DialogResult.OK
         Close()
     End Sub
 
-    Private Sub LookUpForm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
+    Private Sub LookUpForm_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         If dr Is Nothing Then
-            Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
+            DialogResult = DialogResult.Cancel
         End If
     End Sub
 
-    Private Sub DataGridView1_RiseEnterKey(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs)
+    Private Sub DataGridView1_RiseEnterKey(ByVal sender As Object, ByVal e As KeyEventArgs)
         LookUpForm_KeyDown(sender, e)
     End Sub
 
-    Private Sub DataGridView1_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
+    Private Sub DataGridView1_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
         selected()
     End Sub
 
@@ -565,17 +565,17 @@ Public Class LookUpForm
 
     End Sub
 
-    Private Sub Tbox_Search_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Tbox_Search.TextChanged
-        If Me.DtSource Then
+    Private Sub Tbox_Search_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles Tbox_Search.TextChanged
+        If DtSource Then
             Try
                 Dim count As Integer = DirectCast(DataGridView1.DataSource, DataTable).Rows.Count
                 If (Tbox_Search.Text.Trim = "") Then
                     DirectCast(DataGridView1.DataSource, DataTable).DefaultView.RowFilter = ""
-                ElseIf DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(Me.int_SearchColumnIndex).DataType.ToString.Equals("System.String") Then
-                    DirectCast(DataGridView1.DataSource, DataTable).DefaultView.RowFilter = String.Concat(New String() {"[", DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(Me.int_SearchColumnIndex).ColumnName, "] like '%", Tbox_Search.Text, "%'"})
-                ElseIf DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(Me.int_SearchColumnIndex).DataType.ToString.Equals("System.Int32") _
-                OrElse DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(Me.int_SearchColumnIndex).DataType.ToString.Equals("System.Double") Then
-                    DirectCast(DataGridView1.DataSource, DataTable).DefaultView.RowFilter = ("[" & DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(Me.int_SearchColumnIndex).ColumnName & "] = " & Tbox_Search.Text.Trim)
+                ElseIf DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(int_SearchColumnIndex).DataType.ToString.Equals("System.String") Then
+                    DirectCast(DataGridView1.DataSource, DataTable).DefaultView.RowFilter = String.Concat(New String() {"[", DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(int_SearchColumnIndex).ColumnName, "] like '%", Tbox_Search.Text, "%'"})
+                ElseIf DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(int_SearchColumnIndex).DataType.ToString.Equals("System.Int32") _
+                OrElse DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(int_SearchColumnIndex).DataType.ToString.Equals("System.Double") Then
+                    DirectCast(DataGridView1.DataSource, DataTable).DefaultView.RowFilter = ("[" & DirectCast(DataGridView1.DataSource, DataTable).DefaultView.Table.Columns.Item(int_SearchColumnIndex).ColumnName & "] = " & Tbox_Search.Text.Trim)
                 End If
                 'If (DirectCast(DataGridView1.DataSource, DataTable).Rows.Count > count) Then
                 'Call CalculateWideOfColomn(Me.CreateGraphics)
@@ -587,21 +587,21 @@ Public Class LookUpForm
         Else
             If (Tbox_Search.Text.Trim = "") Then
                 DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).RowFilter = ""
-            ElseIf DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).Table.Columns.Item(Me.int_SearchColumnIndex).DataType.ToString.Equals("System.String") Then
-                DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).RowFilter = ("[" & DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).Table.Columns.Item(Me.int_SearchColumnIndex).ColumnName & "] like '%" & Tbox_Search.Text & "%'")
-            ElseIf DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).Table.Columns.Item(Me.int_SearchColumnIndex).DataType.ToString.Equals("System.Int32") _
-            OrElse DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).Table.Columns.Item(Me.int_SearchColumnIndex).DataType.ToString.Equals("System.Double") Then
-                DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).RowFilter = ("[" & DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).Table.Columns.Item(Me.int_SearchColumnIndex).ColumnName & "] = " & Tbox_Search.Text.Trim)
+            ElseIf DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).Table.Columns.Item(int_SearchColumnIndex).DataType.ToString.Equals("System.String") Then
+                DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).RowFilter = ("[" & DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).Table.Columns.Item(int_SearchColumnIndex).ColumnName & "] like '%" & Tbox_Search.Text & "%'")
+            ElseIf DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).Table.Columns.Item(int_SearchColumnIndex).DataType.ToString.Equals("System.Int32") _
+            OrElse DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).Table.Columns.Item(int_SearchColumnIndex).DataType.ToString.Equals("System.Double") Then
+                DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).RowFilter = ("[" & DirectCast(DirectCast(DataGridView1.DataSource, BindingSource).List, DataView).Table.Columns.Item(int_SearchColumnIndex).ColumnName & "] = " & Tbox_Search.Text.Trim)
             End If
         End If
     End Sub
 
-    Private Sub DataGridView1_ColumnHeaderMouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.ColumnHeaderMouseClick
-        Me.int_SearchColumnIndex = e.ColumnIndex
+    Private Sub DataGridView1_ColumnHeaderMouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.ColumnHeaderMouseClick
+        int_SearchColumnIndex = e.ColumnIndex
         lbl_SearchField.Text = DataGridView1.Columns.Item(e.ColumnIndex).HeaderText
     End Sub
 
-    Private Sub DataGridView1_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DataGridView1.KeyDown
+    Private Sub DataGridView1_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles DataGridView1.KeyDown
         e.Handled = False
     End Sub
 
@@ -611,11 +611,11 @@ Public Class LookUpForm
 
     Public Sub New(ByVal SearchIndex As Integer, ByVal SearchStr As String)
         InitializeComponent()
-        Me.int_SearchColumnIndex = SearchIndex
+        int_SearchColumnIndex = SearchIndex
         InitSearch = SearchStr
     End Sub
 
-    Private Sub Pic_Help_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Pic_Help.Click
+    Private Sub Pic_Help_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Pic_Help.Click
         MessageBoxFa.Show("كاربر گرامي  با زدن دكمه control  ميتوانيد فيلد جستجو را تغيير دهيد", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Tbox_Search.Focus()
     End Sub

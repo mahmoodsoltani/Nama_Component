@@ -54,7 +54,7 @@ Public Class LookUpButton
             _ShowCodeTextBox = value
             tbox_Code.Enabled = Not value
             If value Then
-                btn_LoadLookUp.Size = New Size(Me.Size.Width - tbox_Result.Size.Width, btn_LoadLookUp.Size.Height)
+                btn_LoadLookUp.Size = New Size(Size.Width - tbox_Result.Size.Width, btn_LoadLookUp.Size.Height)
             Else
                 btn_LoadLookUp.Size = New Size(53, btn_LoadLookUp.Size.Height)
             End If
@@ -114,20 +114,20 @@ Public Class LookUpButton
             Return GetSerial
         End Get
         Set(ByVal value As Integer)
-            If Me._LoadBySerial Then
-                Me.LoadBySerial(value)
+            If _LoadBySerial Then
+                LoadBySerial(value)
             Else
-                Me.tbox_Code.Text = value
+                tbox_Code.Text = value
             End If
         End Set
     End Property
 
-    Protected Overrides Sub OnResize(ByVal e As System.EventArgs)
+    Protected Overrides Sub OnResize(ByVal e As EventArgs)
         MyBase.Size = New Drawing.Size(MyBase.Size.Width, 22)
         MyBase.OnResize(e)
     End Sub
 
-    Private Sub LookUpButton_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles MyBase.KeyPress
+    Private Sub LookUpButton_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles MyBase.KeyPress
         'If tbox_Code.Focus() Then
         '    If (Not (e.KeyChar >= Convert.ToChar("0") And e.KeyChar <= Convert.ToChar("9"))) Then
         '        e.Handled = True
@@ -202,8 +202,8 @@ Public Class LookUpButton
         Me.ResultFieldIndex = ResultFieldIndex
         Me.CodeFieldIndex = CodeFieldIndex
         Me.dt = dt
-        Me.HidenField = ShowOrHidenField
-        Me.ShowField = _ShowField
+        HidenField = ShowOrHidenField
+        ShowField = _ShowField
         FormCaption = _FormCaption
     End Sub
 
@@ -214,8 +214,8 @@ Public Class LookUpButton
         Me.ResultFieldIndex = ResultFieldIndex
         Me.CodeFieldIndex = CodeFieldIndex
         Me.dt = dt
-        Me.HidenField = ShowOrHidenField
-        Me.ShowField = _ShowField
+        HidenField = ShowOrHidenField
+        ShowField = _ShowField
         Me.assembly = assembly
         Me.FormName = FormName
         FormCaption = _FormCaption
@@ -230,7 +230,7 @@ Public Class LookUpButton
     End Sub
 
     Public Sub LoadByCodeField()
-        RemoveHandler Me.tbox_Result.TextChanged, New EventHandler(AddressOf tbox_Result_TextChanged)
+        RemoveHandler tbox_Result.TextChanged, New EventHandler(AddressOf tbox_Result_TextChanged)
         If tbox_Code.Text.Length > 0 Then
 
             LK = New LookUpForm()
@@ -256,10 +256,10 @@ Public Class LookUpButton
             End If
             RaiseEvent Finalize_Result(Nothing, Nothing)
         End If
-        AddHandler Me.tbox_Result.TextChanged, New EventHandler(AddressOf tbox_Result_TextChanged)
+        AddHandler tbox_Result.TextChanged, New EventHandler(AddressOf tbox_Result_TextChanged)
     End Sub
 
-    Private Sub btn_LoadLookUp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_LoadLookUp.Click
+    Private Sub btn_LoadLookUp_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_LoadLookUp.Click
         RemoveHandler tbox_Result.TextChanged, New EventHandler(AddressOf tbox_Result_TextChanged)
         RemoveHandler tbox_Code.TextChanged, New EventHandler(AddressOf tbox_Code_TextChanged)
         LK = New LookUpForm
@@ -306,7 +306,7 @@ Public Class LookUpButton
         AddHandler tbox_Code.TextChanged, New EventHandler(AddressOf tbox_Code_TextChanged)
     End Sub
 
-    Private Sub tbox_Result_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_Result.KeyPress
+    Private Sub tbox_Result_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_Result.KeyPress
         If e.KeyChar = ChrW(Keys.Space) Then
             e.Handled = True
 
@@ -366,7 +366,7 @@ Public Class LookUpButton
         End If
     End Sub
 
-    Private Sub LookUpButton_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Enter
+    Private Sub LookUpButton_Enter(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Enter
         If tbox_Code.Enabled Then
             tbox_Code.Focus()
         Else
@@ -374,18 +374,18 @@ Public Class LookUpButton
         End If
     End Sub
 
-    Private Sub tbox_Code_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbox_Code.Enter
+    Private Sub tbox_Code_Enter(ByVal sender As Object, ByVal e As EventArgs) Handles tbox_Code.Enter
         tbox_Code.BackColor = Drawing.Color.FromArgb(&HFF, &HFF, &H88)
     End Sub
 
-    Private Sub tbox_Code_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbox_Code.Leave
+    Private Sub tbox_Code_Leave(ByVal sender As Object, ByVal e As EventArgs) Handles tbox_Code.Leave
         tbox_Code.BackColor = Drawing.Color.White
     End Sub
 
-    Private Sub tbox_Code_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbox_Code.TextChanged
+    Private Sub tbox_Code_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tbox_Code.TextChanged
         RaiseEvent CodeTextChang(sender, e)
         If RiseCodeChange Then
-            RemoveHandler Me.tbox_Result.TextChanged, New EventHandler(AddressOf tbox_Result_TextChanged)
+            RemoveHandler tbox_Result.TextChanged, New EventHandler(AddressOf tbox_Result_TextChanged)
             If tbox_Code.Text.Length > 0 Then
 
                 LK = New LookUpForm()
@@ -411,18 +411,18 @@ Public Class LookUpButton
                 End If
                 RaiseEvent Finalize_Result(sender, e)
             End If
-            AddHandler Me.tbox_Result.TextChanged, New EventHandler(AddressOf tbox_Result_TextChanged)
+            AddHandler tbox_Result.TextChanged, New EventHandler(AddressOf tbox_Result_TextChanged)
         End If
     End Sub
 
-    Private Sub tbox_Code_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles tbox_Code.KeyDown
+    Private Sub tbox_Code_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles tbox_Code.KeyDown
         If e.KeyCode = Keys.PageUp Then
             e.Handled = True
             btn_LoadLookUp_Click(sender, e)
         End If
     End Sub
 
-    Private Sub tbox_Code_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_Code.KeyPress
+    Private Sub tbox_Code_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_Code.KeyPress
 
         'If e.KeyChar = ChrW(Keys.Space) Then
         '    e.Handled = True
@@ -449,7 +449,7 @@ Public Class LookUpButton
 
     End Sub
 
-    Private Sub btn_LoadForm_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_LoadForm.Click
+    Private Sub btn_LoadForm_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_LoadForm.Click
         Try
 
             TryCast(assembly.CreateInstance(FormName), Form).ShowDialog()
@@ -461,9 +461,9 @@ Public Class LookUpButton
         RaiseEvent Finalize_baseForm(sender, e)
     End Sub
 
-    Private Sub tbox_Result_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbox_Result.TextChanged
-        RemoveHandler Me.tbox_Code.TextChanged, New EventHandler(AddressOf tbox_Code_TextChanged)
-        RemoveHandler Me.tbox_Code.TextChanged, New EventHandler(AddressOf tbox_Code_TextChanged)
+    Private Sub tbox_Result_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tbox_Result.TextChanged
+        RemoveHandler tbox_Code.TextChanged, New EventHandler(AddressOf tbox_Code_TextChanged)
+        RemoveHandler tbox_Code.TextChanged, New EventHandler(AddressOf tbox_Code_TextChanged)
         If tbox_Result.Text.Length > 0 Then
             LK = New LookUpForm()
             LK.LoadLookUp(dt, FormCaption, _ShowSrl, ResultFieldIndex, tbox_Result.Text.Trim)
@@ -483,6 +483,6 @@ Public Class LookUpButton
         Else
             tbox_Result.Text = ""
         End If
-        AddHandler Me.tbox_Code.TextChanged, New EventHandler(AddressOf tbox_Code_TextChanged)
+        AddHandler tbox_Code.TextChanged, New EventHandler(AddressOf tbox_Code_TextChanged)
     End Sub
 End Class

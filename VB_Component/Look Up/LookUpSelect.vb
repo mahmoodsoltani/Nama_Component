@@ -52,28 +52,28 @@
         Next
     End Sub
 
-    Private Sub btn_Ok_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Ok.Click
+    Private Sub btn_Ok_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Ok.Click
         For i As Integer = 0 To lstvwINFO.Items.Count - 1
             If lstvwINFO.Items(i).Checked Then
                 ResultArray.Add(lstvwINFO.Items(i).SubItems(1).Text)
             End If
         Next
-        Me.changed = True
+        changed = True
         Close()
     End Sub
 
-    Private Sub LookUpSelect_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub LookUpSelect_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         ResultArray = New System.Collections.ArrayList
     End Sub
 
-    Private Sub LookUpSelect_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+    Private Sub LookUpSelect_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then
-            Me.changed = False
+            changed = False
             Close()
         End If
     End Sub
 
-    Private Sub lstvwINFO_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles lstvwINFO.KeyDown
+    Private Sub lstvwINFO_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles lstvwINFO.KeyDown
         If e.KeyCode = Keys.Enter Then
             btn_Ok.Focus()
         End If

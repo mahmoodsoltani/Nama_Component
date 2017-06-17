@@ -22,11 +22,11 @@ Partial Class TimeSelect
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Min_Hour_Spliter = New System.Windows.Forms.Label
-        Me.Min_Sec_spliter = New System.Windows.Forms.Label
-        Me.txt_Hour = New CS_Component.TextBox
-        Me.txt_Min = New CS_Component.TextBox
-        Me.txt_Sec = New CS_Component.TextBox
+        Me.Min_Hour_Spliter = New System.Windows.Forms.Label()
+        Me.Min_Sec_spliter = New System.Windows.Forms.Label()
+        Me.txt_Hour = New CS_Component.TextBox()
+        Me.txt_Min = New CS_Component.TextBox()
+        Me.txt_Sec = New CS_Component.TextBox()
         Me.SuspendLayout()
         '
         'Min_Hour_Spliter
@@ -102,7 +102,7 @@ Partial Class TimeSelect
         '
         'txt_Sec
         '
-        Me.txt_Sec.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txt_Sec.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.txt_Sec.CheckExistValueInDb = False
         Me.txt_Sec.ColorOnFocus = System.Drawing.Color.Yellow
         Me.txt_Sec.CurrencyUnit = "ریال"

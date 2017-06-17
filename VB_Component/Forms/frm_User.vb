@@ -9,15 +9,15 @@
         InitializeComponent()
     End Sub
 
-    Private Sub frm_User_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frm_User_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
 
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox1.CheckedChanged
+    Private Sub CheckBox1_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles CheckBox1.CheckedChanged
         txt_Password.UseSystemPasswordChar = Not CheckBox1.Checked
     End Sub
 
-    Private Sub CheckBox2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox2.CheckedChanged
+    Private Sub CheckBox2_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles CheckBox2.CheckedChanged
         txt_DupPassword.UseSystemPasswordChar = Not CheckBox2.Checked
     End Sub
 
@@ -69,7 +69,7 @@
         chk_Enabled.Checked = False
     End Sub
 
-    Private Sub frm_User_Shown(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Shown
+    Private Sub frm_User_Shown(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Shown
         Dim dr As DataRow
         dt = VB_Component.BaseDataObject.DataAccess.GetDataTable("sec_Group", "")
         clb_Groups.Items.Clear()

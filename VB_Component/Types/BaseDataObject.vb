@@ -58,7 +58,7 @@ Public Class BaseDataObject
     End Property
 
     Public Overridable Overloads Sub Load(ByVal PrimaryKey As Object)
-        Me.DataRow = obj_DataAccess.GetRow(str_TableName, Convert.ToInt32(PrimaryKey))
+        DataRow = obj_DataAccess.GetRow(str_TableName, Convert.ToInt32(PrimaryKey))
     End Sub
 
     Public Overridable Overloads Sub Load(ByVal Condition As String)

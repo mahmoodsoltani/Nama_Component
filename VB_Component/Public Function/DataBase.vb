@@ -30,7 +30,7 @@ Public Class DataBase
 #End Region
 
 #Region "GetSrl"
-    Public Shared Function GetSrl(ByVal dg As System.Windows.Forms.DataGridView) As String
+    Public Shared Function GetSrl(ByVal dg As DataGridView) As String
         Dim str As New String("")
         Try
             str = dg.CurrentRow.Cells(0).Value

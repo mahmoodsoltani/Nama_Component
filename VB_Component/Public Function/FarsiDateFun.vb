@@ -6,59 +6,59 @@ Public Class FarsiDateFun
     Private pc As Globalization.PersianCalendar
 
     Public Sub New()
-        Me.pc = New PersianCalendar
-        Me.dt = Me.pc.MinSupportedDateTime
+        pc = New PersianCalendar
+        dt = pc.MinSupportedDateTime
     End Sub
 
     Public Sub New(ByVal time As DateTime)
-        Me.pc = New PersianCalendar
-        Me.dt = time
+        pc = New PersianCalendar
+        dt = time
     End Sub
 
     Public Sub New(ByVal persianyear As Integer, ByVal persianmonth As Integer, ByVal persianday As Integer)
-        If (Me.pc Is Nothing) Then
-            Me.pc = New PersianCalendar
+        If (pc Is Nothing) Then
+            pc = New PersianCalendar
         End If
-        Me.dt = Me.pc.ToDateTime(persianyear, persianmonth, persianday, Me.pc.GetHour(Me.pc.MinSupportedDateTime), Me.pc.GetMinute(Me.pc.MinSupportedDateTime), Me.pc.GetSecond(Me.pc.MinSupportedDateTime), CInt(Me.pc.GetMilliseconds(Me.pc.MinSupportedDateTime)), PersianCalendar.PersianEra)
+        dt = pc.ToDateTime(persianyear, persianmonth, persianday, pc.GetHour(pc.MinSupportedDateTime), pc.GetMinute(pc.MinSupportedDateTime), pc.GetSecond(pc.MinSupportedDateTime), CInt(pc.GetMilliseconds(pc.MinSupportedDateTime)), PersianCalendar.PersianEra)
     End Sub
 
     Public Sub New(ByVal persianyear As Integer, ByVal persianmonth As Integer, ByVal persianday As Integer, ByVal hour As Integer, ByVal minute As Integer, ByVal second As Integer, ByVal millisecond As Integer)
-        If (Me.pc Is Nothing) Then
-            Me.pc = New PersianCalendar
+        If (pc Is Nothing) Then
+            pc = New PersianCalendar
         End If
-        Me.dt = Me.pc.ToDateTime(persianyear, persianmonth, persianday, hour, minute, second, millisecond, PersianCalendar.PersianEra)
+        dt = pc.ToDateTime(persianyear, persianmonth, persianday, hour, minute, second, millisecond, PersianCalendar.PersianEra)
     End Sub
 
     Public Function AddDays(ByVal days As Integer) As FarsiDateFun
-        Return New FarsiDateFun(Me.pc.AddDays(Me.dt, days))
+        Return New FarsiDateFun(pc.AddDays(dt, days))
     End Function
 
     Public Function AddHours(ByVal hours As Integer) As FarsiDateFun
-        Return New FarsiDateFun(Me.pc.AddHours(Me.dt, hours))
+        Return New FarsiDateFun(pc.AddHours(dt, hours))
     End Function
 
     Public Function AddMilliseconds(ByVal milliseconds As Double) As FarsiDateFun
-        Return New FarsiDateFun(Me.pc.AddMilliseconds(Me.dt, milliseconds))
+        Return New FarsiDateFun(pc.AddMilliseconds(dt, milliseconds))
     End Function
 
     Public Function AddMinuts(ByVal minutes As Integer) As FarsiDateFun
-        Return New FarsiDateFun(Me.pc.AddMinutes(Me.dt, minutes))
+        Return New FarsiDateFun(pc.AddMinutes(dt, minutes))
     End Function
 
     Public Function AddMonths(ByVal months As Integer) As FarsiDateFun
-        Return New FarsiDateFun(Me.pc.AddMonths(Me.dt, months))
+        Return New FarsiDateFun(pc.AddMonths(dt, months))
     End Function
 
     Public Function AddSeconds(ByVal seconds As Integer) As FarsiDateFun
-        Return New FarsiDateFun(Me.pc.AddSeconds(Me.dt, seconds))
+        Return New FarsiDateFun(pc.AddSeconds(dt, seconds))
     End Function
 
     Public Function AddWeeks(ByVal weeks As Integer) As FarsiDateFun
-        Return New FarsiDateFun(Me.pc.AddWeeks(Me.dt, weeks))
+        Return New FarsiDateFun(pc.AddWeeks(dt, weeks))
     End Function
 
     Public Function AddYears(ByVal years As Integer) As FarsiDateFun
-        Return New FarsiDateFun(Me.pc.AddYears(Me.dt, years))
+        Return New FarsiDateFun(pc.AddYears(dt, years))
     End Function
 
     Private Shared Function Convert2ASCII(ByVal s As String) As String
@@ -101,24 +101,24 @@ Public Class FarsiDateFun
     End Function
 
     Public Overrides Function ToString() As String
-        Return FarsiDateFun.E2F(Me.dt)
+        Return FarsiDateFun.E2F(dt)
     End Function
 
     Public ReadOnly Property [Date]() As String
         Get
-            Return FarsiDateFun.E2F(Me.dt)
+            Return FarsiDateFun.E2F(dt)
         End Get
     End Property
 
     Public ReadOnly Property Day() As Integer
         Get
-            Return Me.pc.GetDayOfMonth(Me.dt)
+            Return pc.GetDayOfMonth(dt)
         End Get
     End Property
 
     Public ReadOnly Property Hour() As Integer
         Get
-            Return Me.pc.GetHour(Me.dt)
+            Return pc.GetHour(dt)
         End Get
     End Property
 
@@ -131,13 +131,13 @@ Public Class FarsiDateFun
 
     Public ReadOnly Property Milliseconds() As Double
         Get
-            Return Me.pc.GetMilliseconds(Me.dt)
+            Return pc.GetMilliseconds(dt)
         End Get
     End Property
 
     Public ReadOnly Property Minute() As Integer
         Get
-            Return Me.pc.GetMinute(Me.dt)
+            Return pc.GetMinute(dt)
         End Get
     End Property
 
@@ -150,7 +150,7 @@ Public Class FarsiDateFun
 
     Public ReadOnly Property Month() As Integer
         Get
-            Return Me.pc.GetMonth(Me.dt)
+            Return pc.GetMonth(dt)
         End Get
     End Property
 
@@ -174,19 +174,19 @@ Public Class FarsiDateFun
 
     Public ReadOnly Property Second() As Integer
         Get
-            Return Me.pc.GetSecond(Me.dt)
+            Return pc.GetSecond(dt)
         End Get
     End Property
 
     Public ReadOnly Property TimeOfDay() As TimeSpan
         Get
-            Return New TimeSpan(Me.dt.Hour, Me.dt.Minute, Me.dt.Second)
+            Return New TimeSpan(dt.Hour, dt.Minute, dt.Second)
         End Get
     End Property
 
     Public ReadOnly Property Year() As Integer
         Get
-            Return Me.pc.GetYear(Me.dt)
+            Return pc.GetYear(dt)
         End Get
     End Property
 End Class

@@ -2,14 +2,14 @@
 
 Public Class PictureGetter
 
-    Private Sub lnk_clear_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnk_clear.LinkClicked
+    Private Sub lnk_clear_LinkClicked(ByVal sender As Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnk_clear.LinkClicked
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PictureGetter))
         PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
     End Sub
 
-    Private Sub lnk_SelectPic_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnk_SelectPic.LinkClicked
+    Private Sub lnk_SelectPic_LinkClicked(ByVal sender As Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnk_SelectPic.LinkClicked
         Try
-            If OpenFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
+            If OpenFileDialog1.ShowDialog = DialogResult.OK Then
                 Dim p As New Bitmap(OpenFileDialog1.FileName)
 
                 If _SizeOfImage <> 0 Then
@@ -58,7 +58,7 @@ Public Class PictureGetter
 
     Public Event ImageClicked As EventHandler
 
-    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PictureBox1.Click
         RaiseEvent ImageClicked(Nothing, Nothing)
     End Sub
 End Class

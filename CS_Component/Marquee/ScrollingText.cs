@@ -1,17 +1,14 @@
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Data;
 using System.Windows.Forms;
 
 namespace CS_Component
 {
-	/// <summary>
-	/// Summary description for CS_Component.
-	/// </summary>
-	[
+    /// <summary>
+    /// Summary description for CS_Component.
+    /// </summary>
+    [
 	ToolboxBitmapAttribute(typeof(CS_Component.ScrollingText), "ScrollingText.bmp"),
 	DefaultEvent("TextClicked")
 	]

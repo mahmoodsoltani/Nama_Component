@@ -30,40 +30,40 @@ Public Class Tbox
     <Category("Nama"), Description("Set the message to displays in error messages"), Browsable(True)> _
     Public Property ErrorMessage() As String
         Get
-            Return Me._ErrorMessage
+            Return _ErrorMessage
         End Get
         Set(ByVal value As String)
-            Me._ErrorMessage = value
+            _ErrorMessage = value
         End Set
     End Property
 
     <Category("Nama"), Description(""), Browsable(True)> _
     Public Property TypeOfContains() As TypeOfValues
         Get
-            Return Me._Type
+            Return _Type
         End Get
         Set(ByVal value As TypeOfValues)
-            Me._Type = value
+            _Type = value
         End Set
     End Property
 
     <Category("Nama"), Description("Check the length in Validation function"), Browsable(True)> _
     Public Property CheckLength() As Boolean
         Get
-            Return Me._CheckLength
+            Return _CheckLength
         End Get
         Set(ByVal value As Boolean)
-            Me._CheckLength = value
+            _CheckLength = value
         End Set
     End Property
 
     <Category("Nama"), Description("adding the padding to the text"), Browsable(True)> _
     Public Property TextPading() As Boolean
         Get
-            Return Me._TextPading
+            Return _TextPading
         End Get
         Set(ByVal value As Boolean)
-            Me._TextPading = value
+            _TextPading = value
         End Set
     End Property
 
@@ -87,10 +87,10 @@ Public Class Tbox
         End Set
     End Property
 
-    Private Sub Tbox_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
+    Private Sub Tbox_GotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.GotFocus
 
         If _Type = TypeOfValues.Digit Or _Type = TypeOfValues.DigitDot Then
-            Me.TextAlign = HorizontalAlignment.Center
+            TextAlign = HorizontalAlignment.Center
         Else
             If InputLanguage.CurrentInputLanguage.Culture.ToString() = "fa-IR" Then
                 MyBase.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -99,7 +99,7 @@ Public Class Tbox
             End If
         End If
 
-        Me.BackColor = _cololOnFocus
+        BackColor = _cololOnFocus
         If TextPading Then
             ApplyPading()
         End If
@@ -132,21 +132,21 @@ Public Class Tbox
 
         If _Type = TypeOfValues.DigitDot Or _Type = TypeOfValues.Digit Then
             If e.KeyChar = Convert.ToChar(Keys.Back) AndAlso DirectCast(sender, TextBox).Text.Trim <> "" Then
-                Dim i As Integer = Me.SelectionStart
+                Dim i As Integer = SelectionStart
                 If SelectionStart <> 0 Then
-                    DirectCast(sender, TextBox).Text = DirectCast(sender, TextBox).Text.Remove(Me.SelectionStart - 1, 1)
-                    Me.SelectionStart = i - 1
+                    DirectCast(sender, TextBox).Text = DirectCast(sender, TextBox).Text.Remove(SelectionStart - 1, 1)
+                    SelectionStart = i - 1
                 End If
             End If
         End If
     End Sub
 
-    Private Sub Tbox_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.LostFocus
-        Me.BackColor = Drawing.Color.White
+    Private Sub Tbox_LostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles Me.LostFocus
+        BackColor = Drawing.Color.White
         Try
-            If (_TextPading And Me.TypeOfContains = TypeOfValues.Digit And Me.Text.Trim <> "") Then
-                Dim StrFormat As String = "{0:D" + Me.MaxLength.ToString + "}"
-                Me.Text = String.Format(StrFormat, Long.Parse(Me.Text.Trim))
+            If (_TextPading And TypeOfContains = TypeOfValues.Digit And Text.Trim <> "") Then
+                Dim StrFormat As String = "{0:D" + MaxLength.ToString + "}"
+                Text = String.Format(StrFormat, Long.Parse(Text.Trim))
             End If
         Catch ex As Exception
         End Try
@@ -183,22 +183,22 @@ Public Class Tbox
         Return Txt.Replace(",", "")
     End Function
 
-    Private Sub Tbox_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.TextChanged
+    Private Sub Tbox_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles Me.TextChanged
         If _Type = TypeOfValues.Currency Then
             Try
                 Dim i As Integer = 0
-                Dim p As Integer = Me.Text.Length
+                Dim p As Integer = Text.Length
                 Do While (p > 0)
                     p -= 1
-                    If (((i <> 3) AndAlso (Me.Text.Chars(p) = ","c)) OrElse (((Me.Text.Chars(p) > "9"c) OrElse (Me.Text.Chars(p) < "0"c)) AndAlso (Me.Text.Chars(p) <> ","c))) Then
-                        Me.Text = Me.Text.Remove(p, 1)
-                        MyBase.SelectionStart = Me.Text.Length
+                    If (((i <> 3) AndAlso (Text.Chars(p) = ","c)) OrElse (((Text.Chars(p) > "9"c) OrElse (Text.Chars(p) < "0"c)) AndAlso (Text.Chars(p) <> ","c))) Then
+                        Text = Text.Remove(p, 1)
+                        MyBase.SelectionStart = Text.Length
                     Else
                         If (i = 3) Then
                             i = -1
-                            If (Me.Text.Chars(p) <> ","c) Then
-                                Me.Text = Me.Text.Insert((p + 1), ",")
-                                MyBase.SelectionStart = Me.Text.Length
+                            If (Text.Chars(p) <> ","c) Then
+                                Text = Text.Insert((p + 1), ",")
+                                MyBase.SelectionStart = Text.Length
                             End If
                         End If
                         i += 1

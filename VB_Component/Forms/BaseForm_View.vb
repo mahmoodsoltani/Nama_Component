@@ -2,16 +2,16 @@
 
 Public Class BaseForm_View
 
-    Private _GridView As System.Windows.Forms.DataGridView
+    Private _GridView As DataGridView
 
     Private _InfoForm As BaseForm
 
     <Category("Nama"), Description("DataGridView"), Browsable(True)> _
-    Public Property DataGridView() As System.Windows.Forms.DataGridView
+    Public Property DataGridView() As DataGridView
         Get
             Return _GridView
         End Get
-        Set(ByVal value As System.Windows.Forms.DataGridView)
+        Set(ByVal value As DataGridView)
             _GridView = value
         End Set
     End Property
@@ -24,20 +24,20 @@ Public Class BaseForm_View
         Set(ByVal value As BaseForm)
             _InfoForm = value
             If (Not _InfoForm Is Nothing) Then
-                _InfoForm.DataObject = Me.DataObject
+                _InfoForm.DataObject = DataObject
             End If
         End Set
     End Property
 
-    Private Sub btn_New_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_New.Click
+    Private Sub btn_New_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_New.Click
         NewRecord()
     End Sub
 
-    Private Sub btn_Edit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Edit.Click
+    Private Sub btn_Edit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Edit.Click
         Edit()
     End Sub
 
-    Private Sub btn_Delete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Delete.Click
+    Private Sub btn_Delete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Delete.Click
         If (_GridView Is Nothing) Then Return
         Dim int_Srl As Integer = FindSrl(_GridView, FindSerialPromtType.Delete, True, False)
         If (int_Srl = -1) Then Return
@@ -57,11 +57,11 @@ Public Class BaseForm_View
         _InfoForm.ShowDialog()
     End Sub
 
-    Private Sub btn_Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Cancel.Click
+    Private Sub btn_Cancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Cancel.Click
         Close()
     End Sub
 
-    Private Sub BaseForm_View_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub BaseForm_View_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         If (DesignMode) Then Return
         NewRecord()
         If (Not _GridView Is Nothing) Then

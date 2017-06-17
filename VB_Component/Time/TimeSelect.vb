@@ -190,7 +190,7 @@ Public Class TimeSelect
     '    End If
     'End Sub
 
-    Public Overridable Sub NDU_Min_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_Min.ValueChanged, txt_Min.TextChanged
+    Public Overridable Sub NDU_Min_ValueChanged(ByVal sender As Object, ByVal e As EventArgs) Handles txt_Min.ValueChanged, txt_Min.TextChanged
         If txt_Min.Text.Length > 0 Then
             Minutes = txt_Min.Value
             RaiseEvent Finalize_Result(Nothing, Nothing)
@@ -206,7 +206,7 @@ Public Class TimeSelect
         End If
     End Sub
 
-    Public Overridable Sub NDU_Hour_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_Hour.ValueChanged, txt_Hour.TextChanged
+    Public Overridable Sub NDU_Hour_ValueChanged(ByVal sender As Object, ByVal e As EventArgs) Handles txt_Hour.ValueChanged, txt_Hour.TextChanged
         If txt_Hour.Text.Length > 0 Then
             Hour = txt_Hour.Value
             RaiseEvent Finalize_Result(Nothing, Nothing)
@@ -224,7 +224,7 @@ Public Class TimeSelect
         End If
     End Sub
 
-    Public Overridable Sub NDU_Second_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_Sec.ValueChanged, txt_Sec.TextChanged
+    Public Overridable Sub NDU_Second_ValueChanged(ByVal sender As Object, ByVal e As EventArgs) Handles txt_Sec.ValueChanged, txt_Sec.TextChanged
         If txt_Sec.Text.Length > 0 Then
             Second = txt_Sec.Value
             RaiseEvent Finalize_Result(Nothing, Nothing)
@@ -237,7 +237,7 @@ Public Class TimeSelect
         Second = "00"
     End Sub
 
-    Private Sub TimeSelect_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub TimeSelect_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         InitialSecond()
     End Sub
 
@@ -248,31 +248,31 @@ Public Class TimeSelect
         Min_Hour_Spliter.Anchor = AnchorStyles.None
         Min_Sec_spliter.Anchor = AnchorStyles.None
         If _ShowSecond Then
-            If Me.Width < 110 Then
-                Me.Width = 110
+            If Width < 110 Then
+                Width = 110
             End If
 
             Min_Sec_spliter.Visible = True
             txt_Sec.Visible = True
             txt_Sec.TabStop = True
 
-            txt_Sec.Location = New Point(Me.Width - 30, 0)
-            Min_Sec_spliter.Location = New Point(Me.Width - 40, 0)
-            txt_Min.Location = New Point(Me.Width - 70, 0)
-            Min_Hour_Spliter.Location = New Point(Me.Width - 80, 0)
-            txt_Hour.Width = Me.Width - 80
+            txt_Sec.Location = New Point(Width - 30, 0)
+            Min_Sec_spliter.Location = New Point(Width - 40, 0)
+            txt_Min.Location = New Point(Width - 70, 0)
+            Min_Hour_Spliter.Location = New Point(Width - 80, 0)
+            txt_Hour.Width = Width - 80
         Else
-            txt_Hour.Width = Me.Width - 40
-            If Me.Width < 70 Then
-                Me.Width = 70
+            txt_Hour.Width = Width - 40
+            If Width < 70 Then
+                Width = 70
             End If
 
             txt_Sec.Visible = False
             Min_Sec_spliter.Visible = False
             txt_Sec.TabStop = False
 
-            txt_Min.Location = New Point(Me.Width - 30, 0)
-            Min_Hour_Spliter.Location = New Point(Me.Width - 40, 0)
+            txt_Min.Location = New Point(Width - 30, 0)
+            Min_Hour_Spliter.Location = New Point(Width - 40, 0)
         End If
         txt_Hour.Location = New Point(0, 0)
         txt_Sec.Anchor = AnchorStyles.Right
@@ -304,51 +304,51 @@ Public Class TimeSelect
         End Try
     End Sub
 
-    Private Sub txt_Min_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txt_Min.KeyUp, txt_Hour.KeyUp
+    Private Sub txt_Min_KeyUp(ByVal sender As Object, ByVal e As KeyEventArgs) Handles txt_Min.KeyUp, txt_Hour.KeyUp
         Try
             If txt_Min.Value.ToString().Length = 2 And _ShowSecond And CInt(txt_Min.Value) <> 0 And Not e.KeyCode = Keys.Tab And Not e.KeyCode = Keys.ShiftKey And Not e.KeyCode = Keys.Enter Then
-                Me.txt_Sec.Focus()
+                txt_Sec.Focus()
             ElseIf txt_Min.Value.ToString().Length >= 2 Then
             End If
         Catch
         End Try
     End Sub
 
-    Private Sub txt_Hour_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txt_Hour.KeyUp
+    Private Sub txt_Hour_KeyUp(ByVal sender As Object, ByVal e As KeyEventArgs) Handles txt_Hour.KeyUp
         Try
             If txt_Hour.Value.ToString().Length = txt_Hour.MaxLength And CInt(txt_Hour.Value) <> 0 And Not e.KeyCode = Keys.Tab And Not e.KeyCode = Keys.ShiftKey And Not e.KeyCode = Keys.Enter Then
-                Me.txt_Min.Focus()
+                txt_Min.Focus()
             End If
         Catch
         End Try
     End Sub
 
-    Private Sub TimeSelect_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Enter
+    Private Sub TimeSelect_Enter(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Enter
         txt_Hour.Focus()
     End Sub
 
-    Private Sub txt_Hour_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Hour.KeyPress
+    Private Sub txt_Hour_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Hour.KeyPress
         If e.KeyChar = ChrW(Keys.Enter) Then
             txt_Min.Focus()
         End If
     End Sub
 
-    Private Sub txt_Min_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles txt_Min.MouseDown
+    Private Sub txt_Min_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles txt_Min.MouseDown
         DirectCast(sender, CS_Component.TextBox).Focus()
     End Sub
 
-    Private Sub txt_Sec_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles txt_Sec.MouseDown
+    Private Sub txt_Sec_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles txt_Sec.MouseDown
         DirectCast(sender, CS_Component.TextBox).Focus()
     End Sub
 
-    Private Sub TimeSelect_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+    Private Sub TimeSelect_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Enter Then
             If txt_Hour.Focused Then
                 txt_Min.Focus()
             ElseIf txt_Min.Focus And _ShowSecond Then
                 txt_Sec.Focus()
             Else
-                Me.ProcessTabKey(True)
+                ProcessTabKey(True)
             End If
         End If
     End Sub

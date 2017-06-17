@@ -46,79 +46,79 @@ Public Class FaReportViewer
         End Get
     End Property
 
-    Private Sub btn_FirstPage_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_FirstPage.Click
+    Private Sub btn_FirstPage_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_FirstPage.Click
         CrpViewer.ShowFirstPage()
     End Sub
 
-    Private Sub btn_PerPage_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_PerPage.Click
+    Private Sub btn_PerPage_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_PerPage.Click
         CrpViewer.ShowPreviousPage()
     End Sub
 
-    Private Sub btn_NextPage_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_NextPage.Click
+    Private Sub btn_NextPage_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_NextPage.Click
         CrpViewer.ShowNextPage()
     End Sub
 
-    Private Sub btn_EndPage_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_EndPage.Click
+    Private Sub btn_EndPage_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_EndPage.Click
         CrpViewer.ShowLastPage()
     End Sub
 
-    Public Sub btn_Print_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Print.Click
+    Public Sub btn_Print_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Print.Click
         CrpViewer.PrintReport()
     End Sub
 
-    Private Sub Btb_Exporrt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Btb_Exporrt.Click
+    Private Sub Btb_Exporrt_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Btb_Exporrt.Click
         CrpViewer.ExportReport()
     End Sub
 
-    Private Sub ToolStripMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem2.Click
+    Private Sub ToolStripMenuItem2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripMenuItem2.Click
         Btn_Zoom.Text = ToolStripMenuItem2.Text
         CrpViewer.Zoom(Convert.ToInt32(25))
         tls_Zoom.Text = ToolStripMenuItem2.Text
     End Sub
 
-    Private Sub ToolStripMenuItem3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem3.Click
+    Private Sub ToolStripMenuItem3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripMenuItem3.Click
         Btn_Zoom.Text = ToolStripMenuItem2.Text
         CrpViewer.Zoom(Convert.ToInt32(50))
         tls_Zoom.Text = ToolStripMenuItem3.Text
     End Sub
 
-    Private Sub ToolStripMenuItem4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem4.Click
+    Private Sub ToolStripMenuItem4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripMenuItem4.Click
         Btn_Zoom.Text = ToolStripMenuItem2.Text
         CrpViewer.Zoom(Convert.ToInt32(100))
         tls_Zoom.Text = ToolStripMenuItem4.Text
     End Sub
 
-    Private Sub ToolStripMenuItem5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem5.Click
+    Private Sub ToolStripMenuItem5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripMenuItem5.Click
         Btn_Zoom.Text = ToolStripMenuItem2.Text
         CrpViewer.Zoom(Convert.ToInt32(125))
         tls_Zoom.Text = ToolStripMenuItem5.Text
     End Sub
 
-    Private Sub ToolStripMenuItem6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem6.Click
+    Private Sub ToolStripMenuItem6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripMenuItem6.Click
         Btn_Zoom.Text = ToolStripMenuItem2.Text
         CrpViewer.Zoom(Convert.ToInt32(150))
         tls_Zoom.Text = ToolStripMenuItem6.Text
     End Sub
 
-    Private Sub ToolStripMenuItem7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem7.Click
+    Private Sub ToolStripMenuItem7_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripMenuItem7.Click
         Btn_Zoom.Text = ToolStripMenuItem2.Text
         CrpViewer.Zoom(Convert.ToInt32(200))
         tls_Zoom.Text = ToolStripMenuItem7.Text
     End Sub
 
-    Private Sub ToolStripMenuItem8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem8.Click
+    Private Sub ToolStripMenuItem8_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripMenuItem8.Click
         Btn_Zoom.Text = ToolStripMenuItem2.Text
         CrpViewer.Zoom(Convert.ToInt32(300))
         tls_Zoom.Text = ToolStripMenuItem8.Text
     End Sub
 
-    Private Sub ToolStripMenuItem9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem9.Click
+    Private Sub ToolStripMenuItem9_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripMenuItem9.Click
         Btn_Zoom.Text = ToolStripMenuItem2.Text
         CrpViewer.Zoom(Convert.ToInt32(400))
         tls_Zoom.Text = ToolStripMenuItem9.Text
     End Sub
 
-    Private Sub cmbox_Zoom_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cmb_Search.KeyDown
+    Private Sub cmbox_Zoom_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles cmb_Search.KeyDown
         If (e.KeyCode = Keys.Return) Then
             CrpViewer.SearchForText(cmb_Search.Text)
             Dim index As Integer = cmb_Search.FindString(cmb_Search.Text)
@@ -129,7 +129,7 @@ Public Class FaReportViewer
         End If
     End Sub
 
-    Private Sub Btn_Zoom_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Btn_Zoom.Click
+    Private Sub Btn_Zoom_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Btn_Zoom.Click
         Try
             Btn_Zoom.Text = "100%"
             CrpViewer.Zoom(Convert.ToInt32(100))
@@ -180,7 +180,7 @@ Public Class FaReportViewer
         
     End Sub
 
-    Private Sub FaReportViewer_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub FaReportViewer_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         'If VB_Component.Windows.ArrayOfString("temp") Then
         '    Me.Dispose()
         'End If
@@ -193,7 +193,7 @@ Public Class FaReportViewer
         'CrystalHelper.ReplaceReportName(Me.CrpViewer, "MainReport", "نمايش گزارش")
     End Sub
 
-    Private Sub CrpViewer_Navigate(ByVal source As System.Object, ByVal e As CrystalDecisions.Windows.Forms.NavigateEventArgs) Handles CrpViewer.Navigate
+    Private Sub CrpViewer_Navigate(ByVal source As Object, ByVal e As CrystalDecisions.Windows.Forms.NavigateEventArgs) Handles CrpViewer.Navigate
         If FindTotalPageh Then
             tls_TotalPage.Text = e.NewPageNumber
             btn_PerPage.Enabled = False
@@ -226,7 +226,7 @@ Public Class FaReportViewer
         End If
     End Sub
 
-    Private Sub btn_Refresh_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Refresh.Click
+    Private Sub btn_Refresh_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Refresh.Click
         Try
             If String.IsNullOrEmpty(cmb_OrderField.Text) Then
                 Return
@@ -254,7 +254,7 @@ Public Class FaReportViewer
         End Try
     End Sub
 
-    Private Sub بازگردانيگزارشبهاطلاعاتاوليهToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles بازگردانيگزارشبهاطلاعاتاوليهToolStripMenuItem.Click
+    Private Sub بازگردانيگزارشبهاطلاعاتاوليهToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles بازگردانيگزارشبهاطلاعاتاوليهToolStripMenuItem.Click
         If MessageBoxFa.Show("مايل به بازگشت اطلاعات گزارش به حالت اوليه ( حذف شرط گزارش ) هستيد؟", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
             Return
         End If
@@ -282,7 +282,7 @@ Public Class FaReportViewer
         End If
     End Sub
 
-    Private Sub ايجادفرمولشرطToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ايجادفرمولشرطToolStripMenuItem.Click
+    Private Sub ايجادفرمولشرطToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ايجادفرمولشرطToolStripMenuItem.Click
         If ReportDataview Is Nothing Then
             MessageBoxFa.Show("data not seted")
         Else

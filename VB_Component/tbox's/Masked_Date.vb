@@ -54,7 +54,7 @@ Public Class Masked_Date
         Set(ByVal value As Boolean)
             _Read_Only = value
             If _Read_Only Then
-                Me.BackColor = Drawing.SystemColors.Info
+                BackColor = Drawing.SystemColors.Info
                 tbox_Mah.BackColor = Drawing.SystemColors.Info
                 tbox_roz.BackColor = Drawing.SystemColors.Info
                 tbox_Sal.BackColor = Drawing.SystemColors.Info
@@ -73,7 +73,7 @@ Public Class Masked_Date
                 Label2.Enabled = False
                 Label3.Enabled = False
             Else
-                Me.BackColor = Drawing.SystemColors.Window
+                BackColor = Drawing.SystemColors.Window
                 tbox_Mah.BackColor = Drawing.SystemColors.Window
                 tbox_roz.BackColor = Drawing.SystemColors.Window
                 tbox_Sal.BackColor = Drawing.SystemColors.Window
@@ -127,22 +127,22 @@ Public Class Masked_Date
     Private Sub GoFocus(ByVal GoForward As Boolean)
         If GoForward Then
             Try
-                If DirectCast(Me.ActiveControl, System.Windows.Forms.TextBox).Name = tbox_roz.Name Then
+                If DirectCast(ActiveControl, System.Windows.Forms.TextBox).Name = tbox_roz.Name Then
                     Exit Sub
-                ElseIf DirectCast(Me.ActiveControl, System.Windows.Forms.TextBox).Name = tbox_Mah.Name Then
+                ElseIf DirectCast(ActiveControl, System.Windows.Forms.TextBox).Name = tbox_Mah.Name Then
                     tbox_roz.Focus()
-                ElseIf DirectCast(Me.ActiveControl, System.Windows.Forms.TextBox).Name = tbox_Sal.Name Then
+                ElseIf DirectCast(ActiveControl, System.Windows.Forms.TextBox).Name = tbox_Sal.Name Then
                     tbox_Mah.Focus()
                 End If
             Catch
             End Try
         Else
             Try
-                If DirectCast(Me.ActiveControl, System.Windows.Forms.TextBox).Name = tbox_roz.Name Then
+                If DirectCast(ActiveControl, System.Windows.Forms.TextBox).Name = tbox_roz.Name Then
                     tbox_Mah.Focus()
-                ElseIf DirectCast(Me.ActiveControl, System.Windows.Forms.TextBox).Name = tbox_Mah.Name Then
+                ElseIf DirectCast(ActiveControl, System.Windows.Forms.TextBox).Name = tbox_Mah.Name Then
                     tbox_Sal.Focus()
-                ElseIf DirectCast(Me.ActiveControl, System.Windows.Forms.TextBox).Name = tbox_Sal.Name Then
+                ElseIf DirectCast(ActiveControl, System.Windows.Forms.TextBox).Name = tbox_Sal.Name Then
                     Exit Sub
                 End If
             Catch
@@ -150,7 +150,7 @@ Public Class Masked_Date
         End If
     End Sub
 
-    Private Sub tbox_roz_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles tbox_roz.KeyDown, tbox_Sal.KeyDown, tbox_Mah.KeyDown
+    Private Sub tbox_roz_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles tbox_roz.KeyDown, tbox_Sal.KeyDown, tbox_Mah.KeyDown
         If e.KeyCode = Keys.Left Then
             GoFocus(False)
         ElseIf e.KeyCode = Keys.Right Then
@@ -182,7 +182,7 @@ Public Class Masked_Date
         End If
     End Sub
 
-    Private Sub tbox_roz_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_roz.KeyPress, tbox_Sal.KeyPress, tbox_Mah.KeyPress
+    Private Sub tbox_roz_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_roz.KeyPress, tbox_Sal.KeyPress, tbox_Mah.KeyPress
         If (Not (e.KeyChar >= Convert.ToChar("0") And e.KeyChar <= Convert.ToChar("9"))) Then
             e.Handled = True
         End If
@@ -197,7 +197,7 @@ Public Class Masked_Date
         End If
     End Sub
 
-    Private Sub tbox_roz_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbox_roz.Enter, tbox_Sal.Enter, tbox_Mah.Enter
+    Private Sub tbox_roz_Enter(ByVal sender As Object, ByVal e As EventArgs) Handles tbox_roz.Enter, tbox_Sal.Enter, tbox_Mah.Enter
         If DirectCast(sender, System.Windows.Forms.TextBox).Text.Replace(" ", "") = "" Then
             DirectCast(sender, System.Windows.Forms.TextBox).Text = ""
         Else
@@ -216,7 +216,7 @@ Public Class Masked_Date
         Dim dt As String
         Dim fmt As String = " مثال :" & " 1362/04/13 "
 
-        dt = Trim(Me.Text)
+        dt = Trim(Text)
 
         i_yy = Val(Mid(dt, 1, 4))
         If i_yy < 1300 Or i_yy > 2500 Then
@@ -251,13 +251,13 @@ Public Class Masked_Date
         Return True
     End Function
 
-    Private Sub Masked_Date_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Leave
+    Private Sub Masked_Date_Leave(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Leave
         ValidateRozMah()
     End Sub
 
     Dim temp_Txt_roz As String = ""
 
-    Private Sub tbox_roz_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbox_roz.Leave
+    Private Sub tbox_roz_Leave(ByVal sender As Object, ByVal e As EventArgs) Handles tbox_roz.Leave
         If Val(tbox_roz.Text) > 31 Or Val(tbox_roz.Text) <= 0 Then
             ' ErrorProvider1.SetError(Me, "روز در تاريخ به طور صحيح وارد نشده")
         Else
@@ -266,7 +266,7 @@ Public Class Masked_Date
         ValidateRozMah()
     End Sub
 
-    Private Sub tbox_Mah_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbox_Mah.Leave
+    Private Sub tbox_Mah_Leave(ByVal sender As Object, ByVal e As EventArgs) Handles tbox_Mah.Leave
         If Val(tbox_Mah.Text) > 12 Or Val(tbox_Mah.Text) <= 0 Then
             'ErrorProvider1.SetError(Me, "ماه در تاريخ به طور صحيح وارد نشده")
         Else
@@ -294,7 +294,7 @@ Public Class Masked_Date
         End If
     End Sub
 
-    Private Sub tbox_roz_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbox_roz.TextChanged
+    Private Sub tbox_roz_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tbox_roz.TextChanged
         If DirectCast(sender, System.Windows.Forms.TextBox).Text.Trim.Length = 2 Then
             RaiseEvent TarikhChange(Me, New EventArgs)
             tbox_Mah.TabStop = True
@@ -307,7 +307,7 @@ Public Class Masked_Date
         tbox_roz.Text = ""
     End Sub
 
-    Private Sub tbox_Mah_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbox_Mah.TextChanged
+    Private Sub tbox_Mah_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tbox_Mah.TextChanged
         Select Case DirectCast(sender, System.Windows.Forms.TextBox).Text.Trim.Length
             Case 1
                 If Integer.Parse(DirectCast(sender, System.Windows.Forms.TextBox).Text) > 1 Then
@@ -322,7 +322,7 @@ Public Class Masked_Date
         End Select
     End Sub
 
-    Private Sub tbox_Sal_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbox_Sal.TextChanged
+    Private Sub tbox_Sal_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tbox_Sal.TextChanged
         If DirectCast(sender, System.Windows.Forms.TextBox).Text.Trim.Length = 2 Then
             RaiseEvent TarikhChange(Me, New EventArgs)
         End If

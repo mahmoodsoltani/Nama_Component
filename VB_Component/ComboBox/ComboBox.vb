@@ -53,21 +53,21 @@ Public Class ComboBox
     <Category("Nama"), Description("Open ComboBox On Got Focus"), Browsable(True)> _
     Public Property OpenOnFoucus() As Boolean
         Get
-            Return Me._OpenOnFoucus
+            Return _OpenOnFoucus
         End Get
         Set(ByVal value As Boolean)
-            Me._OpenOnFoucus = value
+            _OpenOnFoucus = value
         End Set
     End Property
 
-    Protected Overrides Sub OnGotFocus(ByVal e As System.EventArgs)
+    Protected Overrides Sub OnGotFocus(ByVal e As EventArgs)
         If _OpenOnFoucus Then
-            Me.DroppedDown = True
+            DroppedDown = True
         End If
         MyBase.OnGotFocus(e)
     End Sub
 
-    Protected Overrides Sub OnKeyDown(ByVal e As System.Windows.Forms.KeyEventArgs)
+    Protected Overrides Sub OnKeyDown(ByVal e As KeyEventArgs)
         Dim s As Integer = e.KeyCode
     End Sub
 

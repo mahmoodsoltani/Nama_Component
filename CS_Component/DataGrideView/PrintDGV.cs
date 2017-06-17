@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Collections;
-using System.Data;
-using System.Text;
 
 namespace CS_Component
 {

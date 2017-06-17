@@ -17,10 +17,10 @@ Public Class frm_FormControls
         End Set
     End Property
 
-    Private Sub frm_FormControls_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frm_FormControls_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         GetFormsName()
         lst_SecControls = New SecurityControls
-        Dim Dr As SqlDataReader = VB_Component.BaseDataObject.DataAccess.ExecReader("SELECT * FROM [sec_windowscontrol] WHERE Srl_Role=" + Me.Tag.ToString())
+        Dim Dr As SqlDataReader = VB_Component.BaseDataObject.DataAccess.ExecReader("SELECT * FROM [sec_windowscontrol] WHERE Srl_Role=" + Tag.ToString())
         While Dr.Read
             Dim Sc As New SecurityControl
             Sc.ControlName = Dr("ControlName")
@@ -52,7 +52,7 @@ Public Class frm_FormControls
         Next
     End Sub
 
-    Private Sub DataGridView1_SelectionChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DataGridView1.SelectionChanged
+    Private Sub DataGridView1_SelectionChanged(ByVal sender As Object, ByVal e As EventArgs) Handles DataGridView1.SelectionChanged
         If (DataGridView1.CurrentRow Is Nothing) Then Return
         If (DataGridView1.CurrentRow.Tag Is Nothing) Then Return
         TreeView1.Nodes.Clear()
@@ -110,7 +110,7 @@ Public Class frm_FormControls
     End Sub
 
 
-    Private Sub TreeView1_AfterSelect(ByVal sender As System.Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeView1.AfterSelect
+    Private Sub TreeView1_AfterSelect(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeView1.AfterSelect
         If (e.Node Is Nothing) Then Panel1.Visible = False
         'TreeView1.Controls.Add(Panel1)
         RemoveHandler chk_Disabled.CheckedChanged, AddressOf chk_Disabled_CheckedChanged
@@ -134,7 +134,7 @@ Public Class frm_FormControls
         AddHandler chk_Invisible.CheckedChanged, AddressOf chk_Disabled_CheckedChanged
     End Sub
 
-    Private Sub chk_Disabled_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chk_Disabled.CheckedChanged, chk_Invisible.CheckedChanged
+    Private Sub chk_Disabled_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chk_Disabled.CheckedChanged, chk_Invisible.CheckedChanged
         Dim sc As SecurityControl = Nothing
         If (TypeOf (TreeView1.SelectedNode.Tag) Is Control) Then
             sc = lst_SecControls.GetItem(CType(TreeView1.SelectedNode.Tag, Control).Name, CType(DataGridView1.CurrentRow.Tag, Form).Name)
@@ -156,17 +156,17 @@ Public Class frm_FormControls
         sc.Type = TreeView1.SelectedNode.Tag.GetType().Name
     End Sub
 
-    Private Sub btn_Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Cancel.Click
+    Private Sub btn_Cancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Cancel.Click
         Close()
     End Sub
 
-    Private Sub btn_Continue_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Continue.Click
+    Private Sub btn_Continue_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Continue.Click
         'VB_Component.BaseDataObject.DataAccess.Delete("sec_WindowsControl", "Srl_Role=" + Me.Tag.ToString())
         Dim dr As DataRow
         For Each sc As SecurityControl In lst_SecControls
             If (sc.Srl = 0) Then
                 dr = VB_Component.BaseDataObject.DataAccess.NewRow("sec_WindowsControl")
-                dr("Srl_Role") = CType(Me.Tag, Integer)
+                dr("Srl_Role") = CType(Tag, Integer)
                 dr("ControlName") = sc.ControlName
                 dr("Disable") = sc.Disabled
                 dr("Invisible") = sc.Invisible
@@ -175,7 +175,7 @@ Public Class frm_FormControls
                 VB_Component.BaseDataObject.DataAccess.Insert(dr, False)
             Else
                 dr = VB_Component.BaseDataObject.DataAccess.GetRow("sec_WindowsControl", sc.Srl)
-                dr("Srl_Role") = CType(Me.Tag, Integer)
+                dr("Srl_Role") = CType(Tag, Integer)
                 dr("ControlName") = sc.ControlName
                 dr("Disable") = sc.Disabled
                 dr("Invisible") = sc.Invisible

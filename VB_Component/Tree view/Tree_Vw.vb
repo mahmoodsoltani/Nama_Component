@@ -26,7 +26,7 @@ Public Class Tree_Vw
     End Sub
 
     Public Sub Clear()
-        Me.TreeView1.Nodes.Clear()
+        TreeView1.Nodes.Clear()
     End Sub
     Public Sub Fill(ByVal node As TreeNode, ByVal dt As DataTable)
         Dim dv As New DataView
@@ -42,7 +42,7 @@ Public Class Tree_Vw
             tn.IsRootNode = True
             tn.IsLoad = False
 
-            Me.TreeView1.Nodes.Add(tn)
+            TreeView1.Nodes.Add(tn)
             node = tn
 
         End If
@@ -92,7 +92,7 @@ Public Class Tree_Vw
             Return
         End If
         Dim tn As TreeNode
-        Me.TreeView1.Nodes.Clear()
+        TreeView1.Nodes.Clear()
         Dim dv As New DataView
         dv.Table = dt
 
@@ -102,8 +102,8 @@ Public Class Tree_Vw
         tn.Srl_Parent = dv.Item(0)("Srl_Parent").ToString
         tn.IsRootNode = True
 
-        Me.TreeView1.Nodes.Add(tn)
-        Me.findAndAdd(tn, dv)
+        TreeView1.Nodes.Add(tn)
+        findAndAdd(tn, dv)
     End Sub
 
     Private Sub findAndAdd(ByVal tn As TreeNode, ByVal dv1 As DataView)
@@ -121,7 +121,7 @@ Public Class Tree_Vw
             tn1.Srl_Parent = dv1.Item(i)("Srl_Parent").ToString
             tn1.IsRootNode = False
             tn.Nodes.Add(tn1)
-            Me.findAndAdd(tn1, dv1)
+            findAndAdd(tn1, dv1)
             dv1.RowFilter = "Srl_Parent = " & tn.Srl.ToString
         Next
     End Sub
@@ -132,11 +132,11 @@ Public Class Tree_Vw
                 MessageBoxFa.Show("این شاخه قابل حذف نمودن نیست")
                 Return
             End If
-            If MessageBoxFa.Show("اطلاعات انتخاب شده حذف شود؟", "", MessageBoxButtons.YesNo) = System.Windows.Forms.DialogResult.Yes Then
-                If MessageBoxFa.Show("با حذف اطلاعات شما قادر به بازيابي آن نيستيد...مايل به ادامه هستيد؟", "", MessageBoxButtons.YesNo) = System.Windows.Forms.DialogResult.No Then
+            If MessageBoxFa.Show("اطلاعات انتخاب شده حذف شود؟", "", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+                If MessageBoxFa.Show("با حذف اطلاعات شما قادر به بازيابي آن نيستيد...مايل به ادامه هستيد؟", "", MessageBoxButtons.YesNo) = DialogResult.No Then
                     Return
                 Else
-                    Me.DeleteTreeNode(Integer.Parse(CType(TreeView1.SelectedNode, VB_Component.TreeNode).Srl))
+                    DeleteTreeNode(Integer.Parse(CType(TreeView1.SelectedNode, VB_Component.TreeNode).Srl))
                 End If
             End If
         Catch
@@ -150,24 +150,24 @@ Public Class Tree_Vw
         If da.Exist(TableName, ("(Srl_Parent = " & nodeId & ")")) Then
             Dim dr As SqlDataReader = da.GetRowWithQuery("SELECT * From " + TableName + "  Where (Srl_Parent = " & nodeId & ")")
             Do While dr.Read
-                Me.DeleteTreeNode(Integer.Parse(dr.Item("Srl").ToString))
+                DeleteTreeNode(Integer.Parse(dr.Item("Srl").ToString))
             Loop
         End If
         da.Delete(TableName, Integer.Parse(nodeId))
     End Sub
 
-    Private Sub btn_Expand_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Expand.Click
+    Private Sub btn_Expand_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Expand.Click
         TreeView1.ExpandAll()
     End Sub
 
-    Private Sub btn_Colaps_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Colaps.Click
+    Private Sub btn_Colaps_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Colaps.Click
         TreeView1.CollapseAll()
     End Sub
 
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
-        Me.Cursor = Cursors.WaitCursor
+    Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
+        Cursor = Cursors.WaitCursor
         FindNodeInHierarchy(TreeView1.Nodes, tbox_search.Text, False)
-        Me.Cursor = Cursors.Default
+        Cursor = Cursors.Default
     End Sub
 
     Public Sub FindNodeInHierarchy(ByVal nodes As TreeNodeCollection, ByVal strSearchValue As String, ByRef Find As Boolean)
@@ -183,12 +183,12 @@ Public Class Tree_Vw
                     Return
                 End If
                 nodes.Item(iCount).Expand()
-                Me.FindNodeInHierarchy(nodes.Item(iCount).Nodes, strSearchValue, False)
+                FindNodeInHierarchy(nodes.Item(iCount).Nodes, strSearchValue, False)
             End If
         Next iCount
     End Sub
 
-    Private Sub TreeView1_AfterSelect(ByVal sender As System.Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeView1.AfterSelect
+    Private Sub TreeView1_AfterSelect(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeView1.AfterSelect
         _SelectedNode = TreeView1.SelectedNode
         RaiseEvent SelectedChange(sender, e)
 
@@ -200,7 +200,7 @@ Public Class Tree_Vw
         End Get
     End Property
 
-    Private Sub TreeView1_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TreeView1.DoubleClick
+    Private Sub TreeView1_DoubleClick(ByVal sender As Object, ByVal e As EventArgs) Handles TreeView1.DoubleClick
         If Not TreeView1.SelectedNode Is Nothing Then
             RaiseEvent ExpandNode(TreeView1.SelectedNode)
         End If
@@ -246,15 +246,15 @@ Public Class Tree_Vw
     '    Return stringToShow
     'End Function
 
-    Private Sub TreeView1_AfterExpand(ByVal sender As System.Object, ByVal e As System.Windows.Forms.TreeViewEventArgs)
+    Private Sub TreeView1_AfterExpand(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewEventArgs)
 
     End Sub
 
-    Private Sub TreeView1_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TreeView1.MouseClick
+    Private Sub TreeView1_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TreeView1.MouseClick
 
     End Sub
 
-    Private Sub TreeView1_AfterExpand_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeView1.AfterExpand
+    Private Sub TreeView1_AfterExpand_1(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeView1.AfterExpand
 
         RaiseEvent ExpandNode(DirectCast(e.Node, TreeNode))
 

@@ -23,22 +23,22 @@ Public Class DropdownColorBlender
         _editorService = editorService
     End Sub
 
-    Private Sub ColorBlender_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub ColorBlender_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         ColorBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         ColorBox.DropDownStyle = ComboBoxStyle.DropDownList
-        AddHandler ColorBox.DrawItem, AddressOf Me.ColorList_DrawItem
+        AddHandler ColorBox.DrawItem, AddressOf ColorList_DrawItem
         ColorBox.Items.AddRange(Known_Color)
         ColorBox.SelectedIndex = 1
     End Sub
 
-    Private Sub panProps_SizeChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles panProps.SizeChanged
-        Me.Width = panSampleHolder.Left + panSampleHolder.Width
-        Me.Height = butApply.Top + butApply.Height
+    Private Sub panProps_SizeChanged(ByVal sender As Object, ByVal e As EventArgs) Handles panProps.SizeChanged
+        Width = panSampleHolder.Left + panSampleHolder.Width
+        Height = butApply.Top + butApply.Height
     End Sub
 
-    Private Sub panSampleHolder_SizeChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles panSampleHolder.SizeChanged
-        Me.Width = panSampleHolder.Left + panSampleHolder.Width
-        Me.Height = butApply.Top + butApply.Height
+    Private Sub panSampleHolder_SizeChanged(ByVal sender As Object, ByVal e As EventArgs) Handles panSampleHolder.SizeChanged
+        Width = panSampleHolder.Left + panSampleHolder.Width
+        Height = butApply.Top + butApply.Height
     End Sub
 
 #Region "Properties"
@@ -79,7 +79,7 @@ Public Class DropdownColorBlender
         Set(ByVal value As Integer)
             _BarHeight = value
             panProps.Location = New Point(10, value + 20)
-            Me.Invalidate()
+            Invalidate()
         End Set
     End Property
 
@@ -89,7 +89,7 @@ Public Class DropdownColorBlender
 
     Private Sub ColorBlender_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseDown
 
-        If e.Y > TopMargin + BarHeight - 10 And e.Y < TopMargin + BarHeight + 20 And e.X > 5 And e.X < Me.Width - 5 Then
+        If e.Y > TopMargin + BarHeight - 10 And e.Y < TopMargin + BarHeight + 20 And e.X > 5 And e.X < Width - 5 Then
             'Check if the cursor is over a MiddlePointer
             Dim mOver As Integer = IsMouseOverPointer(e.X, e.Y)
             If mOver > -1 Then
@@ -121,11 +121,11 @@ Public Class DropdownColorBlender
                     'If the cursor is not over a cblPointer then Add One
                     If e.Button = System.Windows.Forms.MouseButtons.Left Then
                         ClearCurrPointer()
-                        MiddlePointers.Add(New cblPointer(CSng(((e.X - 10) / (Me.Width - 20))), _
+                        MiddlePointers.Add(New cblPointer(CSng(((e.X - 10) / (Width - 20))), _
                             Color.FromArgb(tbarAlpha.Value, CInt(nudRed.Value), CInt(nudGreen.Value), CInt(nudBlue.Value)), True))
                         SortCollection(MiddlePointers, "pPos", True)
                         CurrPointer = FindCurr()
-                        Me.Invalidate()
+                        Invalidate()
                         MouseMoving = True
                     End If
                 End If
@@ -136,11 +136,11 @@ Public Class DropdownColorBlender
     Private Sub ColorBlender_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseMove
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             If MouseMoving Then
-                If e.X >= 11 And e.X <= (Me.Width - 11) Then
-                    CType(MiddlePointers(CurrPointer), cblPointer).pPos = CSng(((e.X - 10) / (Me.Width - 20)))
+                If e.X >= 11 And e.X <= (Width - 11) Then
+                    CType(MiddlePointers(CurrPointer), cblPointer).pPos = CSng(((e.X - 10) / (Width - 20)))
                     SortCollection(MiddlePointers, "pPos", True)
                     CurrPointer = FindCurr()
-                    Me.Invalidate()
+                    Invalidate()
                 End If
             End If
         End If
@@ -151,7 +151,7 @@ Public Class DropdownColorBlender
         MouseMoving = False
         SortCollection(MiddlePointers, "pPos", True)
         CurrPointer = FindCurr()
-        Me.Invalidate()
+        Invalidate()
     End Sub
 
     Private Function IsMouseOverStartPointer(ByVal X As Integer, ByVal Y As Integer) As Boolean
@@ -219,7 +219,7 @@ Public Class DropdownColorBlender
     End Sub
 
     Private Function GetpX(ByVal pos As Single) As Single
-        Return ((Me.Width - 20) * pos) - 5
+        Return ((Width - 20) * pos) - 5
     End Function
 
     Private Function BuildPointer(ByVal CenterPtX As Single) As GraphicsPath
@@ -296,7 +296,7 @@ Public Class DropdownColorBlender
         panCurrColor.BackColor = CurrColor
 
         txbCurrColor.Text = GetColorName(CurrColor)
-        Me.Invalidate()
+        Invalidate()
     End Sub
 
     Function GetColorName(ByVal c As Color) As String
@@ -323,20 +323,20 @@ Public Class DropdownColorBlender
         BuildABlend()
 
         'Create a canvas to aint on the same size as the control
-        Dim bitmapBuffer As Bitmap = New Bitmap(Me.Width, Me.Height)
+        Dim bitmapBuffer As Bitmap = New Bitmap(Width, Height)
         Dim g As Graphics = Graphics.FromImage(bitmapBuffer)
-        g.Clear(Me.BackColor)
+        g.Clear(BackColor)
         g.SmoothingMode = SmoothingMode.AntiAlias
 
         ' Paint the ColorBlender Bar with the Linear Brush
-        Dim barRect As Rectangle = New Rectangle(10, TopMargin, Me.ClientSize.Width - 20, BarHeight)
+        Dim barRect As Rectangle = New Rectangle(10, TopMargin, ClientSize.Width - 20, BarHeight)
         Dim br As Brush = LinearBrush(barRect, LinearGradientMode.Horizontal)
         g.FillRectangle(br, barRect)
 
         'Draw all the cblPointers in their Color at their Position along the Bar
         Using pn As New Pen(Color.Gray, 1)
             pn.DashStyle = DashStyle.Dash
-            g.DrawLine(pn, 10, TopMargin + BarHeight + 7, Me.ClientSize.Width - 15, TopMargin + BarHeight + 7)
+            g.DrawLine(pn, 10, TopMargin + BarHeight + 7, ClientSize.Width - 15, TopMargin + BarHeight + 7)
 
             pn.Color = Color.Black
             pn.DashStyle = DashStyle.Solid
@@ -431,22 +431,22 @@ Public Class DropdownColorBlender
 
 #Region "Controls"
 
-    Private Sub ColorBox_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ColorBox.SelectedIndexChanged
+    Private Sub ColorBox_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ColorBox.SelectedIndexChanged
         UpdateRGBnuds(Color.FromName(ColorBox.Text))
-        Me.Invalidate()
+        Invalidate()
     End Sub
 
-    Private Sub Panel7_Click(ByVal sender As Object, ByVal e As System.EventArgs) _
+    Private Sub Panel7_Click(ByVal sender As Object, ByVal e As EventArgs) _
         Handles Panel22.Click, Panel7.Click, Panel8.Click, Panel9.Click, Panel10.Click, Panel11.Click, _
         Panel12.Click, Panel13.Click, Panel20.Click, Panel19.Click, Panel14.Click, Panel15.Click, Panel16.Click, _
         Panel17.Click, Panel21.Click, Panel18.Click, Panel28.Click, Panel27.Click, Panel26.Click, Panel25.Click, _
         Panel24.Click, Panel23.Click, Panel6.Click, Panel29.Click
         UpdateRGBnuds(CType(sender, Panel).BackColor)
-        Me.Invalidate()
+        Invalidate()
     End Sub
 
     Private CurrSwatch As Panel
-    Private Sub Panel10_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) _
+    Private Sub Panel10_MouseEnter(ByVal sender As Object, ByVal e As EventArgs) _
         Handles Panel22.MouseEnter, Panel7.MouseEnter, Panel8.MouseEnter, Panel9.MouseEnter, Panel10.MouseEnter, Panel11.MouseEnter, _
         Panel12.MouseEnter, Panel13.MouseEnter, Panel20.MouseEnter, Panel19.MouseEnter, Panel14.MouseEnter, Panel15.MouseEnter, Panel16.MouseEnter, _
         Panel17.MouseEnter, Panel21.MouseEnter, Panel18.MouseEnter, Panel28.MouseEnter, Panel27.MouseEnter, Panel26.MouseEnter, Panel25.MouseEnter, _
@@ -459,7 +459,7 @@ Public Class DropdownColorBlender
         CurrSwatch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
     End Sub
 
-    Private Sub TabControl1_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabControl1.MouseLeave
+    Private Sub TabControl1_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles TabControl1.MouseLeave
         Try
             CurrSwatch.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Catch ex As Exception
@@ -475,14 +475,14 @@ Public Class DropdownColorBlender
         UpdatePointerColor()
     End Sub
 
-    Private Sub nud_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) _
+    Private Sub nud_ValueChanged(ByVal sender As Object, ByVal e As EventArgs) _
         Handles nudRed.ValueChanged, nudGreen.ValueChanged, nudBlue.ValueChanged, _
         tbarAlpha.ValueChanged
         txbAlpha.Text = tbarAlpha.Value.ToString
         UpdatePointerColor()
     End Sub
 
-    Private Sub txbAlpha_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txbAlpha.TextChanged
+    Private Sub txbAlpha_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles txbAlpha.TextChanged
         If txbAlpha.Text <> "" Then
             Select Case CInt(txbAlpha.Text)
                 Case Is < 0
@@ -494,15 +494,15 @@ Public Class DropdownColorBlender
         End If
     End Sub
 
-    Private Sub butApply_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles butApply.Click
+    Private Sub butApply_Click(ByVal sender As Object, ByVal e As EventArgs) Handles butApply.Click
         _editorService.CloseDropDown()
     End Sub
 
-    Private Sub butClear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles butClear.Click
+    Private Sub butClear_Click(ByVal sender As Object, ByVal e As EventArgs) Handles butClear.Click
         StartPointer.pColor = Color.White
         EndPointer.pColor = Color.White
         MiddlePointers.Clear()
-        Me.Invalidate()
+        Invalidate()
     End Sub
 #End Region
 

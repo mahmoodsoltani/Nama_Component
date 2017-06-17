@@ -3,9 +3,9 @@
 Public Class BaseForm_Layer
     Dim _ExecEditOnSelectDatagrideView As Boolean = False
     Dim ShallLoadGarideView As Boolean = True
-    Private _GridView As System.Windows.Forms.DataGridView
+    Private _GridView As DataGridView
 
-    <Category("Nama"), Description("هنگام انتخاب يک رديف در جدول مود ويرايش فعال شود"), Browsable(True)> _
+    <Category("Nama"), Description("هنگام انتخاب يک رديف در جدول مود ويرايش فعال شود"), Browsable(True)>
     Public Property ExecEditOnSelectDatagrideView() As Boolean
         Get
             Return _ExecEditOnSelectDatagrideView
@@ -21,12 +21,12 @@ Public Class BaseForm_Layer
         End Set
     End Property
 
-    <Category("Nama"), Description("DataGridView"), Browsable(True)> _
-    Public Property DataGridView() As System.Windows.Forms.DataGridView
+    <Category("Nama"), Description("DataGridView"), Browsable(True)>
+    Public Property DataGridView() As DataGridView
         Get
             Return _GridView
         End Get
-        Set(ByVal value As System.Windows.Forms.DataGridView)
+        Set(ByVal value As DataGridView)
             _GridView = value
         End Set
     End Property
@@ -35,7 +35,7 @@ Public Class BaseForm_Layer
         'gbx_Controls.Controls(0).Focus()
     End Sub
 
-    Protected Overrides Sub OnKeyDown(ByVal e As System.Windows.Forms.KeyEventArgs)
+    Protected Overrides Sub OnKeyDown(ByVal e As KeyEventArgs)
         If e.KeyCode = Keys.F2 Then
             btn_new_Click(Nothing, e)
             btn_Delete.Enabled = True
@@ -50,10 +50,10 @@ Public Class BaseForm_Layer
         MyBase.OnKeyDown(e)
     End Sub
 
-    Private Sub btn_new_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_new.Click
+    Private Sub btn_new_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_new.Click
         Dim SelRow As Integer
         Dim ChangeOnEditMode As Boolean = False
-        If MyBase.FormState = FormStates.Edit Then
+        If FormState = FormStates.Edit Then
             SelRow = GrideViewColomnAction(_GridView, GrideViewGettingState.GetCurrentRowIndex)
             ChangeOnEditMode = True
         End If
@@ -80,11 +80,11 @@ Public Class BaseForm_Layer
         End If
     End Sub
 
-    Private Sub btn_Edit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Edit.Click
+    Private Sub btn_Edit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Edit.Click
         Edit()
     End Sub
 
-    Private Sub btn_Delete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Delete.Click
+    Private Sub btn_Delete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Delete.Click
         If (_GridView Is Nothing) Then Return
         Dim int_Srl As Integer = FindSrl(_GridView, FindSerialPromtType.Delete, True, False)
         If (int_Srl = -1) Then Return
@@ -106,11 +106,11 @@ Public Class BaseForm_Layer
         LoadDataGridView()
     End Sub
 
-    Private Sub btn_Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Cancel.Click
+    Private Sub btn_Cancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Cancel.Click
         Close()
     End Sub
 
-    Private Sub BaseForm_Layer_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub BaseForm_Layer_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         If (DesignMode) Then Return
         NewRecord(True)
         If Not _GridView Is Nothing And Not _GridView.DataSource Is Nothing Then
@@ -121,7 +121,7 @@ Public Class BaseForm_Layer
         End If
     End Sub
 
-    Sub GridView_SelectionChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Sub GridView_SelectionChanged(ByVal sender As Object, ByVal e As EventArgs)
         Try
             If Not _GridView.CurrentRow Is Nothing Then
                 If ShallLoadGarideView Then
@@ -188,7 +188,7 @@ Public Class BaseForm_Layer
     End Function
 
     Protected Overrides Sub OnClosing(ByVal e As CancelEventArgs)
-        If (Me.FormState = FormStates.Edit) Then
+        If (FormState = FormStates.Edit) Then
             NewRecord()
             _GridView.Enabled = True
             btn_Edit.Enabled = True

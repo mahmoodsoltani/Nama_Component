@@ -20,14 +20,11 @@
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-using System;
-using System.ComponentModel.Design;
-using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
 namespace CS_Component
 {
-	public class IPAddressControlDesigner : ControlDesigner
+    public class IPAddressControlDesigner : ControlDesigner
 	{
       public override SelectionRules SelectionRules
       {

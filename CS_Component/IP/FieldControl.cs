@@ -21,16 +21,14 @@
 
 
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Globalization;
 using System.Windows.Forms;
 
 namespace CS_Component
 {
-   internal enum Direction
+    internal enum Direction
    {
       Forward,
       Reverse

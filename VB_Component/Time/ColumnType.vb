@@ -33,7 +33,7 @@ Public Class TimeCell
     Public Sub New()
         ' Use the short date format.
         ' Me.Style.Format = "d"
-        Me.Value = "00:00"
+        Value = "00:00"
     End Sub
 
     Public Overrides Sub InitializeEditingControl(ByVal rowIndex As Integer, _
@@ -48,10 +48,10 @@ Public Class TimeCell
             CType(DataGridView.EditingControl, TimeEditingControl)
         ctl.ShowSecond = False
         ' Use the default row value when Value property is null.
-        If (Me.Value Is Nothing Or Me.Value Is DBNull.Value) Then
-            ctl.Value = CType(Me.DefaultNewRowValue, String)
+        If (Value Is Nothing Or Value Is DBNull.Value) Then
+            ctl.Value = CType(DefaultNewRowValue, String)
         Else
-            ctl.Value = CType(Me.Value, String)
+            ctl.Value = CType(Value, String)
         End If
     End Sub
 
@@ -88,25 +88,25 @@ Class TimeEditingControl
 
     Public Sub New()
         'Me.Format = DateTimePickerFormat.Short
-        Me.ShowSecond = False
+        ShowSecond = False
     End Sub
 
     Public Property EditingControlFormattedValue() As Object _
         Implements IDataGridViewEditingControl.EditingControlFormattedValue
 
         Get
-            Return Me.Value
+            Return Value
         End Get
 
         Set(ByVal value As Object)
             Try
                 ' This will throw an exception of the string is 
                 ' null, empty, or not in the format of a date.
-                Me.ShowSecond = False
+                ShowSecond = False
                 Me.Value = value
             Catch
                 ' In the case of an exception, just use the default
-                Me.ShowSecond = False
+                ShowSecond = False
                 ' value so we're not left with a null value.
                 Me.Value = "00:00:00"
             End Try
@@ -117,8 +117,8 @@ Class TimeEditingControl
     Public Function GetEditingControlFormattedValue(ByVal context _
         As DataGridViewDataErrorContexts) As Object _
         Implements IDataGridViewEditingControl.GetEditingControlFormattedValue
-        Me.ShowSecond = False
-        Return Me.Value
+        ShowSecond = False
+        Return Value
 
     End Function
 
@@ -126,8 +126,8 @@ Class TimeEditingControl
         DataGridViewCellStyle) _
         Implements IDataGridViewEditingControl.ApplyCellStyleToEditingControl
 
-        Me.Font = dataGridViewCellStyle.Font
-        Me.ShowSecond = False
+        Font = dataGridViewCellStyle.Font
+        ShowSecond = False
         'Me.TimeForeColor = dataGridViewCellStyle.ForeColor
         'Me.TimeMonthBackground = dataGridViewCellStyle.BackColor
 

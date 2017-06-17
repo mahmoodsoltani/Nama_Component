@@ -83,22 +83,22 @@ Public Class BaseForm_Old
         End Set
     End Property
 
-    Public Overridable Sub Base_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Public Overridable Sub Base_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         'If VB_Component.Windows.ArrayOfString("temp") Then
         '    Me.Dispose()
         'End If
         If _MaximizeToDesktopBound Then
-            Me.Location = New Point(0, 0)
-            Me.Size = New Drawing.Size(SystemInformation.WorkingArea.Width, SystemInformation.WorkingArea.Height)
+            Location = New Point(0, 0)
+            Size = New Drawing.Size(SystemInformation.WorkingArea.Width, SystemInformation.WorkingArea.Height)
             Application.DoEvents()
             OnResize(e)
         End If
     End Sub
 
-    Public Overridable Sub btn_close_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
+    Public Overridable Sub btn_close_Click(ByVal sender As Object, ByVal e As EventArgs)
+        DialogResult = DialogResult.Cancel
         If _PromtOnClose Then
-            If MessageBoxFa.Show("مايل به خروج از فرم هستيد؟", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = System.Windows.Forms.DialogResult.Yes Then
+            If MessageBoxFa.Show("مايل به خروج از فرم هستيد؟", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
                 Close()
             Else
                 Return
@@ -108,7 +108,7 @@ Public Class BaseForm_Old
         End If
     End Sub
 
-    Public Overridable Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+    Public Overridable Sub Form1_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             If FormState <> FormStates.Edit Then
                 btn_close_Click(sender, e)
@@ -116,31 +116,31 @@ Public Class BaseForm_Old
         End If
 
         If e.KeyCode = Keys.Enter Then
-            If TypeOf MyBase.ActiveControl Is CS_Component.DataGridView OrElse _
-            TypeOf MyBase.ActiveControl Is CS_Component.Btn Then
+            If TypeOf ActiveControl Is CS_Component.DataGridView OrElse _
+            TypeOf ActiveControl Is CS_Component.Btn Then
                 Return
             End If
 
             If _GoOnEnter Then
-                Me.ProcessTabKey(True)
+                ProcessTabKey(True)
             End If
         End If
 
         If e.KeyCode = Keys.F10 Then
             Dim currentlang As String = InputLanguage.CurrentInputLanguage.LayoutName
             If (currentlang = "US") Then
-                VB_Component.Windows.ChangeLangToFarsi(True)
+                Windows.ChangeLangToFarsi(True)
             Else
-                VB_Component.Windows.ChangeLangToFarsi(False)
+                Windows.ChangeLangToFarsi(False)
             End If
         End If
 
         If e.KeyCode = Keys.Up Then
             If _GoOnEnter Then
-                If TypeOf MyBase.ActiveControl Is ListBox _
-                OrElse TypeOf MyBase.ActiveControl Is CS_Component.DataGridView _
-                OrElse TypeOf MyBase.ActiveControl Is DataGridViewComboBoxEditingControl _
-                OrElse TypeOf MyBase.ActiveControl Is ComboBox Then
+                If TypeOf ActiveControl Is ListBox _
+                OrElse TypeOf ActiveControl Is CS_Component.DataGridView _
+                OrElse TypeOf ActiveControl Is DataGridViewComboBoxEditingControl _
+                OrElse TypeOf ActiveControl Is ComboBox Then
                     Return
                 End If
                 ProcessTabKey(False)
@@ -149,10 +149,10 @@ Public Class BaseForm_Old
 
         If e.KeyCode = Keys.Down Then
             If _GoOnEnter Then
-                If TypeOf MyBase.ActiveControl Is ListBox _
-                OrElse TypeOf MyBase.ActiveControl Is DataGridViewComboBoxEditingControl _
-                OrElse TypeOf MyBase.ActiveControl Is CS_Component.DataGridView _
-                OrElse TypeOf MyBase.ActiveControl Is ComboBox Then
+                If TypeOf ActiveControl Is ListBox _
+                OrElse TypeOf ActiveControl Is DataGridViewComboBoxEditingControl _
+                OrElse TypeOf ActiveControl Is CS_Component.DataGridView _
+                OrElse TypeOf ActiveControl Is ComboBox Then
                     Return
                 End If
                 ProcessTabKey(True)
@@ -161,7 +161,7 @@ Public Class BaseForm_Old
 
         If e.KeyCode = Keys.Left Then
             If _GoOnEnter Then
-                If TypeOf MyBase.ActiveControl Is ComboBox Then
+                If TypeOf ActiveControl Is ComboBox Then
                     ProcessTabKey(True)
                 End If
             End If
@@ -169,14 +169,14 @@ Public Class BaseForm_Old
 
         If e.KeyCode = Keys.Right Then
             If _GoOnEnter Then
-                If TypeOf MyBase.ActiveControl Is ComboBox Then
+                If TypeOf ActiveControl Is ComboBox Then
                     ProcessTabKey(False)
                 End If
             End If
         End If
     End Sub
 
-    Private Sub Base_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles MyBase.KeyPress
+    Private Sub Base_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles MyBase.KeyPress
         If e.KeyChar = Convert.ToChar(13) Then
             e.Handled = True
         End If

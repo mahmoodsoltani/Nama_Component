@@ -404,8 +404,8 @@ Public Class DataGridPrinter
                 End If
                 _ColumnBounds.Add(NextColumn)
             Next
-            If _ColumnBounds.TotalPages > Me.PagesAcross Then
-                Me.PagesAcross = _ColumnBounds.TotalPages
+            If _ColumnBounds.TotalPages > PagesAcross Then
+                PagesAcross = _ColumnBounds.TotalPages
             End If
         End If
 
@@ -509,7 +509,7 @@ Public Class DataGridPrinter
                 End If
             Next
         Catch exIndex As Exception
-            Trace.WriteLine(exIndex.ToString, Me.GetType.ToString)
+            Trace.WriteLine(exIndex.ToString, [GetType].ToString)
         End Try
 
     End Sub

@@ -73,7 +73,7 @@ Public Class SecurityControls
     Public ReadOnly Property GetItem(ByVal ControlName As String, ByVal FormName As String) As SecurityControl
         Get
             Dim i As Integer
-            For i = 0 To Me.Count - 1
+            For i = 0 To Count - 1
                 If (Me(i).ControlName.ToLower() = ControlName.ToLower() And Me(i).FormName.ToLower() = FormName.ToLower()) Then Return Me(i)
             Next
             Return Nothing

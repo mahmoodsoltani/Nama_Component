@@ -24,8 +24,8 @@ Public Class FormulBuilder
         input_rowfilter = DV.RowFilter
 
         If File.Exists(Path.GetTempPath() + "\lastshow.xml") Then
-            Me.Filter_condition_Listbox.Items.Clear()
-            Me.filterstring_arraylist.Clear()
+            Filter_condition_Listbox.Items.Clear()
+            filterstring_arraylist.Clear()
             Using XmlRdr As New Xml.XmlTextReader(Path.GetTempPath() + "\lastshow.xml")
                 Do While XmlRdr.Read
                     If ((XmlRdr.NodeType = Xml.XmlNodeType.Element) AndAlso (XmlRdr.Name = "Code")) Then
@@ -40,8 +40,8 @@ Public Class FormulBuilder
                         If (tempText = "empty") Then
                             Continue Do
                         End If
-                        Me.Filter_condition_Listbox.Items.Add(tempText)
-                        Me.filterstring_arraylist.Add(tempCode)
+                        Filter_condition_Listbox.Items.Add(tempText)
+                        filterstring_arraylist.Add(tempCode)
                     End If
                 Loop
             End Using
@@ -49,7 +49,7 @@ Public Class FormulBuilder
         Me.reportName = reportName
     End Sub
 
-    Private Sub FormulBuilder_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub FormulBuilder_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
 
         'If VB_Component.Windows.ArrayOfString(Me.Text) Then
         '    Me.Dispose()
@@ -57,35 +57,35 @@ Public Class FormulBuilder
         lstvwINFO.Items.Clear()
         Dim columnName As String = ""
 
-        For i As Integer = 0 To Me.mytable.Columns.Count - 1
-            columnName = Me.mytable.Columns.Item(i).ColumnName
+        For i As Integer = 0 To mytable.Columns.Count - 1
+            columnName = mytable.Columns.Item(i).ColumnName
             Do While ((columnName.IndexOf(" "c) = 0) OrElse (columnName.IndexOf(" "c) = (columnName.Length - 1)))
                 columnName = columnName.Remove(columnName.IndexOf(" "c), 1)
             Loop
             If HidenField Is Nothing Then
-                Me.mytable.Columns.Item(i).ColumnName = columnName
+                mytable.Columns.Item(i).ColumnName = columnName
             Else
                 If Array.IndexOf(HidenField, i) = -1 Then
-                    Me.mytable.Columns.Item(i).ColumnName = columnName
+                    mytable.Columns.Item(i).ColumnName = columnName
                 End If
             End If
         Next i
 
-        For j As Integer = 0 To Me.mytable.Columns.Count - 1
+        For j As Integer = 0 To mytable.Columns.Count - 1
             If HidenField Is Nothing Then
-                lstvwINFO.Items.Add(Me.mytable.Columns.Item(j).ColumnName)
+                lstvwINFO.Items.Add(mytable.Columns.Item(j).ColumnName)
             Else
                 If Array.IndexOf(HidenField, j) = -1 Then
-                    lstvwINFO.Items.Add(Me.mytable.Columns.Item(j).ColumnName)
+                    lstvwINFO.Items.Add(mytable.Columns.Item(j).ColumnName)
                 End If
             End If
         Next j
 
     End Sub
 
-    Private Sub lstvwINFO_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstvwINFO.SelectedIndexChanged
+    Private Sub lstvwINFO_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles lstvwINFO.SelectedIndexChanged
         Try
-            Me.Column_name_textbox.Text = Me.lstvwINFO.SelectedItems.Item(0).Text
+            Column_name_textbox.Text = lstvwINFO.SelectedItems.Item(0).Text
             AZ_textbox.Enabled = False
             Ta_textbox.Enabled = False
             Action_Combo.Enabled = True
@@ -94,17 +94,17 @@ Public Class FormulBuilder
         End Try
     End Sub
 
-    Private Sub Column_name_textbox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Column_name_textbox.TextChanged
-        Me.Action_Combo.Items.Clear()
-        Me.Action_Combo.Text = ""
+    Private Sub Column_name_textbox_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles Column_name_textbox.TextChanged
+        Action_Combo.Items.Clear()
+        Action_Combo.Text = ""
 
         Try
-            If (Me.mytable.Columns.Item(Me.Column_name_textbox.Text).DataType.ToString = "System.String") Then
+            If (mytable.Columns.Item(Column_name_textbox.Text).DataType.ToString = "System.String") Then
                 Dim flag As Boolean = False
-                If (Me.mytable.Rows.Item(0).Item(Me.Column_name_textbox.Text).ToString.Length > 6) Then
-                    If ((Not Me.mytable.Rows.Item(0).Item(Me.Column_name_textbox.Text).ToString Is Nothing) AndAlso (Me.mytable.Rows.Item(0).Item(Me.Column_name_textbox.Text).ToString.Replace(" ", "") = "//")) Then
+                If (mytable.Rows.Item(0).Item(Column_name_textbox.Text).ToString.Length > 6) Then
+                    If ((Not mytable.Rows.Item(0).Item(Column_name_textbox.Text).ToString Is Nothing) AndAlso (mytable.Rows.Item(0).Item(Column_name_textbox.Text).ToString.Replace(" ", "") = "//")) Then
                         flag = True
-                    ElseIf (((Not Me.mytable.Rows.Item(0).Item(Me.Column_name_textbox.Text).ToString Is Nothing) AndAlso (Me.mytable.Rows.Item(0).Item(Me.Column_name_textbox.Text).ToString.Chars((Me.mytable.Rows.Item(0).Item(Me.Column_name_textbox.Text).ToString.Length - 6)) = "/"c)) AndAlso (Me.mytable.Rows.Item(0).Item(Me.Column_name_textbox.Text).ToString.Chars((Me.mytable.Rows.Item(0).Item(Me.Column_name_textbox.Text).ToString.Length - 3)) = "/"c)) Then
+                    ElseIf (((Not mytable.Rows.Item(0).Item(Column_name_textbox.Text).ToString Is Nothing) AndAlso (mytable.Rows.Item(0).Item(Column_name_textbox.Text).ToString.Chars((mytable.Rows.Item(0).Item(Column_name_textbox.Text).ToString.Length - 6)) = "/"c)) AndAlso (mytable.Rows.Item(0).Item(Column_name_textbox.Text).ToString.Chars((mytable.Rows.Item(0).Item(Column_name_textbox.Text).ToString.Length - 3)) = "/"c)) Then
                         flag = True
                     End If
                 End If
@@ -183,22 +183,22 @@ Public Class FormulBuilder
         End If
 
         If rbtn_Va.Checked Then
-            Me.Filter_condition_Listbox.Items.Add("و " & (Me.Column_name_textbox.Text & " " & text1))
+            Filter_condition_Listbox.Items.Add("و " & (Column_name_textbox.Text & " " & text1))
         ElseIf rbtn_Ya.Checked Then
-            Me.Filter_condition_Listbox.Items.Add("يا " & (Me.Column_name_textbox.Text & " " & text1))
+            Filter_condition_Listbox.Items.Add("يا " & (Column_name_textbox.Text & " " & text1))
         End If
 
         If rbtn_Va.Checked Then
-            Me.filterstring_arraylist.Add(" AND " & text2)
+            filterstring_arraylist.Add(" AND " & text2)
         ElseIf rbtn_Ya.Checked Then
-            Me.filterstring_arraylist.Add(" OR " & text2)
+            filterstring_arraylist.Add(" OR " & text2)
         End If
 
-        Me.AZ_textbox.Text = ""
-        Me.Ta_textbox.Text = ""
+        AZ_textbox.Text = ""
+        Ta_textbox.Text = ""
     End Sub
 
-    Private Sub Add_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Add_Button.Click
+    Private Sub Add_Button_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Add_Button.Click
         If (AZ_textbox.Text = "") Then
             MessageBoxFa.Show("ابتدا عبارت مورد نظر را وارد کنيد", " ", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Hand)
             AZ_textbox.Focus()
@@ -206,7 +206,7 @@ Public Class FormulBuilder
             MessageBoxFa.Show("ابتدا عبارت مورد نظر را وارد کنيد", "", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Hand)
             Ta_textbox.Focus()
         Else
-            If (Me.mytable.Columns.Item(Me.Column_name_textbox.Text).DataType.ToString <> "System.String") Then
+            If (mytable.Columns.Item(Column_name_textbox.Text).DataType.ToString <> "System.String") Then
                 Try
                     Long.Parse(AZ_textbox.Text)
                 Catch
@@ -230,7 +230,7 @@ Public Class FormulBuilder
         End If
     End Sub
 
-    Private Sub Btn_Ok_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Btn_Ok.Click
+    Private Sub Btn_Ok_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Btn_Ok.Click
         If filterstring_arraylist.Count <> 0 Then
             If (Filter_condition_Listbox.Items.Count = 0) Then
                 If File.Exists(Path.GetTempPath() + "\lastshow.xml") Then
@@ -249,10 +249,10 @@ Public Class FormulBuilder
 
                     XmlDoc.WriteStartElement("Conditions")
                     Dim i1 As Integer
-                    For i1 = 0 To Me.filterstring_arraylist.Count - 1
+                    For i1 = 0 To filterstring_arraylist.Count - 1
                         XmlDoc.WriteStartElement("Condition")
-                        XmlDoc.WriteElementString("Code", Me.filterstring_arraylist.Item(i1).ToString)
-                        XmlDoc.WriteElementString("Text", Me.Filter_condition_Listbox.Items.Item(i1).ToString)
+                        XmlDoc.WriteElementString("Code", filterstring_arraylist.Item(i1).ToString)
+                        XmlDoc.WriteElementString("Text", Filter_condition_Listbox.Items.Item(i1).ToString)
                         XmlDoc.WriteEndElement()
                     Next i1
                     XmlDoc.WriteEndElement()
@@ -275,8 +275,8 @@ Public Class FormulBuilder
             Formol = s.Remove(0, 4)
 
             Try
-                ResultView = New DataView(Me.mytable)
-                ResultView.RowFilter = Me.input_rowfilter
+                ResultView = New DataView(mytable)
+                ResultView.RowFilter = input_rowfilter
                 If ((ResultView.RowFilter <> "") AndAlso (Not ResultView.RowFilter Is Nothing)) Then
                     ResultView.RowFilter = (Formol & " AND " & ResultView.RowFilter)
                 Else
@@ -292,54 +292,54 @@ Public Class FormulBuilder
         Close()
     End Sub
 
-    Private Sub Action_Combo_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Action_Combo.TextChanged
-        Me.Ta_textbox.Enabled = False
-        Me.AZ_textbox.Enabled = False
+    Private Sub Action_Combo_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles Action_Combo.TextChanged
+        Ta_textbox.Enabled = False
+        AZ_textbox.Enabled = False
         label2_ta.Text = ""
         label_az.Text = ""
         Ta_textbox.Text = ""
         AZ_textbox.Text = ""
-        If ((Me.Action_Combo.Text = "از....تا....") OrElse (Me.Action_Combo.Text = "از تاريخ.....تا تاريخ.....")) Then
-            Me.Ta_textbox.Enabled = True
-            Me.AZ_textbox.Enabled = True
-            Me.Add_Button.Enabled = True
-            Me.label_az.Text = "از"
-            Me.label2_ta.Text = "تا"
-        ElseIf ((((Me.Action_Combo.Text = "مساوی با....") _
-                OrElse (Me.Action_Combo.Text = "کوچکتر مساوی با....")) _
-                OrElse ((Me.Action_Combo.Text = "بزرگتر مساوی با....") _
-                OrElse (Me.Action_Combo.Text = "مخالف با...."))) _
-                OrElse (((Me.Action_Combo.Text = "شامل....") _
-                OrElse (Me.Action_Combo.Text = "شروع شده با....")) _
-                OrElse ((Me.Action_Combo.Text = "مساوی با......") _
-                OrElse (Me.Action_Combo.Text = "مخالف با......")))) Then
-            Me.Add_Button.Enabled = True
-            Me.AZ_textbox.Enabled = True
-            Me.label_az.Text = "با"
-        ElseIf (((Me.Action_Combo.Text = "کوچکتر از...") _
-        OrElse (Me.Action_Combo.Text = "بزرگتر از...")) _
-        OrElse ((Me.Action_Combo.Text = "بعد از تاريخ.......") _
-        OrElse (Me.Action_Combo.Text = "قبل از تاريخ......"))) Then
-            Me.Add_Button.Enabled = True
-            Me.AZ_textbox.Enabled = True
-            Me.label_az.Text = "از"
+        If ((Action_Combo.Text = "از....تا....") OrElse (Action_Combo.Text = "از تاريخ.....تا تاريخ.....")) Then
+            Ta_textbox.Enabled = True
+            AZ_textbox.Enabled = True
+            Add_Button.Enabled = True
+            label_az.Text = "از"
+            label2_ta.Text = "تا"
+        ElseIf ((((Action_Combo.Text = "مساوی با....") _
+                OrElse (Action_Combo.Text = "کوچکتر مساوی با....")) _
+                OrElse ((Action_Combo.Text = "بزرگتر مساوی با....") _
+                OrElse (Action_Combo.Text = "مخالف با...."))) _
+                OrElse (((Action_Combo.Text = "شامل....") _
+                OrElse (Action_Combo.Text = "شروع شده با....")) _
+                OrElse ((Action_Combo.Text = "مساوی با......") _
+                OrElse (Action_Combo.Text = "مخالف با......")))) Then
+            Add_Button.Enabled = True
+            AZ_textbox.Enabled = True
+            label_az.Text = "با"
+        ElseIf (((Action_Combo.Text = "کوچکتر از...") _
+        OrElse (Action_Combo.Text = "بزرگتر از...")) _
+        OrElse ((Action_Combo.Text = "بعد از تاريخ.......") _
+        OrElse (Action_Combo.Text = "قبل از تاريخ......"))) Then
+            Add_Button.Enabled = True
+            AZ_textbox.Enabled = True
+            label_az.Text = "از"
         Else
-            Me.Action_Combo.Text = ""
+            Action_Combo.Text = ""
         End If
     End Sub
 
-    Private Sub btn_SelectReport_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_SelectReport.Click
-        If ((Me.openFileDialog1.ShowDialog <> System.Windows.Forms.DialogResult.Cancel) AndAlso (Me.openFileDialog1.FileName.Trim <> "")) Then
-            Me.Filter_condition_Listbox.Items.Clear()
-            Me.filterstring_arraylist.Clear()
-            Using XmlRdr As New Xml.XmlTextReader(Me.openFileDialog1.FileName)
+    Private Sub btn_SelectReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_SelectReport.Click
+        If ((openFileDialog1.ShowDialog <> DialogResult.Cancel) AndAlso (openFileDialog1.FileName.Trim <> "")) Then
+            Filter_condition_Listbox.Items.Clear()
+            filterstring_arraylist.Clear()
+            Using XmlRdr As New Xml.XmlTextReader(openFileDialog1.FileName)
                 Do While XmlRdr.Read
                     If ((XmlRdr.NodeType = Xml.XmlNodeType.Element) AndAlso (XmlRdr.Name = "Name")) Then
                         Dim TEmpReportname As String = XmlRdr.ReadString
                         If TEmpReportname.ToLower <> reportName.ToLower Then
                             If MessageBoxFa.Show("فايل گزارش انتخاب شده مربوط به اين گزارش نيست" & vbNewLine _
                             & "ادامه نمايش گزارش با اين فايل امكان ايجاد خطا در برنامه را دارد مايل به ادامه هستيد؟", "", MessageBoxButtons.YesNo) _
-                            = System.Windows.Forms.DialogResult.No Then
+                            = DialogResult.No Then
                                 Exit Do
                             End If
                         End If
@@ -357,8 +357,8 @@ Public Class FormulBuilder
                         If (tempText = "empty") Then
                             Continue Do
                         End If
-                        Me.Filter_condition_Listbox.Items.Add(tempText)
-                        Me.filterstring_arraylist.Add(tempCode)
+                        Filter_condition_Listbox.Items.Add(tempText)
+                        filterstring_arraylist.Add(tempCode)
                     End If
                 Loop
                 XmlRdr.Close()
@@ -366,15 +366,15 @@ Public Class FormulBuilder
         End If
     End Sub
 
-    Private Sub btn_Save_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Save.Click
+    Private Sub btn_Save_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Save.Click
         If (Filter_condition_Listbox.Items.Count = 0) Then
             MessageBoxFa.Show("لطفا ابتدا شروط گزارش را براي ذخيره شدن انتخاب كنيد")
         Else
-            If Me.saveFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.Cancel Then
+            If saveFileDialog1.ShowDialog() = DialogResult.Cancel Then
                 Return
             End If
-            If (Me.saveFileDialog1.FileName <> "") Then
-                Using XmlDoc As New Xml.XmlTextWriter(Me.saveFileDialog1.FileName, Encoding.UTF8)
+            If (saveFileDialog1.FileName <> "") Then
+                Using XmlDoc As New Xml.XmlTextWriter(saveFileDialog1.FileName, Encoding.UTF8)
                     XmlDoc.Formatting = Xml.Formatting.Indented
                     XmlDoc.WriteStartDocument()
                     XmlDoc.WriteStartElement("Report")
@@ -385,10 +385,10 @@ Public Class FormulBuilder
 
                     XmlDoc.WriteStartElement("Conditions")
                     Dim i As Integer
-                    For i = 0 To Me.filterstring_arraylist.Count - 1
+                    For i = 0 To filterstring_arraylist.Count - 1
                         XmlDoc.WriteStartElement("Condition")
-                        XmlDoc.WriteElementString("Code", Me.filterstring_arraylist.Item(i).ToString)
-                        XmlDoc.WriteElementString("Text", Me.Filter_condition_Listbox.Items.Item(i).ToString)
+                        XmlDoc.WriteElementString("Code", filterstring_arraylist.Item(i).ToString)
+                        XmlDoc.WriteElementString("Text", Filter_condition_Listbox.Items.Item(i).ToString)
                         XmlDoc.WriteEndElement()
                     Next i
                     XmlDoc.WriteEndElement()
@@ -399,18 +399,18 @@ Public Class FormulBuilder
         End If
     End Sub
 
-    Private Sub btn_Delete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Delete.Click
-        If (Me.Filter_condition_Listbox.Items.Count = 0) Then
+    Private Sub btn_Delete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Delete.Click
+        If (Filter_condition_Listbox.Items.Count = 0) Then
             MessageBoxFa.Show("هيچ شرطی برای حذف شدن وجود ندارد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Hand)
-        ElseIf (Me.Filter_condition_Listbox.SelectedItems.Count = 0) Then
+        ElseIf (Filter_condition_Listbox.SelectedItems.Count = 0) Then
             MessageBoxFa.Show("هيچ شرطی برای حذف انتخاب نشده", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Hand)
-        ElseIf (MessageBoxFa.Show("شروط انتخاب شده حذف شوند؟", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> System.Windows.Forms.DialogResult.No) Then
+        ElseIf (MessageBoxFa.Show("شروط انتخاب شده حذف شوند؟", " ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.No) Then
             Dim i As Integer
-            For i = 0 To Me.Filter_condition_Listbox.Items.Count
+            For i = 0 To Filter_condition_Listbox.Items.Count
                 Try
-                    If Me.Filter_condition_Listbox.GetSelected(i) Then
-                        Me.Filter_condition_Listbox.Items.RemoveAt(i)
-                        Me.filterstring_arraylist.RemoveAt(i)
+                    If Filter_condition_Listbox.GetSelected(i) Then
+                        Filter_condition_Listbox.Items.RemoveAt(i)
+                        filterstring_arraylist.RemoveAt(i)
                         i -= 1
                     End If
                 Catch ex As Exception
@@ -419,18 +419,18 @@ Public Class FormulBuilder
         End If
     End Sub
 
-    Private Sub btn_selectAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_selectAll.Click
-        If (Me.Filter_condition_Listbox.Items.Count = 0) Then
+    Private Sub btn_selectAll_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_selectAll.Click
+        If (Filter_condition_Listbox.Items.Count = 0) Then
             MessageBoxFa.Show("هيچ شرطی برای انتخاب شدن وجود ندارد", "", MessageBoxButtons.OK, MessageBoxIcon.Hand)
         Else
             Dim i As Integer
-            For i = 0 To Me.Filter_condition_Listbox.Items.Count - 1
-                Me.Filter_condition_Listbox.SetSelected(i, True)
+            For i = 0 To Filter_condition_Listbox.Items.Count - 1
+                Filter_condition_Listbox.SetSelected(i, True)
             Next i
         End If
     End Sub
 
-    Private Sub FormulBuilder_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+    Private Sub FormulBuilder_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then
             Close()
         End If

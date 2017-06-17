@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Forms.Design;
 
 namespace CS_Component
 {
-	public class TestControlDesigner : ParentControlDesigner
+    public class TestControlDesigner : ParentControlDesigner
 	{
 		public override void Initialize(System.ComponentModel.IComponent component)
 		{

@@ -14,7 +14,7 @@
     End Function
 
     Public Overrides Sub LoadDataGridView()
-        Me.Sec_GroupTableAdapter.Fill(Me.DataSet1.sec_Group)
+        Sec_GroupTableAdapter.Fill(DataSet1.sec_Group)
         MyBase.LoadDataGridView()
     End Sub
 

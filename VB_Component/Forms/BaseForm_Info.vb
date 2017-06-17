@@ -1,10 +1,10 @@
 ﻿Public Class BaseForm_Info
 
-    Private Sub btn_Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Cancel.Click
+    Private Sub btn_Cancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Cancel.Click
         Close()
     End Sub
 
-    Private Sub btn_Save_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Save.Click
+    Private Sub btn_Save_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Save.Click
         If (Save(True)) Then Close()
     End Sub
 
@@ -15,7 +15,7 @@
 
     Protected Overrides Sub OnFormClosed(ByVal e As System.Windows.Forms.FormClosedEventArgs)
         MyBase.OnFormClosed(e)
-        CType(Me.Owner, BaseForm).LoadDataGridView()
+        CType(Owner, BaseForm).LoadDataGridView()
     End Sub
 
 End Class

@@ -21,17 +21,14 @@
 
 
 using System;
-using System.Collections;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Reflection;
 using System.Resources;
 using System.Windows.Forms;
 
 namespace CS_Component
 {
-	internal class DotControl : System.Windows.Forms.Control
+    internal class DotControl : System.Windows.Forms.Control
 	{
       private bool _readOnly;
       private bool _ignoreTheme;

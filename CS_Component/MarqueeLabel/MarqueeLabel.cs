@@ -1,14 +1,12 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
-using System.Windows.Forms;
 
 namespace CS_Component
 {
-	/// <summary>
-	/// Summary description for MarqueeLabel.
-	/// </summary>
-	public class MarqueeLabel : System.Windows.Forms.UserControl
+    /// <summary>
+    /// Summary description for MarqueeLabel.
+    /// </summary>
+    public class MarqueeLabel : System.Windows.Forms.UserControl
 	{
 		private System.ComponentModel.IContainer components;
 

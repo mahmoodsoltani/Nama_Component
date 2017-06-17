@@ -9,15 +9,11 @@
 //
 // ******************************************************************
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms.Design;
 
 namespace CS_Component
 {
-	public class WorkingAreaDesigner : ScrollableControlDesigner
+    public class WorkingAreaDesigner : ScrollableControlDesigner
 	{
 		protected override void PreFilterProperties(System.Collections.IDictionary properties)
 		{

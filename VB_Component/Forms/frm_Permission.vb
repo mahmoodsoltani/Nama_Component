@@ -11,18 +11,18 @@
         End Set
     End Property
 
-    Private Sub frm_Permission_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frm_Permission_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DataSet1.sec_Role' table. You can move, or remove it, as needed.
 
-        Me.Sec_RoleTableAdapter.Fill(Me.DataSet1.sec_Role)
+        Sec_RoleTableAdapter.Fill(DataSet1.sec_Role)
 
     End Sub
 
-    Private Sub btn_Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Cancel.Click
+    Private Sub btn_Cancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Cancel.Click
         Close()
     End Sub
 
-    Private Sub btn_Continue_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Continue.Click
+    Private Sub btn_Continue_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Continue.Click
         Dim frm As New frm_FormControls
         frm.Text = "تخصیص بازدارنده " + "[" + ComboBox1.Text + "]"        
         frm.Tag = ComboBox1.SelectedValue

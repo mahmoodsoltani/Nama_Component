@@ -7,10 +7,10 @@ Public Class BackgroundLoading
     Dim lable As String
 
     Public Sub New(ByVal newFunction As RunFunction, ByVal lable As String)
-        Me.thisFunction = newFunction
-        Me.Bw = New BackgroundWorker
-        AddHandler Me.Bw.DoWork, New DoWorkEventHandler(AddressOf Me.Bw_DoWork)
-        AddHandler Me.Bw.RunWorkerCompleted, New RunWorkerCompletedEventHandler(AddressOf Me.Bw_RunWorkerCompleted)
+        thisFunction = newFunction
+        Bw = New BackgroundWorker
+        AddHandler Bw.DoWork, New DoWorkEventHandler(AddressOf Bw_DoWork)
+        AddHandler Bw.RunWorkerCompleted, New RunWorkerCompletedEventHandler(AddressOf Bw_RunWorkerCompleted)
         Me.lable = lable
     End Sub
 

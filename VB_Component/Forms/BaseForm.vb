@@ -79,8 +79,8 @@ Public Class BaseForm
     Public Sub New()
         InitializeComponent()
         Try
-            Me.DataObject = New BaseDataObject()
-            Me.DataObject.TableName = str_TableName
+            DataObject = New BaseDataObject()
+            DataObject.TableName = str_TableName
             'Me.DataObject.DataAccess = ApplicationPublicObjects.DataAccess
         Catch ex As Exception
         End Try
@@ -119,7 +119,7 @@ Public Class BaseForm
     '    End Select
     'End Function
 
-    Public Function GrideViewColomnAction(ByVal _GridView As CS_Component.DataGridView, ByVal state As GrideViewGettingState) As Integer
+    Public Function GrideViewColomnAction(ByVal _GridView As DataGridView, ByVal state As GrideViewGettingState) As Integer
         Select Case state
             Case GrideViewGettingState.HidePrimeryKey
                 Dim I As Integer
@@ -165,7 +165,7 @@ Public Class BaseForm
         '    End Select
         'End If
 
-        Me.FormState = FormStates.NewRecord
+        FormState = FormStates.NewRecord
         DataObject.NewData()
         If ClearthisForm Then
             ClearForm()
@@ -277,7 +277,7 @@ Public Class BaseForm
         'Return False
         'End If
         Dim Dr As DialogResult = MessageBoxFa.Show("آیا مایلید اطلاعات انتخاب شده حذف شوند ؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
-        Return (Dr = System.Windows.Forms.DialogResult.Yes)
+        Return (Dr = DialogResult.Yes)
     End Function
 
     Public Overridable Sub LoadDataGridView()
@@ -321,7 +321,7 @@ Public Class BaseForm
         Dim Dr As DialogResult
         If (PromptOnExit) Then
             Dr = MessageBoxFa.Show("آیا مایلید از فرم خارج شوید ؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
-            If (Dr = System.Windows.Forms.DialogResult.No) Then
+            If (Dr = DialogResult.No) Then
                 e.Cancel = True
                 Exit Sub
             End If
@@ -330,20 +330,16 @@ Public Class BaseForm
             If (GetModified(Me)) Then
                 Dr = MessageBoxFa.Show("اطلاعات فعلی ذخیره نشده است آیا مایلید قبل از خروج ذخیره شوند ؟", "خروج", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
                 Select Case Dr
-                    Case System.Windows.Forms.DialogResult.Yes
+                    Case DialogResult.Yes
                         e.Cancel = Not Save(True)
-                    Case System.Windows.Forms.DialogResult.No
+                    Case DialogResult.No
                         e.Cancel = False
-                    Case System.Windows.Forms.DialogResult.Cancel
+                    Case DialogResult.Cancel
                         e.Cancel = True
                 End Select
             End If
         End If
         MyBase.OnClosing(e)
-    End Sub
-
-    Private Sub BaseForm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
-
     End Sub
 
     Private Function GetModified(ByVal Control As Control) As Boolean
@@ -392,7 +388,7 @@ Public Class BaseForm
         If ShowMessageOnPromtType Then
             If PromtType = FindSerialPromtType.Edit Then
             ElseIf PromtType = FindSerialPromtType.Delete Then
-                If MessageBoxFa.Show("مايل به حذف رديف هستيد؟", "", MessageBoxButtons.YesNo) = System.Windows.Forms.DialogResult.No Then
+                If MessageBoxFa.Show("مايل به حذف رديف هستيد؟", "", MessageBoxButtons.YesNo) = DialogResult.No Then
                     Return -1
                 End If
             End If
@@ -421,63 +417,63 @@ Public Class BaseForm
         Return Srl
     End Function
 
-    Protected Overrides Sub OnKeyDown(ByVal e As System.Windows.Forms.KeyEventArgs)
+    Protected Overrides Sub OnKeyDown(ByVal e As KeyEventArgs)
         If e.KeyCode = Keys.Escape And _FormState <> FormStates.Edit Then
             Close()
         End If
         Select Case e.KeyCode
             Case Keys.Enter
                 If _GoOnEnter Then
-                    If TypeOf MyBase.ActiveControl Is CS_Component.DataGridView OrElse
-                    TypeOf MyBase.ActiveControl Is CS_Component.Btn Then
+                    If TypeOf ActiveControl Is DataGridView OrElse
+                    TypeOf ActiveControl Is Btn Then
                         Return
                     End If
-                    If TypeOf MyBase.ActiveControl Is TimeSelect Then
-                        If DirectCast(MyBase.ActiveControl, TimeSelect).ActiveControl.Name = "txt_Hour" Then
-                            DirectCast(MyBase.ActiveControl, TimeSelect).txt_Min.Focus()
-                        ElseIf DirectCast(MyBase.ActiveControl, TimeSelect).ActiveControl.Name = "txt_Min" And DirectCast(MyBase.ActiveControl, TimeSelect).ShowSecond Then
-                            DirectCast(MyBase.ActiveControl, TimeSelect).txt_Sec.Focus()
+                    If TypeOf ActiveControl Is TimeSelect Then
+                        If DirectCast(ActiveControl, TimeSelect).ActiveControl.Name = "txt_Hour" Then
+                            DirectCast(ActiveControl, TimeSelect).txt_Min.Focus()
+                        ElseIf DirectCast(ActiveControl, TimeSelect).ActiveControl.Name = "txt_Min" And DirectCast(ActiveControl, TimeSelect).ShowSecond Then
+                            DirectCast(ActiveControl, TimeSelect).txt_Sec.Focus()
                         Else
-                            Me.ProcessTabKey(True)
+                            ProcessTabKey(True)
                         End If
                     Else
-                        Me.ProcessTabKey(True)
+                        ProcessTabKey(True)
                     End If
                 End If
             Case Keys.F10
                 Dim currentlang As String = InputLanguage.CurrentInputLanguage.LayoutName
                 If (currentlang = "US") Then
-                    VB_Component.Windows.ChangeLangToFarsi(True)
+                    Windows.ChangeLangToFarsi(True)
                 Else
-                    VB_Component.Windows.ChangeLangToFarsi(False)
+                    Windows.ChangeLangToFarsi(False)
                 End If
             Case Keys.Up
                 If _GoOnUpDown Then
-                    If TypeOf MyBase.ActiveControl Is ListBox _
-                        OrElse TypeOf MyBase.ActiveControl Is CS_Component.DataGridView _
-                        OrElse TypeOf MyBase.ActiveControl Is DataGridViewComboBoxEditingControl _
-                        OrElse TypeOf MyBase.ActiveControl Is ComboBox Then
+                    If TypeOf ActiveControl Is ListBox _
+                        OrElse TypeOf ActiveControl Is DataGridView _
+                        OrElse TypeOf ActiveControl Is DataGridViewComboBoxEditingControl _
+                        OrElse TypeOf ActiveControl Is ComboBox Then
                         Return
                     End If
                     ProcessTabKey(False)
                 End If
             Case Keys.Down
                 If _GoOnUpDown Then
-                    If TypeOf MyBase.ActiveControl Is ListBox _
-                        OrElse TypeOf MyBase.ActiveControl Is DataGridViewComboBoxEditingControl _
-                        OrElse TypeOf MyBase.ActiveControl Is CS_Component.DataGridView _
-                        OrElse TypeOf MyBase.ActiveControl Is LookupBox _
-                        OrElse TypeOf MyBase.ActiveControl Is ComboBox Then
+                    If TypeOf ActiveControl Is ListBox _
+                        OrElse TypeOf ActiveControl Is DataGridViewComboBoxEditingControl _
+                        OrElse TypeOf ActiveControl Is DataGridView _
+                        OrElse TypeOf ActiveControl Is LookupBox _
+                        OrElse TypeOf ActiveControl Is ComboBox Then
                         Return
                     End If
                     ProcessTabKey(True)
                 End If
             Case Keys.Left
-                If TypeOf MyBase.ActiveControl Is ComboBox Then
+                If TypeOf ActiveControl Is ComboBox Then
                     ProcessTabKey(True)
                 End If
             Case Keys.Right
-                If TypeOf MyBase.ActiveControl Is ComboBox Then
+                If TypeOf ActiveControl Is ComboBox Then
                     ProcessTabKey(False)
                 End If
         End Select
@@ -517,7 +513,7 @@ Public Class BaseForm
         Dim titlec As Control = Control.Parent.GetChildAtPoint(New Point(Control.Left + Control.Width + 20, Control.Top + 5))
         If (TypeOf Control Is TextBox) Then
             If CType(Control, TextBox).IsRequired Then
-                If (CType(Control, TextBox).TypeOfContains = CS_Component.TypeOfValues.Currency Or CType(Control, TextBox).TypeOfContains = CS_Component.TypeOfValues.Number) Then
+                If (CType(Control, TextBox).TypeOfContains = TypeOfValues.Currency Or CType(Control, TextBox).TypeOfContains = TypeOfValues.Number) Then
                     If (CType(Control, TextBox).Value = 0) Then
                         If (Not titlec Is Nothing) Then
                             ControlMessage.Show(Control, titlec.Text.Replace(":", "").Trim() + " مشخص نیست.")
@@ -530,7 +526,7 @@ Public Class BaseForm
                         End If
                     End If
                 End If
-                If (CType(Control, TextBox).TypeOfContains = TypeOfValues.Date Or CType(Control, TextBox).TypeOfContains = CS_Component.TypeOfValues.EnglishText) Or (CType(Control, TextBox).TypeOfContains = CS_Component.TypeOfValues.PersianText) Or (CType(Control, TextBox).TypeOfContains = CS_Component.TypeOfValues.StringNumber) Then
+                If (CType(Control, TextBox).TypeOfContains = TypeOfValues.Date Or CType(Control, TextBox).TypeOfContains = TypeOfValues.EnglishText) Or (CType(Control, TextBox).TypeOfContains = TypeOfValues.PersianText) Or (CType(Control, TextBox).TypeOfContains = TypeOfValues.StringNumber) Then
                     If (CType(Control, TextBox).Value = "") Then
                         If (Not titlec Is Nothing) Then
                             ControlMessage.Show(Control, titlec.Text.Replace(":", "").Trim() + " مشخص نیست.")
@@ -545,7 +541,7 @@ Public Class BaseForm
                 End If
             End If
             If CType(Control, TextBox).CheckExistValueInDb Then
-                If Me.FormState = FormStates.Edit Then
+                If FormState = FormStates.Edit Then
                     If CType(Control, TextBox).ValidateCheckExistOnEdit Then
                         If Not CheckExistValueInDatabase(Control) Then
                             bol_IsValid = False
@@ -640,7 +636,7 @@ Public Class BaseForm
                 Return False
             End If
         ElseIf (TypeOf (Me) Is BaseForm_Info) Then
-            Dim Bs_Inf As BaseForm_View = CType(Me.Owner, BaseForm_View)
+            Dim Bs_Inf As BaseForm_View = CType(Owner, BaseForm_View)
             If (ExistInDataGridView(Bs_Inf.DataGridView, titlec.Text.Replace(":", "").Trim(), Control.Text)) Then
                 Control.Focus()
                 Application.DoEvents()
@@ -721,7 +717,7 @@ Public Class BaseForm
         SetData(Me)
     End Sub
 
-    Private Sub BaseForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub BaseForm_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         DataObject.TableName = str_TableName
         LoadDataGridView()
         ToolStripManager.Renderer = New CS_Component.Office2007Renderer()
@@ -730,7 +726,7 @@ Public Class BaseForm
         FocusFirst(Me)
     End Sub
 
-    Private Sub mnu_F10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnu_F10.Click
+    Private Sub mnu_F10_Click(ByVal sender As Object, ByVal e As EventArgs) Handles mnu_F10.Click
         RaiseEvent F10Clicked(Me, e)
     End Sub
 End Class
