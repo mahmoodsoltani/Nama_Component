@@ -1,9 +1,5 @@
-﻿Imports System.Drawing
-Imports System.Drawing.Drawing2D
-Imports System.Windows.Forms
-Imports System.IO
+﻿Imports System.IO
 Imports System.Data.SqlClient
-Imports System.Data
 
 Public Class DataBase
 
@@ -179,8 +175,9 @@ Public Class DataBase
     Public Shared Function Restore(ByVal ConnectionString As String, ByVal database As String, ByVal FilePath As String) As Boolean
         Dim flag As Boolean = False
         Dim connection As New SqlConnection(ConnectionString)
-        Dim command As New SqlCommand
-        command.Connection = connection
+        Dim command As New SqlCommand With {
+            .Connection = connection
+        }
         connection.Open()
 
         Try

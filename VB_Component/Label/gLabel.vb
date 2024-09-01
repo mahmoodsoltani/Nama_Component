@@ -830,9 +830,10 @@ Public Shadows Property ImageList() As Boolean
                       New RectangleF(path.GetBounds.X - 1, path.GetBounds.Y - 1, _
                       path.GetBounds.Width + 2, path.GetBounds.Height + 2), _
                       Color.White, Color.White, FillTypeLinear)
-                        Dim cb As New ColorBlend
-                        cb.Colors = EnableBlends(_ForeColorBlend.iColor)
-                        cb.Positions = _ForeColorBlend.iPoint
+                        Dim cb As New ColorBlend With {
+                            .Colors = EnableBlends(_ForeColorBlend.iColor),
+                            .Positions = _ForeColorBlend.iPoint
+                        }
 
                         br.InterpolationColors = cb
 
@@ -1089,9 +1090,10 @@ Friend Class BlendItemsConverter : Inherits ExpandableObjectConverter
     End Function
 
     Public Overrides Function CreateInstance(ByVal context As ITypeDescriptorContext, ByVal propertyValues As IDictionary) As Object
-        Dim bItem As New cBlendItems
-        bItem.iColor = CType(propertyValues("iColor"), Color())
-        bItem.iPoint = CType(propertyValues("iPoint"), Single())
+        Dim bItem As New cBlendItems With {
+            .iColor = CType(propertyValues("iColor"), Color()),
+            .iPoint = CType(propertyValues("iPoint"), Single())
+        }
         Return bItem
     End Function
 
@@ -1256,9 +1258,10 @@ Public Class BlendTypeEditor
         ' Draw the sample.
         Dim cblnd As cBlendItems = DirectCast(e.Value, cBlendItems)
         Using br As LinearGradientBrush = New LinearGradientBrush(e.Bounds, Color.Black, Color.Black, LinearGradientMode.Horizontal)
-            Dim cb As New ColorBlend
-            cb.Colors = cblnd.iColor
-            cb.Positions = cblnd.iPoint
+            Dim cb As New ColorBlend With {
+                .Colors = cblnd.iColor,
+                .Positions = cblnd.iPoint
+            }
             br.InterpolationColors = cb
             e.Graphics.FillRectangle(br, e.Bounds)
         End Using

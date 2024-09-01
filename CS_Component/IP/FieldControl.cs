@@ -339,12 +339,9 @@ namespace CS_Component
             }
          }
 
-         if ( TextChangedEvent != null )
-         {
-            TextChangedEvent( FieldIndex, Text );
-         }
+            TextChangedEvent?.Invoke(FieldIndex, Text);
 
-         if ( TextLength == MaxLength && Focused && SelectionStart == TextLength )
+            if ( TextLength == MaxLength && Focused && SelectionStart == TextLength )
          {
             SendCedeFocusEvent( Direction.Forward, Selection.All );
          }
@@ -485,19 +482,13 @@ namespace CS_Component
 
       private void SendCedeFocusEvent( Action action )
       {
-         if ( CedeFocusEvent != null )
-         {
-            CedeFocusEvent( FieldIndex, Direction.Forward, Selection.None, action );
-         }
-      }
+            CedeFocusEvent?.Invoke(FieldIndex, Direction.Forward, Selection.None, action);
+        }
 
       private void SendCedeFocusEvent( Direction direction, Selection selection )
       {
-         if ( CedeFocusEvent != null )
-         {
-            CedeFocusEvent( FieldIndex, direction, selection, Action.None );
-         }
-      }
+            CedeFocusEvent?.Invoke(FieldIndex, direction, selection, Action.None);
+        }
 
       #endregion
 

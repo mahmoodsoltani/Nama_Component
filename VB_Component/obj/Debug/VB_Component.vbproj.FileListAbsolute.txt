@@ -1,133 +1,3 @@
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\ResolveAssemblyReference.cache
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.BaseForm.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.BaseForm_Info.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.BaseForm_Info_Single.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.BaseForm_Layer.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.BaseForm_Menu.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.BaseForm_View.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.frm_FormControls.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.frm_Group.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.frm_Login.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.frm_Permission.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.frm_ResetPassword.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.frm_Role.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.frm_RoleGroup.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.frm_User.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.frm_UserList.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.FaReportViewer.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.FormulBuilder.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.LoadingForm.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.LookUpButton.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.LookUpForm.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.LookUpSelect.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.Masked_Date.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.Resources.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.PictureGetter.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.PictureViewer.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.RecentTextBox.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.BaseForm_Old.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.TimeSelect.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.Tree_Vw.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.Tree_Vw_Select.resources
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.vbproj.GenerateResource.Cache
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\bin\Debug\VB_Component.dll.config
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\bin\Debug\VB_Component.dll
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\bin\Debug\VB_Component.pdb
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\bin\Debug\VB_Component.xml
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\bin\Debug\CS_Component.dll
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\bin\Debug\xpexplorerbar.dll
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.dll
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.xml
-D:\My Project\ALisUtility Collection\Nama_Component\VB_Component\obj\Debug\VB_Component.pdb
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.dll.config
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.pdb
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.xml
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportSource.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.Shared.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.Windows.Forms.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CS_Component.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\System.Web.Services.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\FlashControlV71.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\stdole.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\ShockwaveFlashObjects.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\bin\Debug\CS_Component.pdb
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.vbprojResolveAssemblyReference.cache
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_Info.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_Info_Single.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_Layer.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_Menu.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_View.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_FormControls.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_Group.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_Login.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_Permission.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_ResetPassword.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_Role.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_RoleGroup.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_User.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_UserList.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.DropdownColorBlender.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.FaReportViewer.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.FormulBuilder.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.LoadingForm.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.LookUpButton.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.LookUpForm.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.LookUpSelect.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.Masked_Date.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.Resources.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.PictureGetter.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.PictureViewer.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.RecentTextBox.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_Old.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.TimeSelect.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.Tree_Vw.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.Tree_Vw_Select.resources
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.vbproj.GenerateResource.Cache
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.dll
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.xml
-D:\My Project\ALisUtility Collection\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.pdb
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.dll.config
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.pdb
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.xml
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportSource.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.Shared.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.Windows.Forms.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CS_Component.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\System.Web.Services.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\FlashControlV71.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\stdole.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\ShockwaveFlashObjects.dll
-D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CS_Component.pdb
-D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.vbprojResolveAssemblyReference.cache
 D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm.resources
 D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_Info.resources
 D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_Info_Single.resources
@@ -160,6 +30,146 @@ D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.TimeSelect.r
 D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.Tree_Vw.resources
 D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.Tree_Vw_Select.resources
 D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.vbproj.GenerateResource.Cache
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.vbprojFakesResolveAssemblyReference.cache
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\fakes.args
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\Accessibility.dll
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\CS_Component.dll
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\CS_Component.pdb
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\Microsoft.QualityTools.Testing.Fakes.dll
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\System.Web.Services.dll
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\VB_Component.dll
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\XPExplorerBar.dll
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\XPExplorerBar.Fakes.dll
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\XPExplorerBar.Fakes.fakesconfig
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\XPExplorerBar.Fakes.pdb
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\XPExplorerBar.Fakes.xml
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.ah
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.ch
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.cs
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.csproj
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.fakes
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.fakesconfig
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.snk
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\o\CoreCompileInputs.cache
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\o\f.csproj.FileListAbsolute.txt
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\o\f.csprojResolveAssemblyReference.cache
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\o\XPExplorerBar.Fakes.dll
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\o\XPExplorerBar.Fakes.pdb
+D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.vbprojResolveAssemblyReference.cache
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.dll.config
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.pdb
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.xml
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\XPExplorerBar.Fakes.fakesconfig
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.Shared.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.Windows.Forms.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CS_Component.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\FlashControlV71.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\System.Web.Services.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\XPExplorerBar.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\ShockwaveFlashObjects.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\stdole.dll
+D:\My Project\Nama_ComponentGit\VB_Component\bin\Debug\CS_Component.pdb
 D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.dll
 D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.xml
 D:\My Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.pdb
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.dll.config
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.pdb
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\VB_Component.xml
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\XPExplorerBar.Fakes.fakesconfig
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CS_Component.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\System.Web.Services.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\XPExplorerBar.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\ShockwaveFlashObjects.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\stdole.dll
+D:\Project\Nama_ComponentGit\VB_Component\bin\Debug\CS_Component.pdb
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.vbprojFakesResolveAssemblyReference.cache
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\fakes.args
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\Accessibility.dll
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\CS_Component.dll
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\CS_Component.pdb
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\Microsoft.QualityTools.Testing.Fakes.dll
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\System.Web.Services.dll
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\VB_Component.dll
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\XPExplorerBar.dll
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\XPExplorerBar.Fakes.dll
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\XPExplorerBar.Fakes.fakesconfig
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\XPExplorerBar.Fakes.pdb
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\b\XPExplorerBar.Fakes.xml
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.ah
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.ch
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.cs
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.csproj
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.fakes
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.fakesconfig
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\f.snk
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\o\CoreCompileInputs.cache
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\o\f.csproj.FileListAbsolute.txt
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\o\f.csprojResolveAssemblyReference.cache
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\o\XPExplorerBar.Fakes.dll
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\Fakes\xpeb\o\XPExplorerBar.Fakes.pdb
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.vbprojResolveAssemblyReference.cache
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_Info.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_Info_Single.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_Layer.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_Menu.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_View.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_FormControls.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_Group.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_Login.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_Permission.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_ResetPassword.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_Role.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_RoleGroup.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_User.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.frm_UserList.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.DropdownColorBlender.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.FaReportViewer.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.FormulBuilder.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.LoadingForm.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.LookUpButton.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.LookUpForm.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.LookUpSelect.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.Masked_Date.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.Resources.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.PictureGetter.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.PictureViewer.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.RecentTextBox.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.BaseForm_Old.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.TimeSelect.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.Tree_Vw.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.Tree_Vw_Select.resources
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.vbproj.GenerateResource.Cache
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.dll
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.xml
+D:\Project\Nama_ComponentGit\VB_Component\obj\Debug\VB_Component.pdb

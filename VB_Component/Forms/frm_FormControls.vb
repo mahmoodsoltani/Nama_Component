@@ -6,13 +6,13 @@ Public Class frm_FormControls
     Private lst_SecControls As SecurityControls
 
 
-    Private obj_Assembly As System.Reflection.Assembly
+    Private obj_Assembly As Reflection.Assembly
 
-    Public Property Assembly() As System.Reflection.Assembly
+    Public Property Assembly() As Reflection.Assembly
         Get
             Return obj_Assembly
         End Get
-        Set(ByVal value As System.Reflection.Assembly)
+        Set(ByVal value As Reflection.Assembly)
             obj_Assembly = value
         End Set
     End Property
@@ -22,13 +22,14 @@ Public Class frm_FormControls
         lst_SecControls = New SecurityControls
         Dim Dr As SqlDataReader = VB_Component.BaseDataObject.DataAccess.ExecReader("SELECT * FROM [sec_windowscontrol] WHERE Srl_Role=" + Tag.ToString())
         While Dr.Read
-            Dim Sc As New SecurityControl
-            Sc.ControlName = Dr("ControlName")
-            Sc.Disabled = Dr("Disable")
-            Sc.FormName = Dr("FormName")
-            Sc.Invisible = Dr("Invisible")
-            Sc.Srl = Dr("Srl")
-            Sc.Type = Dr("Type")
+            Dim Sc As New SecurityControl With {
+                .ControlName = Dr("ControlName"),
+                .Disabled = Dr("Disable"),
+                .FormName = Dr("FormName"),
+                .Invisible = Dr("Invisible"),
+                .Srl = Dr("Srl"),
+                .Type = Dr("Type")
+            }
             lst_SecControls.Add(Sc)
         End While
     End Sub
@@ -83,9 +84,10 @@ Public Class frm_FormControls
 
     Sub ScanSubMenus(ByVal Ms As MenuStrip, ByVal TreeNode As System.Windows.Forms.TreeNode)
         For Each Ts As ToolStripMenuItem In Ms.Items
-            Dim Tn As New System.Windows.Forms.TreeNode
-            Tn.Text = Ts.Name + "[" + Ts.Text + "]"
-            Tn.Tag = Ts
+            Dim Tn As New System.Windows.Forms.TreeNode With {
+                .Text = Ts.Name + "[" + Ts.Text + "]",
+                .Tag = Ts
+            }
             TreeNode.Nodes.Add(Tn)
             ScanMenus(Ts, Tn)
         Next

@@ -30,6 +30,7 @@
             bool_IsRootNode = value
         End Set
     End Property
+
     Private bool_IsLoad As Boolean
     Public Property IsLoad() As Boolean
         Get

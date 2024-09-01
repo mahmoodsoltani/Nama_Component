@@ -1,14 +1,8 @@
 ﻿Imports Microsoft.VisualBasic.CompilerServices
-Imports System
-Imports System.Collections
 Imports System.ComponentModel
-Imports System.Diagnostics
-Imports System.Drawing
 Imports System.Drawing.Drawing2D
 Imports System.Drawing.Imaging
-Imports System.Runtime.CompilerServices
 Imports System.Runtime.InteropServices
-Imports System.Windows.Forms
 
 Namespace PictuerViewer
     <ComVisible(False), DesignerGenerated()> _

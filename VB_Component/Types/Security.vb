@@ -50,39 +50,45 @@ Public Class Security
     End Function
 
     Public Shared Sub Users(ByVal Owner As Form)
-        Dim frm As New frm_UserList
-        frm.Owner = Owner
+        Dim frm As New frm_UserList With {
+            .Owner = Owner
+        }
         frm.ShowDialog()
     End Sub
 
     Public Shared Sub Groups(ByVal Owner As Form)
-        Dim frm As New frm_Group
-        frm.Owner = Owner
+        Dim frm As New frm_Group With {
+            .Owner = Owner
+        }
         frm.ShowDialog()
     End Sub
 
     Public Shared Sub Roles(ByVal Owner As Form)
-        Dim frm As New frm_Role
-        frm.Owner = Owner
+        Dim frm As New frm_Role With {
+            .Owner = Owner
+        }
         frm.ShowDialog()
     End Sub
 
     Public Shared Sub RoleGroups(ByVal Owner As Form)
-        Dim frm As New frm_RoleGroup
-        frm.Owner = Owner
+        Dim frm As New frm_RoleGroup With {
+            .Owner = Owner
+        }
         frm.ShowDialog()
     End Sub
 
     Public Shared Sub ResetPassword(ByVal Owner As Form)
-        Dim frm As New frm_ResetPassword
-        frm.Owner = Owner
+        Dim frm As New frm_ResetPassword With {
+            .Owner = Owner
+        }
         frm.ShowDialog()    
     End Sub
 
-    Public Shared Sub Permission(ByVal Owner As Form, ByVal Assembly As System.Reflection.Assembly)
-        Dim frm As New frm_Permission
-        frm.Owner = Owner
-        frm.Assembly = Assembly
+    Public Shared Sub Permission(ByVal Owner As Form, ByVal Assembly As Reflection.Assembly)
+        Dim frm As New frm_Permission With {
+            .Owner = Owner,
+            .Assembly = Assembly
+        }
         frm.ShowDialog()
     End Sub
 
@@ -92,8 +98,9 @@ Public Class Security
         Dim plainTextBytes As Byte() = System.Text.Encoding.UTF8.GetBytes(plainText)
         Dim password As New PasswordDeriveBytes(passPhrase, saltValueBytes, hashAlgorithm, passwordIterations)
         Dim keyBytes As Byte() = password.GetBytes(keySize / 8)
-        Dim symmetricKey As RijndaelManaged = New RijndaelManaged()
-        symmetricKey.Mode = CipherMode.CBC
+        Dim symmetricKey As RijndaelManaged = New RijndaelManaged() With {
+            .Mode = CipherMode.CBC
+        }
         Dim encryptor As ICryptoTransform = symmetricKey.CreateEncryptor(keyBytes, initVectorBytes)
         Dim memoryStream As IO.MemoryStream = New IO.MemoryStream()
         Dim cryptoStream As CryptoStream = New CryptoStream(memoryStream, encryptor, System.Security.Cryptography.CryptoStreamMode.Write)
@@ -112,8 +119,9 @@ Public Class Security
         Dim cipherTextBytes As Byte() = Convert.FromBase64String(cipherText)
         Dim password As PasswordDeriveBytes = New PasswordDeriveBytes(passPhrase, saltValueBytes, hashAlgorithm, passwordIterations)
         Dim keyBytes As Byte() = password.GetBytes(keySize / 8)
-        Dim symmetricKey As RijndaelManaged = New RijndaelManaged()
-        symmetricKey.Mode = CipherMode.CBC
+        Dim symmetricKey As RijndaelManaged = New RijndaelManaged() With {
+            .Mode = CipherMode.CBC
+        }
         Dim decryptor As ICryptoTransform = symmetricKey.CreateDecryptor(keyBytes, initVectorBytes)
         Dim memoryStream As IO.MemoryStream = New IO.MemoryStream(cipherTextBytes)
         Dim cryptoStream As CryptoStream = New CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read)

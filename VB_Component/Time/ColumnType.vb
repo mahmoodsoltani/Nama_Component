@@ -1,7 +1,4 @@
-﻿Imports System
-Imports System.Windows.Forms
-
-Public Class TimeColumn
+﻿Public Class TimeColumn
     Inherits DataGridViewColumn
 
     Public Sub New()
@@ -122,7 +119,7 @@ Class TimeEditingControl
 
     End Function
 
-    Public Sub ApplyCellStyleToEditingControl(ByVal dataGridViewCellStyle As  _
+    Public Sub ApplyCellStyleToEditingControl(ByVal dataGridViewCellStyle As _
         DataGridViewCellStyle) _
         Implements IDataGridViewEditingControl.ApplyCellStyleToEditingControl
 

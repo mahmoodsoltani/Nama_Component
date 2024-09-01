@@ -1,7 +1,5 @@
-﻿Imports System.Collections
-Imports System.Text
+﻿Imports System.Text
 Imports System.IO
-Imports System.Windows.Forms
 Public Class FormulBuilder
 
     Dim input_rowfilter As String
@@ -275,8 +273,10 @@ Public Class FormulBuilder
             Formol = s.Remove(0, 4)
 
             Try
-                ResultView = New DataView(mytable)
-                ResultView.RowFilter = input_rowfilter
+                ResultView = New DataView(mytable) With {
+                    .RowFilter = input_rowfilter
+                }
+
                 If ((ResultView.RowFilter <> "") AndAlso (Not ResultView.RowFilter Is Nothing)) Then
                     ResultView.RowFilter = (Formol & " AND " & ResultView.RowFilter)
                 Else

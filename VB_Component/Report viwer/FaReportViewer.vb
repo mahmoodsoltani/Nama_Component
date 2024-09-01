@@ -1,6 +1,4 @@
-﻿Imports System.Collections.Generic
-Imports System.IO
-Imports System.Windows.Forms
+﻿Imports System.IO
 
 Public Class FaReportViewer
 
@@ -177,7 +175,7 @@ Public Class FaReportViewer
         Catch ex As Exception
 
         End Try
-        
+
     End Sub
 
     Private Sub FaReportViewer_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
@@ -264,9 +262,10 @@ Public Class FaReportViewer
             'get current value of field in report
             Dim Fields As New List(Of node)
             For Each paname As CrystalDecisions.Shared.ParameterField In rp.ParameterFields
-                Dim nodak As New node
-                nodak.name = paname.Name
-                nodak.value = DirectCast(paname.CurrentValues.Item(0), CrystalDecisions.Shared.ParameterDiscreteValue).Value.ToString
+                Dim nodak As New node With {
+                    .name = paname.Name,
+                    .value = DirectCast(paname.CurrentValues.Item(0), CrystalDecisions.Shared.ParameterDiscreteValue).Value.ToString
+                }
                 Fields.Add(nodak)
             Next
 
@@ -291,8 +290,9 @@ Public Class FaReportViewer
             End If
             firstLoadCondition = False
             Dim s As New FormulBuilder(New DataView(ReportDataview) _
-            , rp.ResourceName.ToString().Replace(".rpt", "").Replace("Rp", "").Replace("rp", "").Replace("rP", ""))
-            s.HidenField = HidenField
+            , rp.ResourceName.ToString().Replace(".rpt", "").Replace("Rp", "").Replace("rp", "").Replace("rP", "")) With {
+                .HidenField = HidenField
+            }
 
             s.ShowDialog()
             If Not s.Result Is Nothing Then
@@ -300,9 +300,10 @@ Public Class FaReportViewer
                 'get current value of field in report
                 Dim Fields As New List(Of node)
                 For Each paname As CrystalDecisions.Shared.ParameterField In rp.ParameterFields
-                    Dim nodak As New node
-                    nodak.name = paname.Name
-                    nodak.value = DirectCast(paname.CurrentValues.Item(0), CrystalDecisions.Shared.ParameterDiscreteValue).Value.ToString
+                    Dim nodak As New node With {
+                        .name = paname.Name,
+                        .value = DirectCast(paname.CurrentValues.Item(0), CrystalDecisions.Shared.ParameterDiscreteValue).Value.ToString
+                    }
                     Fields.Add(nodak)
                 Next
 

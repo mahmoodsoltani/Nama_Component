@@ -1,5 +1,4 @@
-﻿Imports System.Windows.Forms
-Imports System.ComponentModel
+﻿Imports System.ComponentModel
 
 Public Class ComboBox
     Inherits System.Windows.Forms.ComboBox
@@ -11,7 +10,7 @@ Public Class ComboBox
     Private _LimitedToList As Boolean = True
 
     <Category("Nama"), Description("If true go on to the  next control by enter"), Browsable(True)> _
-   Public Property EnterStop() As Boolean
+    Public Property EnterStop() As Boolean
         Get
             Return _EnterStop
         End Get

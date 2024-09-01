@@ -28,19 +28,22 @@ Public Class Tree_Vw
     Public Sub Clear()
         TreeView1.Nodes.Clear()
     End Sub
+
     Public Sub Fill(ByVal node As TreeNode, ByVal dt As DataTable)
-        Dim dv As New DataView
-        dv.Table = dt
+        Dim dv As New DataView With {
+            .Table = dt
+        }
 
         Dim tn As TreeNode
         Dim tn1 As TreeNode
         If node Is Nothing Then
             dv.RowFilter = "Srl_Parent = 0"
-            tn = New TreeNode(dv.Item(0)("Name").ToString)
-            tn.Srl = dv.Item(0)("Srl").ToString
-            tn.Srl_Parent = dv.Item(0)("Srl_Parent").ToString
-            tn.IsRootNode = True
-            tn.IsLoad = False
+            tn = New TreeNode(dv.Item(0)("Name").ToString) With {
+                .Srl = dv.Item(0)("Srl").ToString,
+                .Srl_Parent = dv.Item(0)("Srl_Parent").ToString,
+                .IsRootNode = True,
+                .IsLoad = False
+            }
 
             TreeView1.Nodes.Add(tn)
             node = tn
@@ -50,25 +53,29 @@ Public Class Tree_Vw
         If Not node.IsLoad Then
             For i As Integer = 0 To dv.Count - 1
 
-                tn = New TreeNode(dv.Item(i)("Name").ToString())
-                tn.Srl = dv.Item(i)("Srl").ToString()
-                tn.Srl_Parent = dv.Item(i)("srl_Parent").ToString()
-                tn.IsRootNode = False
-                tn.IsLoad = False
+                tn = New TreeNode(dv.Item(i)("Name").ToString()) With {
+                    .Srl = dv.Item(i)("Srl").ToString(),
+                    .Srl_Parent = dv.Item(i)("srl_Parent").ToString(),
+                    .IsRootNode = False,
+                    .IsLoad = False
+                }
+
                 If IsExist(node, tn) Is Nothing Then
                     node.Nodes.Add(tn)
                 Else
                     tn = IsExist(node, tn)
                 End If
-               
+
 
                 dv.RowFilter = "srl_parent=" + tn.Srl.ToString()
                 For j As Integer = 0 To dv.Count - 1
-                    tn1 = New TreeNode(dv.Item(j)("Name").ToString())
-                    tn1.Srl = dv.Item(j)("Srl").ToString()
-                    tn1.Srl_Parent = dv.Item(j)("srl_Parent").ToString()
-                    tn1.IsRootNode = False
-                    tn1.IsLoad = False
+                    tn1 = New TreeNode(dv.Item(j)("Name").ToString()) With {
+                        .Srl = dv.Item(j)("Srl").ToString(),
+                        .Srl_Parent = dv.Item(j)("srl_Parent").ToString(),
+                        .IsRootNode = False,
+                        .IsLoad = False
+                    }
+
                     If IsExist(tn, tn1) Is Nothing Then
                         tn.Nodes.Add(tn1)
                     End If
@@ -79,6 +86,7 @@ Public Class Tree_Vw
         node.IsLoad = True
         node.Expand()
     End Sub
+
     Public Function IsExist(ByVal tn As TreeNode, ByVal Searchtn As TreeNode) As TreeNode
         For Each tn1 As TreeNode In tn.Nodes
             If tn1.Srl = Searchtn.Srl Then
@@ -87,20 +95,22 @@ Public Class Tree_Vw
         Next
         Return Nothing
     End Function
+
     Public Sub Fill(ByVal dt As DataTable)
         If dt.Rows.Count = 0 Then
             Return
         End If
         Dim tn As TreeNode
         TreeView1.Nodes.Clear()
-        Dim dv As New DataView
-        dv.Table = dt
-
-        dv.RowFilter = "Srl_Parent = 0"
-        tn = New TreeNode(dv.Item(0)("Name").ToString)
-        tn.Srl = dv.Item(0)("Srl").ToString
-        tn.Srl_Parent = dv.Item(0)("Srl_Parent").ToString
-        tn.IsRootNode = True
+        Dim dv As New DataView With {
+            .Table = dt,
+            .RowFilter = "Srl_Parent = 0"
+        }
+        tn = New TreeNode(dv.Item(0)("Name").ToString) With {
+            .Srl = dv.Item(0)("Srl").ToString,
+            .Srl_Parent = dv.Item(0)("Srl_Parent").ToString,
+            .IsRootNode = True
+        }
 
         TreeView1.Nodes.Add(tn)
         findAndAdd(tn, dv)

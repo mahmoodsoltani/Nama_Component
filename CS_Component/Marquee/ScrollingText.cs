@@ -236,10 +236,9 @@ namespace CS_Component
 
 		private void OnTextClicked(object sender, EventArgs args)
 		{
-			//Call the delegate
-			if (TextClicked != null)
-				TextClicked(sender, args);
-		}
+            //Call the delegate
+            TextClicked?.Invoke(sender, args);
+        }
 		#endregion
 		
 

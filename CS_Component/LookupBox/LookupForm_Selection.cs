@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace CS_Component
 {
-    public partial class LookupForm_Selection : CS_Component.CustomUIForm 
+    public partial class LookupForm_Selection : CustomUIForm
     {
         public LookupForm_Selection()
         {
@@ -57,21 +57,15 @@ namespace CS_Component
             LookupBox_Selection lkb=(LookupBox_Selection)this.Tag;
             DataTable Dt = ((DataView)((BindingSource)lkb.DataSource).List).Table;
             if (Dt.Columns[comboBox1.Text].DataType.FullName == "System.String")
-            {
                 ((BindingSource)dataGridView1.DataSource).Filter = "["+comboBox1.Text+"] LIKE '"+txt_Search.Text+"%'";
-            }
         }
 
         private void LookupForm_Selection_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 'ی')
-            {
                 e.KeyChar = 'ي';
-            }            
             else if (e.KeyChar == 'ك')
-            {
                 e.KeyChar = 'ک';
-            }
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -113,15 +107,9 @@ namespace CS_Component
             LookupBox_Selection lkb = (LookupBox_Selection)Tag;
             if (lst_Rows != null)
                 foreach (DataRow dr in lst_Rows)
-                {
                     foreach (DataGridViewRow R in dataGridView1.Rows)
-                    {
                         if (R.Cells[lkb.ValueField].Value.ToString() == dr[lkb.ValueField].ToString())
-                        {
                             R.Cells["checking"].Value = true;
-                        }
-                    }
-                }
         }
     }
 }

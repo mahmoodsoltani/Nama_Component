@@ -1,5 +1,4 @@
-﻿Imports System.Windows.Forms
-Imports System.ComponentModel
+﻿Imports System.ComponentModel
 Public Class Tbox
 
     Dim _ValidateValue As Boolean = False
@@ -18,7 +17,7 @@ Public Class Tbox
     End Enum
 
     <Category("Nama"), Description("If true go on to the  next control by enter"), Browsable(True)> _
-   Public Property EnterStop() As Boolean
+    Public Property EnterStop() As Boolean
         Get
             Return _EnterStop
         End Get

@@ -1,12 +1,12 @@
 ﻿Public Class frm_Permission
 
-    Private obj_Assembly As System.Reflection.Assembly
+    Private obj_Assembly As Reflection.Assembly
 
-    Public Property Assembly() As System.Reflection.Assembly
+    Public Property Assembly() As Reflection.Assembly
         Get
             Return obj_Assembly
         End Get
-        Set(ByVal value As System.Reflection.Assembly)
+        Set(ByVal value As Reflection.Assembly)
             obj_Assembly = value
         End Set
     End Property
@@ -23,10 +23,11 @@
     End Sub
 
     Private Sub btn_Continue_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Continue.Click
-        Dim frm As New frm_FormControls
-        frm.Text = "تخصیص بازدارنده " + "[" + ComboBox1.Text + "]"        
-        frm.Tag = ComboBox1.SelectedValue
-        frm.Assembly = obj_Assembly
+        Dim frm As New frm_FormControls With {
+            .Text = "تخصیص بازدارنده " + "[" + ComboBox1.Text + "]",
+            .Tag = ComboBox1.SelectedValue,
+            .Assembly = obj_Assembly
+        }
         frm.ShowDialog()
         Close()
     End Sub

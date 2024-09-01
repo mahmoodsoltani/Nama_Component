@@ -21,8 +21,7 @@ namespace CS_Component
             //}
             //else
 
-            if (CellChange != null)
-                CellChange(this, new KeyEventArgs(key));
+            CellChange?.Invoke(this, new KeyEventArgs(key));
             if (keyData == Keys.Enter)
                 return true;
             else
@@ -59,8 +58,7 @@ namespace CS_Component
             //{
             //    return this.ProcessRightKey(e.KeyData);
             //}
-            if (CellChange != null)
-                CellChange(this, e);
+            CellChange?.Invoke(this, e);
             if (e.KeyData == Keys.Enter)
                 return true;
             else

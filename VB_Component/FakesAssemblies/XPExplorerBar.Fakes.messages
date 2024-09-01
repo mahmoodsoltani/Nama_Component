@@ -1,0 +1,62 @@
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.ExpandoEventHandler: type is sealed.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.ExpandoConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.ExpandoDesigner: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.FocusStates: type is a value type.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.NativeMethods: type is sealed.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.POINT: type is a value type.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.RECT: type is a value type.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.DLLVERSIONINFO: type is a value type.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.ICONFILE: type is a value type.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.ICONENTRY: type is a value type.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.WindowMessageFlags: type is a value type.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.WmPrintFlags: type is a value type.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.LoadLibraryExFlags: type is a value type.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.SetErrorModeFlags: type is a value type.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.DrawTextFlags: type is a value type.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.TaskPaneDesigner: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.TaskPaneInfoConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.TaskItemInfoConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.ExpandoInfoConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.HeaderInfoConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.BorderConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.PaddingConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.MarginConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.ImageStretchMode: type is a value type.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.UxTheme: type has no family visible contructors.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.Parser: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.StringTokenizer: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for XPExplorerBar.TaskItemDesigner: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate stub for <PrivateImplementationDetails>{65AE8293-82FE-472F-92B4-D97458804616}: type is not supported because of internal limitations.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.ExpandoEventHandler: type is a delegate.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.Expando+AnimationPanel: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.Expando+ItemCollectionEditor: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.ExpandoConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.ExpandoDesigner: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.FocusStates: type is an enum.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.ICONFILE: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.ICONENTRY: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.WindowMessageFlags: type is an enum.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.WmPrintFlags: type is an enum.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.LoadLibraryExFlags: type is an enum.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.SetErrorModeFlags: type is an enum.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.DrawTextFlags: type is an enum.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.TaskPane+ExpandoCollectionEditor: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.TaskPaneDesigner: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.TaskPaneInfoConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.TaskItemInfoConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.ExpandoInfoConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.HeaderInfoConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.BorderConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.PaddingConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.MarginConverter: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.ImageStretchMode: type is an enum.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.UxTheme+PartStates+EditText: type is an enum.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.UxTheme+PartStates+ListItem: type is an enum.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.UxTheme+PartStates+TreeItem: type is an enum.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.UxTheme+Parts+Edit: type is an enum.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.UxTheme+Parts+ListView: type is an enum.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.UxTheme+Parts+TreeView: type is an enum.
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.Parser: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.StringTokenizer: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for XPExplorerBar.TaskItemDesigner: type is not visible to exported or assembly(XPExplorerBar.Fakes).
+D:\My Project\Nama_ComponentGit\VB_Component\Fakes\XPExplorerBar.fakes : warning : Cannot generate shim for <PrivateImplementationDetails>{65AE8293-82FE-472F-92B4-D97458804616}: type is not supported because of internal limitations.

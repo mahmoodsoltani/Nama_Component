@@ -16,8 +16,8 @@ namespace CS_Component
     {
         #region Member Fields
 
-        private System.ComponentModel.IBindingList _DataSource;
-        public CS_Component.DataGridView grd_Information;
+        private IBindingList _DataSource;
+        public DataGridView grd_Information;
         private DataAccess obj_DataAccess;// = new DataAccess("Data Source=.;Initial Catalog=Nama_MIS;Integrated Security=False;User ID=sa;Password=123456", false);
         private LookupDataMode _Mode;
         private string str_DataFields;
@@ -30,7 +30,7 @@ namespace CS_Component
         private string str_CodeField;
         private string str_TableName;
         private string str_Filter = "";
-        public CS_Component.DataGridView grd_Popup;
+        public DataGridView grd_Popup;
         private DataRow _SelectedDataRow;
         public System.Windows.Forms.LinkLabel lnk_New;
         public Form frm_LookupText;
@@ -129,12 +129,12 @@ namespace CS_Component
             get { return _DataSource; }
             set
             {
-                _DataSource = (System.ComponentModel.IBindingList)value;
+                _DataSource = (IBindingList)value;
                 if (_DataSource != null)
                 {
                     if (grd_Information == null)
                     {
-                        grd_Information = new CS_Component.DataGridView();
+                        grd_Information = new DataGridView();
                         grd_Information.DataSource = _DataSource;
                         grd_Information.DataMember = ((BindingSource)_DataSource).DataMember;
                     }
@@ -143,7 +143,7 @@ namespace CS_Component
         }
 
         [Category("Data")]
-        public CS_Component.DataGridView InfoDataGridView
+        public DataGridView InfoDataGridView
         {
             get { return grd_Information; }
             set { grd_Information = value; }
@@ -263,8 +263,7 @@ namespace CS_Component
                     txt_Code.Text = _SelectedDataRow[str_CodeField].ToString();
                     txt_Code.TextChanged += new EventHandler(txt_Code_TextChanged);
                 }
-                if (Selected != null)
-                    Selected(this, _SelectedDataRow);
+                Selected?.Invoke(this, _SelectedDataRow);
             }
         }
 
@@ -354,7 +353,7 @@ namespace CS_Component
             }
             InitializeLookup();
             if (grd_Popup == null)
-                grd_Popup = new CS_Component.DataGridView();
+                grd_Popup = new DataGridView();
             frm_LookupText.Controls.Add(grd_Popup);
             frm_LookupText.Show();
             grd_Popup.Top = 25;
@@ -379,7 +378,7 @@ namespace CS_Component
         {
             InitializeLookup();
             if (grd_Popup == null)
-                grd_Popup = new CS_Component.DataGridView();
+                grd_Popup = new DataGridView();
             frm_LookupText.Controls.Add(grd_Popup);
             VB_Component.BaseForm fm_b = new VB_Component.BaseForm();
             Control AcCon = new Control();

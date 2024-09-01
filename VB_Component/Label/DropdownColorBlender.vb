@@ -236,9 +236,10 @@ Public Class DropdownColorBlender
     Public Function LinearBrush(ByVal BaseRect As Rectangle, ByVal Mode As LinearGradientMode) As LinearGradientBrush
         Dim br As LinearGradientBrush = New LinearGradientBrush(New Rectangle(BaseRect.X - 1, BaseRect.Y - 1, _
             BaseRect.Width + 2, BaseRect.Height + 2), Color.AliceBlue, Color.Blue, Mode)
-        Dim blend As ColorBlend = New ColorBlend()
-        blend.Colors = BlendColors
-        blend.Positions = BlendPositions
+        Dim blend As ColorBlend = New ColorBlend() With {
+            .Colors = BlendColors,
+            .Positions = BlendPositions
+        }
         br.interpolationColors = blend
         Return br
     End Function

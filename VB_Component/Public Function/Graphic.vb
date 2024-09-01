@@ -1,8 +1,5 @@
-﻿Imports System.Drawing
-Imports System.Drawing.Drawing2D
-Imports System.Windows.Forms
+﻿Imports System.Drawing.Drawing2D
 Imports System.IO
-Imports System.Data.SqlClient
 
 Public Class Graphic
 
@@ -20,16 +17,17 @@ Public Class Graphic
 #Region "GrayScaleImage"
     '  Me.GrayScaleImage(Me.pictureBox2.CreateGraphics, Me.pictureBox1.Image, 0, 0)
     Public Shared Function GrayScaleImage(ByVal graph As Graphics, ByVal img As Image, ByVal left As Integer, ByVal top As Integer) As Image
-        Dim colorMix As New Imaging.ColorMatrix
-        colorMix.Matrix00 = 0.3333333!
-        colorMix.Matrix01 = 0.3333333!
-        colorMix.Matrix02 = 0.3333333!
-        colorMix.Matrix10 = 0.3333333!
-        colorMix.Matrix11 = 0.3333333!
-        colorMix.Matrix12 = 0.3333333!
-        colorMix.Matrix20 = 0.3333333!
-        colorMix.Matrix21 = 0.3333333!
-        colorMix.Matrix22 = 0.3333333!
+        Dim colorMix As New Imaging.ColorMatrix With {
+            .Matrix00 = 0.3333333!,
+            .Matrix01 = 0.3333333!,
+            .Matrix02 = 0.3333333!,
+            .Matrix10 = 0.3333333!,
+            .Matrix11 = 0.3333333!,
+            .Matrix12 = 0.3333333!,
+            .Matrix20 = 0.3333333!,
+            .Matrix21 = 0.3333333!,
+            .Matrix22 = 0.3333333!
+        }
         Dim imgAttrib As New Imaging.ImageAttributes
         imgAttrib.SetColorMatrix(colorMix)
         graph.DrawImage(img, New Rectangle(left, top, img.Width, img.Height), 0, 0, img.Width, img.Height, GraphicsUnit.Pixel, imgAttrib)
@@ -37,16 +35,17 @@ Public Class Graphic
     End Function
 
     Public Shared Function GrayScaleImage(ByVal graph As Graphics, ByVal img As Image) As Image
-        Dim colorMix As New Imaging.ColorMatrix
-        colorMix.Matrix00 = 0.3333333!
-        colorMix.Matrix01 = 0.3333333!
-        colorMix.Matrix02 = 0.3333333!
-        colorMix.Matrix10 = 0.3333333!
-        colorMix.Matrix11 = 0.3333333!
-        colorMix.Matrix12 = 0.3333333!
-        colorMix.Matrix20 = 0.3333333!
-        colorMix.Matrix21 = 0.3333333!
-        colorMix.Matrix22 = 0.3333333!
+        Dim colorMix As New Imaging.ColorMatrix With {
+            .Matrix00 = 0.3333333!,
+            .Matrix01 = 0.3333333!,
+            .Matrix02 = 0.3333333!,
+            .Matrix10 = 0.3333333!,
+            .Matrix11 = 0.3333333!,
+            .Matrix12 = 0.3333333!,
+            .Matrix20 = 0.3333333!,
+            .Matrix21 = 0.3333333!,
+            .Matrix22 = 0.3333333!
+        }
         Dim imgAttrib As New Imaging.ImageAttributes
         imgAttrib.SetColorMatrix(colorMix)
         graph.DrawImage(img, New Rectangle(0, 0, img.Width, img.Height), 0, 0, img.Width, img.Height, GraphicsUnit.Pixel, imgAttrib)

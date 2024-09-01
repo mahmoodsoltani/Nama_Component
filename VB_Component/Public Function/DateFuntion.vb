@@ -61,7 +61,7 @@
         Return Tarikh.Remove(0, 8)
     End Function
 
-    Public Shared Function GetDAte(ByVal Tarikh As String) As DateTime
+    Public Shared Function GetDAte(ByVal Tarikh As String) As Date
         Try
             Dim y As Integer
             Dim m As Integer

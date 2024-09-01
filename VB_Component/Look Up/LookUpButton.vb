@@ -1,5 +1,4 @@
-﻿Imports System.Windows.Forms
-Imports System.ComponentModel
+﻿Imports System.ComponentModel
 Imports System.Reflection
 
 <DefaultEvent("Finalize_Result")> _
@@ -147,9 +146,11 @@ Public Class LookUpButton
     End Sub
 
     Public Sub ShowLookUPForm(ByVal SearchIndex As Integer, ByVal SearchStr As String)
-        LK = New LookUpForm(SearchIndex, SearchStr)
-        LK.HidenField = HidenField
-        LK.ShowField = ShowField
+        LK = New LookUpForm(SearchIndex, SearchStr) With {
+            .HidenField = HidenField,
+            .ShowField = ShowField
+        }
+
         If LastResult Is Nothing Then
             LK.LoadLookUp(dt, FormCaption, _ShowSrl, SearchIndex, SearchStr)
         Else
@@ -222,9 +223,10 @@ Public Class LookUpButton
     End Sub
 
     Public Sub LoadBySerial(ByVal serial As Integer)
-        LK = New LookUpForm
-        LK.HidenField = HidenField
-        LK.ShowField = ShowField
+        LK = New LookUpForm With {
+            .HidenField = HidenField,
+            .ShowField = ShowField
+        }
         LK.LoadLookUp(dt, FormCaption, _ShowSrl, ResultFieldIndex)
         LK.LoadBySerial(Me, serial, CodeFieldIndex)
     End Sub
@@ -262,9 +264,10 @@ Public Class LookUpButton
     Private Sub btn_LoadLookUp_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_LoadLookUp.Click
         RemoveHandler tbox_Result.TextChanged, New EventHandler(AddressOf tbox_Result_TextChanged)
         RemoveHandler tbox_Code.TextChanged, New EventHandler(AddressOf tbox_Code_TextChanged)
-        LK = New LookUpForm
-        LK.HidenField = HidenField
-        LK.ShowField = ShowField
+        LK = New LookUpForm With {
+            .HidenField = HidenField,
+            .ShowField = ShowField
+        }
 
         If tbox_Code.Focused Then
             If LastResult Is Nothing Then
@@ -279,7 +282,7 @@ Public Class LookUpButton
                 LK.LoadLookUp(dt, FormCaption, _ShowSrl, ResultFieldIndex, tbox_Result.Text.Trim, LastResult)
             End If
         End If
-       
+
         'Dim P As Point = Me.PointToScreen(btn_LoadLookUp.Location)
         LK.ShowDialog()
         'LK.SetDesktopLocation(P.X, P.Y + btn_LoadLookUp.Height)
@@ -312,9 +315,10 @@ Public Class LookUpButton
 
             RemoveHandler tbox_Result.TextChanged, New EventHandler(AddressOf tbox_Result_TextChanged)
             RemoveHandler tbox_Code.TextChanged, New EventHandler(AddressOf tbox_Code_TextChanged)
-            LK = New LookUpForm
-            LK.HidenField = HidenField
-            LK.ShowField = ShowField
+            LK = New LookUpForm With {
+                .HidenField = HidenField,
+                .ShowField = ShowField
+            }
 
             If LastResult Is Nothing Then
                 LK.LoadLookUp(dt, FormCaption, _ShowSrl, ResultFieldIndex, tbox_Result.Text.Trim)

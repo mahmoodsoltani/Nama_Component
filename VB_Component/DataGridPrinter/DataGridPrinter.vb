@@ -1,8 +1,5 @@
 ﻿Imports System.Drawing.Printing
-Imports System.Drawing
 Imports System.Security.Principal
-Imports System.Reflection
-Imports System.Windows.Forms
 
 #Region "DataGridPrinter"
 '\\ --[DataGridPrinter]----------------------------------------------
@@ -336,8 +333,9 @@ Public Class DataGridPrinter
         _CurrentPageAcross = 1
 
         If _Textlayout Is Nothing Then
-            _Textlayout = New System.Drawing.StringFormat
-            _Textlayout.Trimming = StringTrimming.EllipsisCharacter
+            _Textlayout = New System.Drawing.StringFormat With {
+                .Trimming = StringTrimming.EllipsisCharacter
+            }
         End If
 
     End Sub
@@ -459,7 +457,7 @@ Public Class DataGridPrinter
             e.Graphics.FillRectangle(_FooterBrush, _FooterRectangle)
             e.Graphics.DrawRectangle(_FooterPen, _FooterRectangle)
             Call DrawCellString("Printed by " & _LoggedInUsername, CellTextHorizontalAlignment.LeftAlign, CellTextVerticalAlignment.MiddleAlign, _FooterRectangle, False, e.Graphics, _PrintFont, Brushes.White)
-            Call DrawCellString(DateTime.Now.ToLongDateString, CellTextHorizontalAlignment.CentreAlign, CellTextVerticalAlignment.MiddleAlign, _FooterRectangle, False, e.Graphics, _PrintFont, Brushes.White)
+            Call DrawCellString(Date.Now.ToLongDateString, CellTextHorizontalAlignment.CentreAlign, CellTextVerticalAlignment.MiddleAlign, _FooterRectangle, False, e.Graphics, _PrintFont, Brushes.White)
             Call DrawCellString("Page " & (((_CurrentPageDown - 1) * PagesAcross) + _CurrentPageAcross).ToString, CellTextHorizontalAlignment.RightAlign, CellTextVerticalAlignment.MiddleAlign, _FooterRectangle, False, e.Graphics, _PrintFont, Brushes.White)
         End If
 

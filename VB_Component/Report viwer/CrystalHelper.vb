@@ -1,14 +1,10 @@
-﻿Imports CrystalDecisions.CrystalReports.Engine
-Imports CrystalDecisions
-Imports System.Diagnostics.CodeAnalysis
+﻿Imports System.Diagnostics.CodeAnalysis
 Imports System.Globalization
-Imports System.Windows.Forms
-Imports System.Drawing
 
 Public Class CrystalHelper
 
     <SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")> _
- Public Shared Sub ReplaceReportName(ByVal viewer As CrystalDecisions.Windows.Forms.CrystalReportViewer, ByVal newName As String)
+    Public Shared Sub ReplaceReportName(ByVal viewer As CrystalDecisions.Windows.Forms.CrystalReportViewer, ByVal newName As String)
         If (viewer Is Nothing) Then
             Throw New ArgumentNullException("viewer")
         End If

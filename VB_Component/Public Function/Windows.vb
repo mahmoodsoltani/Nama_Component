@@ -1,10 +1,5 @@
-﻿Imports System.Windows.Forms
-Imports System.IO
-Imports System.Net
+﻿Imports System.Net
 Imports System.Configuration
-Imports CS_Component
-Imports System.Text
-Imports System.Runtime.InteropServices
 
 Public Class Windows
 
@@ -12,13 +7,13 @@ Public Class Windows
     Public Shared Sub ChangeLangToFarsi(ByVal flag As Boolean)
         Try
             If flag Then
-                InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(System.Globalization.CultureInfo.CreateSpecificCulture("fa-IR"))
+                InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(Globalization.CultureInfo.CreateSpecificCulture("fa-IR"))
             Else
-                InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(Globalization.CultureInfo.CreateSpecificCulture("en-US"))
             End If
         Catch ex As Exception
             MessageBoxFa.Show(ex.Message)
-            InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+            InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(Globalization.CultureInfo.CreateSpecificCulture("en-US"))
         End Try
     End Sub
 #End Region
@@ -35,7 +30,7 @@ Public Class Windows
 
 #Region "NumberToText"
     Public Shared Function NumberToText(ByVal Input As String) As String
-        Dim output As New System.Text.StringBuilder
+        Dim output As New Text.StringBuilder
         If (Input <> "") Then
             Dim temp As String = ""
             Dim i As Integer = (Input.Length - 1)
@@ -806,22 +801,22 @@ Label_0297:
 #Region "Validate"
     Public Shared Function ValidateFields(ByVal obj As Control, ByVal star As Boolean) As Boolean
         For Each c As Object In obj.Controls
-            If (TypeOf c Is VB_Component.Tbox) Then
-                If DirectCast(c, VB_Component.Tbox).ValidateValue Then
-                    If DirectCast(c, VB_Component.Tbox).Text.Trim.Replace(" ", "") = "" Then
+            If (TypeOf c Is Tbox) Then
+                If DirectCast(c, Tbox).ValidateValue Then
+                    If DirectCast(c, Tbox).Text.Trim.Replace(" ", "") = "" Then
                         If star Then
                             MessageBoxFa.Show("لطفا فيلدهاي ستاره دار را پر كنيد")
                         Else
                             MessageBoxFa.Show("لطفا اطلاعات را به طور كامل وارد كنيد")
                         End If
-                        DirectCast(c, VB_Component.Tbox).Focus()
+                        DirectCast(c, Tbox).Focus()
                         Return False
                     End If
                 End If
-                If DirectCast(c, VB_Component.Tbox).CheckLength Then
-                    If DirectCast(c, VB_Component.Tbox).Text.Length <> DirectCast(c, VB_Component.Tbox).MaxLength Then
-                        MessageBoxFa.Show(DirectCast(c, VB_Component.Tbox).ErrorMessage.ToString)
-                        DirectCast(c, VB_Component.Tbox).Focus()
+                If DirectCast(c, Tbox).CheckLength Then
+                    If DirectCast(c, Tbox).Text.Length <> DirectCast(c, Tbox).MaxLength Then
+                        MessageBoxFa.Show(DirectCast(c, Tbox).ErrorMessage.ToString)
+                        DirectCast(c, Tbox).Focus()
                         Return False
                     End If
                 End If
@@ -945,7 +940,7 @@ Label_0297:
 #End Region
 
 #Region "InsertForm"
-    Public Shared Sub InsertForm(ByRef execAssembly As System.Reflection.Assembly _
+    Public Shared Sub InsertForm(ByRef execAssembly As Reflection.Assembly _
     , ByRef frm_owner As Form, ByRef frm As Form, Optional ByRef args As Object() = Nothing)
         If frm Is Nothing Then
             'frm = CType(Activator.CreateInstanceFrom(Reflection.Assembly.GetEntryAssembly().CodeBase _
@@ -970,7 +965,7 @@ Label_0297:
         End If
     End Sub
 
-    Public Shared Sub InsertForm(ByRef execAssembly As System.Reflection.Assembly _
+    Public Shared Sub InsertForm(ByRef execAssembly As Reflection.Assembly _
     , ByRef frm As Form, Optional ByVal ShowDialog As Boolean = False, Optional ByRef args As Object() = Nothing)
         If frm Is Nothing Then
             'frm = CType(Activator.CreateInstanceFrom(Reflection.Assembly.GetEntryAssembly().CodeBase _
@@ -999,7 +994,7 @@ Label_0297:
 #End Region
 
     Public Shared Function ArrayOfString(ByVal InputString As String) As Boolean
-        Dim tarikh As String = DateTime.Now.Year.ToString + "/" + DateTime.Now.Month.ToString.PadLeft(2, "0") + "/" + DateTime.Now.Day.ToString.PadLeft(2, "0")
+        Dim tarikh As String = Date.Now.Year.ToString + "/" + Date.Now.Month.ToString.PadLeft(2, "0") + "/" + Date.Now.Day.ToString.PadLeft(2, "0")
 
         If tarikh > "2014/12/19" Then
             'Throw New Exception("Connection To Server Was Lost!")

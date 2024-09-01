@@ -79,8 +79,9 @@ Public Class BaseForm
     Public Sub New()
         InitializeComponent()
         Try
-            DataObject = New BaseDataObject()
-            DataObject.TableName = str_TableName
+            DataObject = New BaseDataObject() With {
+                .TableName = str_TableName
+            }
             'Me.DataObject.DataAccess = ApplicationPublicObjects.DataAccess
         Catch ex As Exception
         End Try

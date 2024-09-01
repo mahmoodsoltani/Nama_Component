@@ -2,7 +2,7 @@
 
 Public Class FarsiDateFun
 
-    Private dt As DateTime
+    Private dt As Date
     Private pc As Globalization.PersianCalendar
 
     Public Sub New()
@@ -10,7 +10,7 @@ Public Class FarsiDateFun
         dt = pc.MinSupportedDateTime
     End Sub
 
-    Public Sub New(ByVal time As DateTime)
+    Public Sub New(ByVal time As Date)
         pc = New PersianCalendar
         dt = time
     End Sub
@@ -85,17 +85,17 @@ Public Class FarsiDateFun
     End Function
 
     Public Shared Function E2F(ByVal Dac As CS_Component.DataAccess) As String
-        Dim datetime As DateTime = Dac.ExecScalar("SELECT  GETDATE()")
+        Dim datetime As Date = Dac.ExecScalar("SELECT  GETDATE()")
         Dim pc As New PersianCalendar
         Return String.Concat(New String() {pc.GetYear(DateTime).ToString.PadLeft(4, "0"c), "/", pc.GetMonth(DateTime).ToString.PadLeft(2, "0"c), "/", pc.GetDayOfMonth(DateTime).ToString.PadLeft(2, "0"c)})
     End Function
 
-    Public Shared Function E2F(ByVal datetime As DateTime) As String
+    Public Shared Function E2F(ByVal datetime As Date) As String
         Dim pc As New PersianCalendar
         Return String.Concat(New String() {pc.GetYear(datetime).ToString.PadLeft(4, "0"c), "/", pc.GetMonth(datetime).ToString.PadLeft(2, "0"c), "/", pc.GetDayOfMonth(datetime).ToString.PadLeft(2, "0"c)})
     End Function
 
-    Public Shared Function F2E(ByVal pd As FarsiDateFun) As DateTime
+    Public Shared Function F2E(ByVal pd As FarsiDateFun) As Date
         Dim pc As New PersianCalendar
         Return pc.ToDateTime(pd.Year, pd.Month, pd.Day, pd.Hour, pd.Minute, pd.Second, CInt(pd.Milliseconds), PersianCalendar.PersianEra)
     End Function
@@ -162,7 +162,7 @@ Public Class FarsiDateFun
 
     Public Shared ReadOnly Property Now() As String
         Get
-            Return (FarsiDateFun.E2F(DateTime.UtcNow))
+            Return (FarsiDateFun.E2F(Date.UtcNow))
         End Get
     End Property
 

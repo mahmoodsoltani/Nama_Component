@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace CS_Component
 {
-    public partial class LookupForm_Selection_TreeView : CS_Component.CustomUIForm 
+    public partial class LookupForm_Selection_TreeView : CustomUIForm
     {
         public LookupForm_Selection_TreeView()
         {

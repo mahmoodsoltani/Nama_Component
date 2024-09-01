@@ -5,14 +5,14 @@ using System.Windows.Forms;
 
 namespace CS_Component
 {
-    public partial class LookupForm : CS_Component.CustomUIForm
+    public partial class LookupForm : CustomUIForm
     {
         public LookupForm()
         {
             InitializeComponent();
         }
 
-        public CS_Component.DataGridView DataGridView
+        public DataGridView DataGridView
         {
             get { return dataGridView1; }
             set { dataGridView1 = value; }
@@ -26,9 +26,7 @@ namespace CS_Component
             dataGridView1.Columns[lkb.ValueField].Visible = false;
             dataGridView1.Columns[lkb.DisplayField].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             if (!string.IsNullOrEmpty(lkb.HiddenFields))
-            {
                 foreach (string s in lkb.HiddenFields.Split(','))
-                {
                     if (s != "")
                     {
                         int idx = -1;
@@ -39,23 +37,22 @@ namespace CS_Component
                             dataGridView1.Columns[idx].Visible = false;
                         }
                     }
-                }
-            }
+
             comboBox1.Items.Clear();
-            int int_Index=-1;
+            int int_Index = -1;
             List<DataGridViewColumn> lst = new List<DataGridViewColumn>();
             foreach (DataGridViewColumn dc in dataGridView1.Columns)
                 if (dc.Visible)
                     lst.Add(dc);
             foreach (DataGridViewColumn dc in lst)
-            {                
+            {
                 if (dc.Visible)
                 {
                     comboBox1.Items.Add(dc.HeaderText);
                     if (dc.DataPropertyName == lkb.DefaultSearchField)
                         int_Index = lst.IndexOf(dc);
                 }
-            }            
+            }
             comboBox1.SelectedIndex = int_Index;
             textBox1.Focus();
         }
@@ -68,12 +65,12 @@ namespace CS_Component
             string str_Filter = "";
             //((BindingSource)dataGridView1.DataSource).Filter = lkb.Filter;
             if (!string.IsNullOrEmpty(lkb.Filter))
-                str_Filter += lkb.Filter+" AND ";            
-            if(ToDataTable(dataGridView1.DataSource).Columns[comboBox1.Text].DataType.Name=="String")
-                str_Filter+= "["+comboBox1.Text + "] LIKE '%"+textBox1.Text+"%'";
+                str_Filter += lkb.Filter + " AND ";
+            if (ToDataTable(dataGridView1.DataSource).Columns[comboBox1.Text].DataType.Name == "String")
+                str_Filter += "[" + comboBox1.Text + "] LIKE '%" + textBox1.Text + "%'";
             else
                 str_Filter += "[" + comboBox1.Text + "] = " + textBox1.Text;
-             ((BindingSource)dataGridView1.DataSource).Filter = str_Filter;
+            ((BindingSource)dataGridView1.DataSource).Filter = str_Filter;
         }
 
         private DataTable ToDataTable(object DataSource)
@@ -88,7 +85,7 @@ namespace CS_Component
 
         private void LookupForm_KeyDown(object sender, KeyEventArgs e)
         {
-            switch(e.KeyCode)
+            switch (e.KeyCode)
             {
                 case Keys.Enter:
                     if (dataGridView1.CurrentRow == null)

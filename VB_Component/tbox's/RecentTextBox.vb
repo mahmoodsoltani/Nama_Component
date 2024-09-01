@@ -1,8 +1,5 @@
-﻿Imports System.Windows.Forms
-Imports System.Drawing
-Imports System.IO
+﻿Imports System.IO
 Imports System.Xml
-Imports System.Collections
 Imports System.ComponentModel
 
 Public Class RecentTextBox
@@ -12,7 +9,7 @@ Public Class RecentTextBox
     Public Event Tbox_Enter As EventHandler
     Private _EnterStop As Boolean = True
     <Category("Nama"), Description("If true go on to the  next control by enter"), Browsable(True)> _
-   Public Property EnterStop() As Boolean
+    Public Property EnterStop() As Boolean
         Get
             Return _EnterStop
         End Get
@@ -37,8 +34,9 @@ Public Class RecentTextBox
 
         If Not File.Exists(Environment.CurrentDirectory & "\\" & Name & ".Xml") Then
 
-            Dim XmlDoc As XmlTextWriter = New XmlTextWriter(Environment.CurrentDirectory & "\\" & Name & ".Xml", System.Text.Encoding.UTF8)
-            XmlDoc.Formatting = Formatting.Indented
+            Dim XmlDoc As XmlTextWriter = New XmlTextWriter(Environment.CurrentDirectory & "\\" & Name & ".Xml", System.Text.Encoding.UTF8) With {
+                .Formatting = Formatting.Indented
+            }
 
             XmlDoc.WriteStartDocument()
             XmlDoc.WriteStartElement("RecentText")
@@ -128,8 +126,9 @@ Public Class RecentTextBox
     End Sub
 
     Private Sub save()
-        Dim XmlDoc As XmlTextWriter = New XmlTextWriter(Environment.CurrentDirectory & "\\" & Name & ".Xml", System.Text.Encoding.UTF8)
-        XmlDoc.Formatting = Formatting.Indented
+        Dim XmlDoc As XmlTextWriter = New XmlTextWriter(Environment.CurrentDirectory & "\\" & Name & ".Xml", System.Text.Encoding.UTF8) With {
+            .Formatting = Formatting.Indented
+        }
         XmlDoc.WriteStartDocument()
         XmlDoc.WriteStartElement("RecentText")
 

@@ -1,8 +1,4 @@
-﻿Imports System.Data.SqlClient
-Imports System.Windows.Forms
-Imports System.Drawing
-
-Public Class LookUpForm
+﻿Public Class LookUpForm
 
 #Region "variables"
     Dim _Lang As Language = Language.Farsi
@@ -262,9 +258,9 @@ Public Class LookUpForm
 
     Private Sub InitializeLookUp()
         If _Lang = Language.Farsi Then
-            System.Windows.Forms.InputLanguage.CurrentInputLanguage = System.Windows.Forms.InputLanguage.FromCulture(System.Globalization.CultureInfo.CreateSpecificCulture("fa-IR"))
+            InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(Globalization.CultureInfo.CreateSpecificCulture("fa-IR"))
         Else
-            System.Windows.Forms.InputLanguage.CurrentInputLanguage = System.Windows.Forms.InputLanguage.FromCulture(System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+            InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(Globalization.CultureInfo.CreateSpecificCulture("en-US"))
         End If
     End Sub
 
@@ -276,8 +272,10 @@ Public Class LookUpForm
 
         InitializeLookUp()
 
-        Dim dv As New DataView(dt)
-        dv.RowFilter = ""
+        Dim dv As New DataView(dt) With {
+            .RowFilter = ""
+        }
+
         If dt.Columns(int_SearchColumnIndex).DataType.ToString().Equals("System.String") Then
             dv.RowFilter = "[" + dv.Table.Columns(int_SearchColumnIndex).ColumnName + "] like '" + InitSearch + "'"
         Else
@@ -308,8 +306,9 @@ Public Class LookUpForm
 
         InitializeLookUp()
 
-        Dim dv As New DataView(dt)
-        dv.RowFilter = ""
+        Dim dv As New DataView(dt) With {
+            .RowFilter = ""
+        }
 
         Try
             dv.RowFilter = "[" + dv.Table.Columns(0).ColumnName + "]=" + Serial.ToString
@@ -345,8 +344,10 @@ Public Class LookUpForm
 
         InitializeLookUp()
 
-        Dim dv As New DataView(dt)
-        dv.RowFilter = ""
+        Dim dv As New DataView(dt) With {
+            .RowFilter = ""
+        }
+
         If dt.Columns(Index_Search).DataType.ToString().Equals("System.String") Then
             dv.RowFilter = "[" + dv.Table.Columns(Index_Search).ColumnName + "] like '" + Init_Search + "'"
         Else
@@ -386,8 +387,10 @@ Public Class LookUpForm
 
         InitializeLookUp()
 
-        Dim dv As New DataView(dt)
-        dv.RowFilter = ""
+        Dim dv As New DataView(dt) With {
+            .RowFilter = ""
+        }
+
         If dt.Columns(int_SearchColumnIndex).DataType.ToString().Equals("System.String") Then
             dv.RowFilter = "[" + dv.Table.Columns(int_SearchColumnIndex).ColumnName + "] like '" + LK.tbox_Code.Text + "'"
         Else
@@ -421,11 +424,11 @@ Public Class LookUpForm
 
     Private Sub LookUpForm_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles MyBase.KeyDown
         Select Case e.KeyCode
-            Case System.Windows.Forms.Keys.Enter
+            Case Keys.Enter
                 selected()
-            Case System.Windows.Forms.Keys.Escape
+            Case Keys.Escape
                 Close()
-            Case System.Windows.Forms.Keys.PageDown
+            Case Keys.PageDown
                 If DataGridView1.Rows.Count > 0 Then
                     DataGridView1.FirstDisplayedScrollingRowIndex = DataGridView1.Rows.Count - 1
                     DataGridView1.Rows(DataGridView1.Rows.Count - 1).Selected = True
@@ -438,7 +441,7 @@ Public Class LookUpForm
                     Next
 
                 End If
-            Case System.Windows.Forms.Keys.PageUp
+            Case Keys.PageUp
                 If DataGridView1.RowCount > 0 Then
                     DataGridView1.FirstDisplayedScrollingRowIndex = 0
                     DataGridView1.Rows(0).Selected = True
@@ -451,7 +454,7 @@ Public Class LookUpForm
                     Next
 
                 End If
-            Case System.Windows.Forms.Keys.Down
+            Case Keys.Down
                 If DataGridView1.RowCount = 0 OrElse DataGridView1.RowCount - 1 = DataGridView1.CurrentRow.Index Then
                     Return
                 Else
@@ -465,7 +468,7 @@ Public Class LookUpForm
                     Next
 
                 End If
-            Case System.Windows.Forms.Keys.Up
+            Case Keys.Up
                 If DataGridView1.Rows.Count = 0 OrElse DataGridView1.CurrentRow.Index = 0 Then
                     Return
                 Else
@@ -478,7 +481,7 @@ Public Class LookUpForm
                         End If
                     Next
                 End If
-            Case System.Windows.Forms.Keys.ControlKey
+            Case Keys.ControlKey
 
                 int_SearchColumnIndex = FindNextVisibleField()
 
@@ -558,8 +561,9 @@ Public Class LookUpForm
     Public Sub LoadBySerial(ByRef LK As LookUpButton, ByVal serial As Integer, ByVal CodeFieldIndex As Integer)
         InitializeLookUp()
 
-        Dim dv As New DataView(dt)
-        dv.RowFilter = ""
+        Dim dv As New DataView(dt) With {
+            .RowFilter = ""
+        }
         dv.RowFilter = "[" + dv.Table.Columns(0).ColumnName + "]=" + serial.ToString
         LK.tbox_Code.Text = dv(0).Item(CodeFieldIndex).ToString
 

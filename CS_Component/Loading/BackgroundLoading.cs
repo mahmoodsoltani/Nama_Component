@@ -34,8 +34,7 @@ namespace CS_Component
 
         void Bw_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (thisFunction != null)
-                thisFunction();
+            thisFunction?.Invoke();
         }
     }
 }

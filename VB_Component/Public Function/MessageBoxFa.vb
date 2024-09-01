@@ -1,6 +1,4 @@
-﻿Imports System
-Imports System.Windows.Forms
-Imports System.Runtime.InteropServices
+﻿Imports System.Runtime.InteropServices
 Imports System.Text
 
 Public Class MessageBoxFa
@@ -89,7 +87,7 @@ Public Class MessageBoxFa
         , ByVal buttons As MessageBoxButtons _
         , ByVal icon As MessageBoxIcon _
         , ByVal DefaultButton As MessageBoxDefaultButton _
-        , ByVal options As MessageBoxOptions ) As DialogResult
+        , ByVal options As MessageBoxOptions) As DialogResult
 
         Dim m As MsgBoxStyle = MsgBoxStyle.ApplicationModal
 
@@ -265,7 +263,7 @@ Public Class MessageBoxFa
     End Function
 
     Shared Function Show(ByVal Prompt As String _
-     , ByVal Title As String  ) As DialogResult
+     , ByVal Title As String) As DialogResult
 
         Dim buttons As MessageBoxButtons = MessageBoxButtons.OK
         Dim icon As MessageBoxIcon = MessageBoxIcon.None
@@ -309,7 +307,7 @@ Public Class MessageBoxFa
         Return MsgBox(Prompt, buttons + icon + DefaultButton + MsgBoxStyle.MsgBoxRight + options + m, Title)
     End Function
 
-    Shared Function Show(ByVal Prompt As String ) As DialogResult
+    Shared Function Show(ByVal Prompt As String) As DialogResult
 
         Dim Title As String = ""
         Dim buttons As MessageBoxButtons = MessageBoxButtons.OK

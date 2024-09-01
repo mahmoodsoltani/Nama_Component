@@ -144,8 +144,7 @@ namespace CS_Component
 
         private void txt_SearchKey_TextChanged(object sender, EventArgs e)
         {
-            if (this.SearchTextChanged != null)
-                this.SearchTextChanged(sender, e);
+            this.SearchTextChanged?.Invoke(sender, e);
         }
 
         public string SearchField

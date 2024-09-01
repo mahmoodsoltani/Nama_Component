@@ -13,9 +13,9 @@ namespace CS_Component
     {
         #region Member Fields
 
-        private System.ComponentModel.IBindingList _DataSource;
+        private IBindingList _DataSource;
 
-        public CS_Component.DataGridView grd_Information;
+        public DataGridView grd_Information;
 
         //private DataAccess obj_DataAccess;// = new DataAccess("Data Source=.;Initial Catalog=Nama_MIS;Integrated Security=False;User ID=sa;Password=123456", false);
 
@@ -39,7 +39,7 @@ namespace CS_Component
 
         //private string str_Filter = "";
 
-        public CS_Component.DataGridView grd_Popup;
+        public DataGridView grd_Popup;
 
         //private DataRow _SelectedDataRow;
 
@@ -136,7 +136,7 @@ namespace CS_Component
             get { return _DataSource; }
             set
             {
-                _DataSource = (System.ComponentModel.IBindingList)value;
+                _DataSource = (IBindingList)value;
             }
         }
 
